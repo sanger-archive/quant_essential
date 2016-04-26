@@ -1,0 +1,24 @@
+== QuantEssential
+
+Simple app for tracking and conducting quant. Most details are held externally. This application does not contain any business-logic with respect to the quant process itself, as the process can be highly volatile.
+
+= Getting Started
+
+This application uses Ruby-2.3.4, if using a ruby-version manager, such as rvm, you should find it selects the correct ruby version automatically.
+
+Other dependencies:
+* Gem dependencies are managed through bundler (http://bundler.io/)
+* Developed using MySQL 5.6
+
+Installation:
+`bundle instal`
+`bundle exec rake db:setup`
+`bundle exec puma`
+
+= Application outline
+* Input: Labware being subject to quant. Identified by a barcode; details are held externally
+* Assay: Preregistered labwhere which will receive material from the input
+* Standard: Labware of known concentrations/measurements. Identified solely by 'Standard Type,' details are help outside the application.
+* QuantType: Possible processes, and the required standard type for each.
+* Quant: A combination of an input, and standard onto an assay. Will have a particular QuantType.
+* Source: Identifies where the input came from

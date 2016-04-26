@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  barcodable_id: 
+  barcodable_type: MyString
+  barcode: MyString
+
+two:
+  barcodable_id: 
+  barcodable_type: MyString
+  barcode: MyString
