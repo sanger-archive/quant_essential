@@ -1,7 +1,7 @@
 
 class Assay < ActiveRecord::Base
-  include Barcode::Barcodable
-  include Barcode::BarcodableAutoGen
+  include Barcodable
+  include BarcodeAutogen
 
   self.per_page = 25
   self.barcode_prefix = 'A'
