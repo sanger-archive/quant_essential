@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :assays
+
+  root 'assay_sets#index'
+  resources :assays, param: :barcode, only: [:show,:index]
+  resources :assay_sets, param: :uuid, only: [:show,:index,:new,:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

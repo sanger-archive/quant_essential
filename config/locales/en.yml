@@ -20,4 +20,24 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  application:
+    title: QuantEssential
+    title_html: <span class="text-info">Q<span class="hidden-sm">uant</span></span>E<span class="hidden-sm">ssential</span>
+    help:
+      title: About this page
+  assay_sets:
+    title: "Assay Sets"
+    index:
+      subtitle: "List"
+      help_html: |
+        <p>This page lists the assay sets that have been created, starting with the most recent. Older assay sets may appear on subsequent pages.</p>
+        <p>Click on an assay set to view it in more detail. You will be able to print off new barcodes, as well as see more information about which
+        assays have been used in quant processes.</p>
+    new:
+      subtitle: "New"
+      help_html: |
+        <p>Assays are plates (or possibly other pieces of labware) that receive material from inputs and stocks, and are subject to a quant process.
+        They can be created in bulk in advance, ready to recieve any material. They will be labels with barcodes.</p>
+        <p>This page lets you create one or more assay plates in advance. Enter the number of plates desired in 'Assay count' and click 'Create assay set'.
+        You will be able to see the assays created, and print the corresponding labels on the next page.</p>
+

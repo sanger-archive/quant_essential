@@ -1,0 +1,3 @@
+class StandardSet < ActiveRecord::Base
+  belongs_to :user
+end

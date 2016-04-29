@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>QuantEssential</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title><%= t('application.title') %></title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <%= render 'header' %>
+      <section class="page_content">
+        <h2><%= t(:title,scope:controller_name,default:controller_name.titleize) %> <small><%= page_subtitle %></small></h2>
+        <div class="row">
+        <article class="interface col-md-9">
+          <%= yield %>
+        </article>
+        <%= render 'help' %>
+        </div>
+      </section>
+      <%= render 'footer' %>
+    </div>
+  </body>
 </html>
