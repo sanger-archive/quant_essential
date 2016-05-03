@@ -2,7 +2,7 @@ class AssaySetsController < ApplicationController
   include UuidReaders
 
   def index
-    @assay_sets = AssaySet.latest_first
+    @assay_sets = AssaySet.latest_first.page(params[:page])
   end
 
   def new
@@ -20,6 +20,8 @@ class AssaySetsController < ApplicationController
 
   def show
     @assay_set = AssaySet.where(uuid:uuid_from_parameters).first!
+    @assays = @assay_set.assays.page(params[:page])
+    @subtitle = l(@assay_set.created_at, format: :long)
   end
 
   private

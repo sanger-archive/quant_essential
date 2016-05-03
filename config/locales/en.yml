@@ -28,16 +28,30 @@ en:
   assay_sets:
     title: "Assay Sets"
     index:
-      subtitle: "List"
+      subtitle: List
       help_html: |
         <p>This page lists the assay sets that have been created, starting with the most recent. Older assay sets may appear on subsequent pages.</p>
         <p>Click on an assay set to view it in more detail. You will be able to print off new barcodes, as well as see more information about which
         assays have been used in quant processes.</p>
     new:
-      subtitle: "New"
+      subtitle: New
       help_html: |
         <p>Assays are plates (or possibly other pieces of labware) that receive material from inputs and stocks, and are subject to a quant process.
         They can be created in bulk in advance, ready to recieve any material. They will be labels with barcodes.</p>
         <p>This page lets you create one or more assay plates in advance. Enter the number of plates desired in 'Assay count' and click 'Create assay set'.
         You will be able to see the assays created, and print the corresponding labels on the next page.</p>
+    show:
+      help_html: |
+        <p>This page shows a complete list of all assays in this asay set. Large assay sets may be split over multiple pages.</p>
+        <p><span class="label label-default">Unuused</span> Indicates an assay which has not been used in a quant process.</p>
+        <p><span class="label label-success">Example</span> Indicates an assay which has been used in an 'example' quant.
+        Click on the label to get more information.</p>
+  assays:
+    index:
+      subtitle: List
+      help_html: |
+        <p>A complete list of all registered assays, displaying the most recent first. Older assays may appear on subsequent pages.</p>
+        <p><span class="label label-default">Unuused</span> Indicates an assay which has not been used in a quant process.</p>
+        <p><span class="label label-success">Example</span> Indicates an assay which has been used in an 'example' quant.
+        Click on the label to get more information.</p>
 

@@ -12,4 +12,8 @@ module ApplicationHelper
     t(:help_html,scope:[controller_name,action_name])
   end
 
+  def pagination(collection)
+    will_paginate collection, renderer: BootstrapPagination::Rails, previous_label: "&laquo;", next_label: "&raquo;"
+  end
+
 end

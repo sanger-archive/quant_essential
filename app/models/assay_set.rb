@@ -1,6 +1,7 @@
 class AssaySet < ActiveRecord::Base
-  # include ActiveUUID::UUID
+  include ActiveUUID::UUID
   include HasUuid
+  include OrderScopes
 
   attr_accessor :assay_count
 
@@ -8,7 +9,6 @@ class AssaySet < ActiveRecord::Base
 
   validates :assay_count, on: :create, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
-  scope :latest_first, ->() { order(id: :desc) }
 
   before_create :generate_assay_sets
 
