@@ -13,4 +13,8 @@ class Standard < ActiveRecord::Base
 
   validates_presence_of :standard_type
 
+  def has_quant?
+    false
+  end
+
 end

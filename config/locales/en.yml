@@ -25,6 +25,10 @@ en:
     title_html: <span class="text-info">Q<span class="hidden-sm">uant</span></span>E<span class="hidden-sm">ssential</span>
     help:
       title: About this page
+    creation_prompt:
+      title: There's nothing here...
+      body: You haven't created any %{model_name} yet. Once you do, you'll be able to see them here.
+      creation_button: Create %{model_name}
   assay_sets:
     title: "Assay Sets"
     index:
@@ -46,6 +50,13 @@ en:
         <p><span class="label label-default">Unuused</span> Indicates an assay which has not been used in a quant process.</p>
         <p><span class="label label-success">Example</span> Indicates an assay which has been used in an 'example' quant.
         Click on the label to get more information.</p>
+  standard_sets:
+    no_standard_types:
+      title: Sorry, we're missing some information...
+      body: |
+        Before you can create any standards, you'll need to set up some standard types.
+        Standard types describe what quant processes a standard may be used in, they are intended to prevent standards from being used in incompatible processes.
+      creation_button: Create a standard type
   assays:
     index:
       subtitle: List
@@ -54,4 +65,23 @@ en:
         <p><span class="label label-default">Unuused</span> Indicates an assay which has not been used in a quant process.</p>
         <p><span class="label label-success">Example</span> Indicates an assay which has been used in an 'example' quant.
         Click on the label to get more information.</p>
+  quant_types:
+    index:
+      subtitle: List
+      help_html: |
+        <p>This page shows the full list of registered quant types, and the type of standard that is expected with each.</p>
+    new:
+      help_html:
+        <p>A Quant type as
+    no_standard_types:
+      title: Sorry, we're missing some information...
+      body: |
+        Before you can create any quant types, you'll need to set up some standard types.
+        Standard types describe what quant processes a standard may be used in, they are intended to prevent standards from being used in incompatible processes.
+      creation_button: Create a standard type
+  activerecord:
+    models:
+      assay:
+        one: Assay
+        other: Assays
 

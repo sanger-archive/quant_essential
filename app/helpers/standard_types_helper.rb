@@ -1,0 +1,2 @@
+module StandardTypesHelper
+end

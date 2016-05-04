@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/sanger/pmb-client.git
+  revision: 87b59134c228f4b4d03950720cd9cad098300e9a
+  specs:
+    pmb-client (0.1.0)
+      json_api_client (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,6 +46,7 @@ GEM
     activeuuid (0.6.1)
       activerecord (>= 3.1)
       uuidtools
+    addressable (2.4.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.6)
       execjs
@@ -66,6 +74,10 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.10.0)
+      faraday (>= 0.7.4, < 0.10)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -77,6 +89,12 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    json_api_client (1.1.1)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      addressable (~> 2.2)
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.9)
     libv8 (3.16.14.15)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -89,6 +107,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.3)
+    multipart-post (2.0.0)
     mysql2 (0.4.4)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -176,9 +195,11 @@ DEPENDENCIES
   bootstrap-sass
   database_cleaner
   factory_girl_rails
+  faraday
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
+  pmb-client (= 0.1.0)!
   pry
   puma
   rails (= 4.2.6)

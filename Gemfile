@@ -28,6 +28,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem "puma"
 
+# Add simple support for print-my barcode)
+gem 'pmb-client', '0.1.0', :github => 'sanger/pmb-client'
+
+# We're using faraday for our HTTP client as its already
+# being used by one of our other dependencies (pmb-client).
+gem "faraday"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -37,15 +44,13 @@ gem "puma"
 group :development, :test do
   # Call 'binging.pry' anywhere in the code to stop execution and get a repl console
   gem 'pry'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  # gem 'spring'
-  gem 'factory_girl_rails'
-  gem 'database_cleaner'
 end
 

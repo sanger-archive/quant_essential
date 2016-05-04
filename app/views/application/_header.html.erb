@@ -13,27 +13,37 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="nav navbar-nav">
-      <li class="dropdown <%= ['assays','assay_sets'].include?(controller_name) ? 'active' : '' %>">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Assays <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#"><%= link_to "Create Assays", new_assay_set_path %></li>
-          <li><a href="#"><%= link_to "List Assay Sets", assay_sets_path %></li>
-          <li><a href="#"><%= link_to "List Assays", assays_path %></li>
-        </ul>
-        </li>
-      <li class="dropdown <%= ['stocks','stock_sets'].include?(controller_name) ? 'active' : '' %>">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stocks <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Create Stocks</a></li>
-          <li><a href="#">List Stock Sets</a></li>
-          <li><a href="#">List Stocks</a></li>
-        </ul>
-      </li>
       <li class="dropdown <%= ['quants'].include?(controller_name) ? 'active' : '' %>">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quants <span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('.quants') %> <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#">Perform Quant</a></li>
           <li><a href="#">List Quants</a></li>
+        </ul>
+      </li>
+      <li class="dropdown <%= ['assays','assay_sets'].include?(controller_name) ? 'active' : '' %>">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('.assays') %> <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to t('.create_assays'), new_assay_set_path %></li>
+          <li><%= link_to t('.list_assay_sets'), assay_sets_path %></li>
+          <li><%= link_to t('.list_assays'), assays_path %></li>
+        </ul>
+      </li>
+      <li class="dropdown <%= ['standards','standard_sets'].include?(controller_name) ? 'active' : '' %>">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('.standards') %> <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to t('.create_standards'), new_standard_set_path %></li>
+          <li><%= link_to t('.list_standard_sets'), standard_sets_path %></li>
+          <li><%= link_to t('.list_standards'), standards_path %></li>
+        </ul>
+      </li>
+      <li class="dropdown <%= ['quants'].include?(controller_name) ? 'active' : '' %>">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('.admin') %> <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to t('.list_standard_types'), standard_types_path %></li>
+          <li><%= link_to t('.create_standard_types'), new_standard_type_path %></li>
+          <li role="separator" class="divider"></li>
+          <li><%= link_to t('.list_quant_types'), quant_types_path %></li>
+          <li><%= link_to t('.create_quant_types'), new_quant_type_path %></li>
         </ul>
       </li>
     </ul></div><!-- /.navbar-collapse -->

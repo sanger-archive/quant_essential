@@ -1,3 +1,5 @@
 class StandardType < ActiveRecord::Base
-  include NamedScopes
+  include NamedBehaviour
+
+  has_many :quant_types, inverse_of: :standard_type
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427113532) do
+ActiveRecord::Schema.define(version: 20160503135423) do
 
   create_table "assay_sets", force: :cascade do |t|
     t.uuid     "uuid",       limit: 16, null: false
@@ -78,10 +78,13 @@ ActiveRecord::Schema.define(version: 20160427113532) do
   end
 
   create_table "standard_sets", force: :cascade do |t|
-    t.uuid     "uuid",       limit: 16, null: false
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.uuid     "uuid",             limit: 16, null: false
+    t.integer  "standard_type_id", limit: 4,  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
+
+  add_index "standard_sets", ["standard_type_id"], name: "fk_rails_9235408ae5", using: :btree
 
   create_table "standard_types", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
@@ -114,6 +117,7 @@ ActiveRecord::Schema.define(version: 20160427113532) do
   add_foreign_key "quants", "inputs"
   add_foreign_key "quants", "quant_types"
   add_foreign_key "quants", "standards"
+  add_foreign_key "standard_sets", "standard_types"
   add_foreign_key "standards", "standard_sets"
   add_foreign_key "standards", "standard_types"
 end

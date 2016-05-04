@@ -1,1 +1,1 @@
-<%= render partial: 'assay_list', locals: { assays: @assays } %>
+<%= render partial: 'list', locals: { model_name: Assay.model_name, items: @assays,  creation_link: new_assay_set_path } %>

@@ -1,0 +1,5 @@
+<%= form_for(quant_type, builder: BootstrapFormBuilder, html:{class:'form-horizontal'}) do |f| %>
+  <%= f.text_field(:name, required: true) %>
+  <%= f.select(:standard_type_id, standard_types, required: true) %>
+  <%= f.submit %>
+<% end %>

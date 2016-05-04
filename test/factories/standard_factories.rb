@@ -10,7 +10,7 @@ FactoryGirl.define do
 
   factory :standard_set do
     standard_count 5
-    standard_type_id { create(:standard_type).id }
+    standard_type #{ create(:standard_type).id }
   end
 
   factory :standard do

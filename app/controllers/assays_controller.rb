@@ -5,6 +5,6 @@ class AssaysController < ApplicationController
   end
 
   def index
-    @assays = Assay.latest_first.page(params[:page])
+    @assays = Assay.include_barcode.latest_first.page(params[:page])
   end
 end

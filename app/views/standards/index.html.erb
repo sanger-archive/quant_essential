@@ -1,2 +1,1 @@
-<h1>Standard#index</h1>
-<p>Find me in app/views/standard/index.html.erb</p>
+<%= render partial: 'list', locals: { model_name: Standard.model_name, items: @standards,  creation_link: new_standard_set_path } %>

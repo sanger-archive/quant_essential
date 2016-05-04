@@ -1,11 +1,11 @@
 require 'test_helper'
 
-class StandardSetCreationTestTest < ActionDispatch::IntegrationTest
+class StandardSetCreationTest < ActionDispatch::IntegrationTest
   test "standard set creation" do
     standard_type = create :standard_type
     get "/standard_sets/new"
     assert_response :success
-    assert_includes assigns(:standard_types), [standard_type.id,standard_type.name]
+    assert_includes assigns(:standard_types), [standard_type.name,standard_type.id]
     assert_difference('Standard.count',5) do
       post_via_redirect "/standard_sets", standard_set: { standard_count: 5, standard_type_id: standard_type.id}
     end

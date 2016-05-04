@@ -1,2 +1,9 @@
-<h1>StandardSets#new</h1>
-<p>Find me in app/views/standard_sets/new.html.erb</p>
+<% if @standard_types.empty? %>
+  <%= render partial: 'no_standard_types' %>
+<% else %>
+  <%= form_for(@standard_set, builder: BootstrapFormBuilder, html:{class:'form-horizontal'}) do |f| %>
+    <%= f.select(:standard_type_id, @standard_types, required: true) %>
+    <%= f.number_field(:standard_count, min: 1, step: 1, required: true) %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

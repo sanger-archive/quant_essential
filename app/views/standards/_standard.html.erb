@@ -1,0 +1,9 @@
+<li class='list-group-item standard'>
+  <h4 class="list-group-item-heading"><%= link_to standard.barcode, standard_path(standard.barcode) %></h4>
+  <p>Is a <%= link_to standard.standard_type.name, standard_type_path(standard.standard_type) %></p>
+  <% if standard.has_quant? %>
+    <span class="label label-success"><%= link_to standard.quant.name, quant_path(standard.quant) %></span>
+  <% else %>
+    <span class="label label-default">Unuused</span>
+  <% end %>
+</li>

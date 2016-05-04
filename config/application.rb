@@ -23,7 +23,7 @@ module QuantEssential
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    # The prefix place in front of all barcodes
+    # The prefix placed in front of all barcodes
     config.application_barcode_prefix = "QNTE"
 
   end
