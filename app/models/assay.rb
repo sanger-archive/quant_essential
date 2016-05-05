@@ -10,8 +10,10 @@ class Assay < ActiveRecord::Base
   # of RESTful bulk creation.
   belongs_to :assay_set
 
+  has_one :quant, inverse_of: :quant_type
+
   def has_quant?
-    false
+    quant.present?
   end
 
 end

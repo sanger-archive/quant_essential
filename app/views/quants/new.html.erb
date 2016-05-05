@@ -1,0 +1,5 @@
+<% if @quant_types.empty? %>
+  <%= render partial: 'no_quant_types' %>
+<% else %>
+  <%= render partial: 'quant_form', locals: { quant_types: @quant_types, quant: @quant } %>
+<% end %>

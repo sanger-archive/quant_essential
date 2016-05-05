@@ -1,21 +1,22 @@
 class AssaySetsController < ApplicationController
   include UuidReaders
 
-  def index
-    @assay_sets = AssaySet.latest_first.page(params[:page])
+  def create
+    @assay_set = AssaySet.new(assay_set_params)
+    if @assay_set.save
+      redirect_to assay_set_path(@assay_set.friendly_uuid), notice: t('.success',count: @assay_set.assay_count)
+    else
+      flash.now.alert = @assay_set.errors.full_messages
+      render :new
+    end
   end
 
   def new
     @assay_set = AssaySet.new
   end
 
-  def create
-    @assay_set = AssaySet.new(assay_set_params)
-    if @assay_set.save
-      redirect_to assay_set_path(@assay_set.friendly_uuid)
-    else
-      render :new
-    end
+  def index
+    @assay_sets = AssaySet.latest_first.page(params[:page])
   end
 
   def show

@@ -5,16 +5,15 @@ class Standard < ActiveRecord::Base
 
   self.barcode_prefix = 'S'
 
-  belongs_to :standard_type
+  belongs_to :standard_type, required: true, validate: true, inverse_of: :standards
+  has_one :quant, inverse_of: :standard
 
   # A standard set primarily exists to group standards together for the purpose
   # of RESTful bulk creation.
-  belongs_to :standard_set
-
-  validates_presence_of :standard_type
+  belongs_to :standard_set, inverse_of: :standards
 
   def has_quant?
-    false
+    quant.present?
   end
 
 end

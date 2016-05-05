@@ -29,6 +29,11 @@ en:
       title: There's nothing here...
       body: You haven't created any %{model_name} yet. Once you do, you'll be able to see them here.
       creation_button: Create %{model_name}
+  flashes:
+    titles:
+      notice: 'Great!'
+      alert: 'Sorry, there were some problems...'
+      unknown: 'Notice'
   assay_sets:
     title: "Assay Sets"
     index:
@@ -50,6 +55,10 @@ en:
         <p><span class="label label-default">Unuused</span> Indicates an assay which has not been used in a quant process.</p>
         <p><span class="label label-success">Example</span> Indicates an assay which has been used in an 'example' quant.
         Click on the label to get more information.</p>
+    create:
+      success:
+        one: "One assay has been successfully created"
+        other: "%{count} assays have been successfully created"
   standard_sets:
     no_standard_types:
       title: Sorry, we're missing some information...
@@ -57,6 +66,10 @@ en:
         Before you can create any standards, you'll need to set up some standard types.
         Standard types describe what quant processes a standard may be used in, they are intended to prevent standards from being used in incompatible processes.
       creation_button: Create a standard type
+    create:
+      success:
+        one: "One standard has been successfully created"
+        other: "%{count} standards have been successfully created"
   assays:
     index:
       subtitle: List
@@ -65,6 +78,33 @@ en:
         <p><span class="label label-default">Unuused</span> Indicates an assay which has not been used in a quant process.</p>
         <p><span class="label label-success">Example</span> Indicates an assay which has been used in an 'example' quant.
         Click on the label to get more information.</p>
+  quants:
+    index:
+      subtitle: List
+      help_html: |
+        <p>The help text for this page hasn't been written</p>
+    new:
+      subtitle: Perform
+      help_html: |
+        <p>From this page you can conduct a quant.</p>
+        <ol>
+        <li>Scan in your swipecard to the 'Swipecard' box</li>
+        <li>Select the type of quant you will be performing</li>
+        <li>Scan the standard plate into the 'Standard' box</li>
+        <li>Scan the assay plate into the 'Assay' box</li>
+        <li>Scan the input plate into the 'Input' box</li>
+        <li>If everything is okay, the button will turn green, and say 'Proceed'</li>
+        <li>Click the button</li>
+        </ol>
+    create:
+      success: "Your quant has been registered"
+    no_quant_types:
+      title: Sorry, we're missing some information...
+      body: |
+        Before you can perform any quants, you'll need to set up some quant types.
+        Quant types help define different types of quantification process that can be completed. They are used to easily identify
+        what has been done for a give plate, as well as to make sure you've selected a suitable standard for the process.
+      creation_button: Create a quant type
   quant_types:
     index:
       subtitle: List
@@ -72,16 +112,43 @@ en:
         <p>This page shows the full list of registered quant types, and the type of standard that is expected with each.</p>
     new:
       help_html:
-        <p>A Quant type as
+        <p>To be writen.</p>
+    create:
+      success: "The Quant Type '%{name}' was successfully created"
     no_standard_types:
       title: Sorry, we're missing some information...
       body: |
         Before you can create any quant types, you'll need to set up some standard types.
         Standard types describe what quant processes a standard may be used in, they are intended to prevent standards from being used in incompatible processes.
       creation_button: Create a standard type
+  standard_types:
+    index:
+      subtitle: List
+      help_html: |
+        <p>This page shows the full list of registered standard types</p>
+    new:
+      help_html:
+        <p>To be writen</p>
+    create:
+      success: "The Standard Type '%{name}' was successfully created"
   activerecord:
     models:
       assay:
         one: Assay
         other: Assays
-
+    errors:
+      messages:
+        blank: "is required and can not be left blank"
+  errors:
+    quant_attribute_reader:
+      no_swipecard: You must scan your swipecard
+      no_assay_barcode: You must scan an assay
+      no_standard_barcde: You must scan a standard
+      no_input_barcode: You must scan an input
+      user_not_found: |
+                could not be found with the given swipecard.
+                Please ensure your swipecard is registered in Sequencescape.
+                To register a swipecard in sequencescape log in and click your user name near the top of the screen.
+                Click 'Edit profile', scan your swipecard into the 'Swipecard' box and click 'Update'
+      barcode_not_found: could not be found with the given barcode
+      input_not_found: could not be found with the given barcode. Inputs must be Sequencescape plates

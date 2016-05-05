@@ -19,7 +19,7 @@ class SequencescapeSearchTest < ActiveSupport::TestCase
       builder.adapter :test, stubs
     end
 
-    endpoint = SequencescapeSearch::SearchEndpoint.new('Find user by swipecard code','swipecard_code',{:uuid=>['user','uuid'],:login=>['user','login']})
+    endpoint = SequencescapeSearch.swipecard_search
 
     search = SequencescapeSearch.new(api,endpoint)
     result = search.find('test')
@@ -40,7 +40,7 @@ class SequencescapeSearchTest < ActiveSupport::TestCase
       builder.adapter :test, stubs
     end
 
-    endpoint = SequencescapeSearch::SearchEndpoint.new('Find assets by barcode','barcode',{:uuid=>['plate','uuid'],:name=>['plate','name'],:external_type=>["plate","plate_purpose","name"]})
+    endpoint = SequencescapeSearch.plate_barcode_search
 
     search = SequencescapeSearch.new(api,endpoint)
     result = search.find('test')

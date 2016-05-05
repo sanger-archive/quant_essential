@@ -1,6 +1,21 @@
 class StandardSetsController < ApplicationController
   include UuidReaders
 
+  def create
+    @standard_set = StandardSet.new(standard_set_params)
+    if @standard_set.save
+      redirect_to standard_set_path(@standard_set.friendly_uuid), notice: t('.success',count: @standard_set.standard_count)
+    else
+      flash.now.alert = @standard_set.errors.full_messages
+      render :new
+    end
+  end
+
+  def new
+    @standard_set = StandardSet.new
+    @standard_types = StandardType.alphabetical.pluck(:name,:id)
+  end
+
   def index
     @standard_sets = StandardSet.latest_first.page(params[:page])
   end
@@ -11,19 +26,6 @@ class StandardSetsController < ApplicationController
     @subtitle = l(@standard_set.created_at, format: :long)
   end
 
-  def new
-    @standard_set = StandardSet.new
-    @standard_types = StandardType.alphabetical.pluck(:name,:id)
-  end
-
-  def create
-    @standard_set = StandardSet.new(standard_set_params)
-    if @standard_set.save
-      redirect_to standard_set_path(@standard_set.friendly_uuid)
-    else
-      render :new
-    end
-  end
 
   private
 

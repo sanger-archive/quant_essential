@@ -17,7 +17,7 @@ class StandardSetTest < ActiveSupport::TestCase
   test "StandardSets requires an standard count" do
     standard_set = build :standard_set, standard_count: nil
     assert_not standard_set.save, "Standard set was not invalid"
-    assert_includes standard_set.errors.full_messages, "Standard count can't be blank"
+    assert_includes standard_set.errors.full_messages, "Standard count is required and can not be left blank"
   end
 
   test "StandardSets#standard_count must be numeric" do
@@ -35,6 +35,6 @@ class StandardSetTest < ActiveSupport::TestCase
   test "StandardSets requires a standard type" do
     standard_set = build :standard_set, standard_type_id: nil
     assert_not standard_set.save, "Standard set was not invalid"
-    assert_includes standard_set.errors.full_messages, "Standard type can't be blank"
+    assert_includes standard_set.errors.full_messages, "Standard type is required and can not be left blank"
   end
 end

@@ -16,8 +16,8 @@
       <li class="dropdown <%= ['quants'].include?(controller_name) ? 'active' : '' %>">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('.quants') %> <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Perform Quant</a></li>
-          <li><a href="#">List Quants</a></li>
+          <li><%= link_to t('.perform_quant'), new_quant_path %></li>
+          <li><%= link_to t('.list_quants'), quants_path %></li>
         </ul>
       </li>
       <li class="dropdown <%= ['assays','assay_sets'].include?(controller_name) ? 'active' : '' %>">
@@ -36,14 +36,14 @@
           <li><%= link_to t('.list_standards'), standards_path %></li>
         </ul>
       </li>
-      <li class="dropdown <%= ['quants'].include?(controller_name) ? 'active' : '' %>">
+      <li class="dropdown <%= ['standard_types','quant_types'].include?(controller_name) ? 'active' : '' %>">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('.admin') %> <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><%= link_to t('.list_standard_types'), standard_types_path %></li>
           <li><%= link_to t('.create_standard_types'), new_standard_type_path %></li>
+          <li><%= link_to t('.list_standard_types'), standard_types_path %></li>
           <li role="separator" class="divider"></li>
-          <li><%= link_to t('.list_quant_types'), quant_types_path %></li>
           <li><%= link_to t('.create_quant_types'), new_quant_type_path %></li>
+          <li><%= link_to t('.list_quant_types'), quant_types_path %></li>
         </ul>
       </li>
     </ul></div><!-- /.navbar-collapse -->

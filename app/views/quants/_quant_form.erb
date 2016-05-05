@@ -1,0 +1,8 @@
+<%= form_for(quant, as: :quant, builder: BootstrapFormBuilder, html:{class:'form-horizontal'}) do |f| %>
+  <%= f.password_field(:swipecard_code, required: true) %>
+  <%= f.select(:quant_type, quant_types, {}, required: true) %>
+  <%= f.text_field(:standard_barcode, required: true) %>
+  <%= f.text_field(:assay_barcode, required: true) %>
+  <%= f.text_field(:input_barcode, required: true) %>
+  <%= f.submit %>
+<% end %>

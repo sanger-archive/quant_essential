@@ -9,7 +9,7 @@ class Barcode < ActiveRecord::Base
   # Ideally we'd do this with an initializer, but rails class reloading makes dependency injection tricky
   self.barcode_generator = Sanger128.new(Rails.configuration.application_barcode_prefix)
 
-  belongs_to :barcodable, polymorphic: true
+  belongs_to :barcodable, polymorphic: true, inverse_of: :barcode_object
 
   def generate=(*components)
     raise StandardError, "Barcode.barcode_generator is not set!" if barcode_generator.nil?

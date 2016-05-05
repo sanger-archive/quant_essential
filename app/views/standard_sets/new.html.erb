@@ -2,7 +2,7 @@
   <%= render partial: 'no_standard_types' %>
 <% else %>
   <%= form_for(@standard_set, builder: BootstrapFormBuilder, html:{class:'form-horizontal'}) do |f| %>
-    <%= f.select(:standard_type_id, @standard_types, required: true) %>
+    <%= f.select(:standard_type_id, @standard_types, {}, required: true) %>
     <%= f.number_field(:standard_count, min: 1, step: 1, required: true) %>
     <%= f.submit %>
   <% end %>

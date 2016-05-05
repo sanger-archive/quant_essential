@@ -13,7 +13,7 @@ class AssaySetTest < ActiveSupport::TestCase
   test "AssaySets requires an assay count" do
     assay_set = AssaySet.new
     assert_not assay_set.save, "Assay set was not invalid"
-    assert_includes assay_set.errors.full_messages, "Assay count can't be blank"
+    assert_includes assay_set.errors.full_messages, "Assay count is required and can not be left blank"
   end
 
   test "AssaySets#assay_count must be numeric" do

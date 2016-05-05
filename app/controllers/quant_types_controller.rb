@@ -1,11 +1,18 @@
 class QuantTypesController < ApplicationController
-  def new
-    @quant_type = QuantType.new
-    @standard_types = StandardType.alphabetical.pluck(:name,:id)
+
+  def create
+    @quant_type = QuantType.new(quant_type_attributes)
+    if @quant_type.save
+      redirect_to quant_type_path(@quant_type), notice: t('.success',name: @quant_type.name)
+    else
+      @standard_types = StandardType.alphabetical.pluck(:name,:id)
+      flash.now.alert = @quant_type.errors.full_messages
+      render :new
+    end
   end
 
-  def edit
-    @quant_type = QuantType.find(params[:id])
+  def new
+    @quant_type = QuantType.new
     @standard_types = StandardType.alphabetical.pluck(:name,:id)
   end
 
@@ -15,15 +22,12 @@ class QuantTypesController < ApplicationController
 
   def show
     @quant_type = QuantType.find(params[:id])
+    @subtitle = @quant_type.name
   end
 
-  def create
-    @quant_type = QuantType.new(quant_type_attributes)
-    if @quant_type.save
-      redirect_to quant_type_path(@quant_type)
-    else
-      render :new
-    end
+  def edit
+    @quant_type = QuantType.find(params[:id])
+    @standard_types = StandardType.alphabetical.pluck(:name,:id)
   end
 
   def update

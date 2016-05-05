@@ -7,7 +7,6 @@ module BarcodeAutogen
       class_attribute :barcode_prefix
       after_create :generate_barcode
 
-      scope :with_barcode, ->(barcode) { joins(:barcode_object).where(barcodes:{barcode:barcode}) }
     end
   end
 

@@ -12,9 +12,12 @@
       <section class="page_content">
         <h2><%= t(:title,scope:controller_name,default:controller_name.titleize) %> <small><%= page_subtitle %></small></h2>
         <div class="row">
-        <article class="interface col-md-9">
-          <%= yield %>
-        </article>
+        <section class="col-md-9">
+          <%= render :partial => 'flash', collection: flash.to_a %>
+          <article class="interface">
+            <%= yield %>
+          </article>
+        </section>
         <%= render 'help' %>
         </div>
       </section>

@@ -18,10 +18,11 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  bootstrapify(:number_field,:text_field)
+  bootstrapify(:number_field,:text_field,:password_field)
 
   def select(field_name,choices,options={},html_options={})
     html_options[:class] ||= ""
+    options[:prompt] ||= "Select..."
     html_options[:class] << " form-control"
     @template.content_tag(:div,class:GROUP_CLASS) do
       label(field_name,class:LABEL_CLASS)  +

@@ -5,5 +5,6 @@ class StandardsController < ApplicationController
 
   def show
     @standard = Standard.include_barcode.with_barcode(params[:barcode]).first!
+    @subtitle = @standard.barcode
   end
 end
