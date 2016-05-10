@@ -32,6 +32,8 @@ class Input < ActiveRecord::Base
   private
 
   def self.import_from_service(barcode,service)
-    create!(service.find(barcode).merge(:barcode=>barcode))
+    external_params = service.find(barcode)
+    return nil if external_params.nil?
+    create!(external_params.merge(:barcode=>barcode))
   end
 end

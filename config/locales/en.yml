@@ -93,10 +93,21 @@ en:
         <li>Scan the standard plate into the 'Standard' box</li>
         <li>Scan the assay plate into the 'Assay' box</li>
         <li>Scan the input plate into the 'Input' box</li>
-        <li>If everything is okay, the button will turn green, and say 'Proceed'</li>
-        <li>Click the button</li>
+        <li>Click the 'Create Quant'</li>
+        <li>If everything is okay you'll see the quant you created</li>
         </ol>
+    # The create page is rendered when a create request fails validation.
     create:
+      subtitle: Perform
+      help_html: |
+        <p>There were some problems with the quant you tried to create. A list of errors is provided at the top of the screen,
+        and the fields that caused problems are highlighted in red.</p>
+        <h4>Potential issues</h4>
+        <ul>
+          <li>If QuantEssential couldn't find your standard and assay barcode, double check that you didn't scan them into the wrong boxes.</li>
+          <li>You can only use each standard and assay plate once. If QuantEssential complains about them being used, check which Quant they are associated with.</li>
+          <li>If QuantEssential can't find your swipecard, make sure you've set it up properly in Sequencescape.</li>
+        </ul>
       success: "Your quant has been registered"
     no_quant_types:
       title: Sorry, we're missing some information...
@@ -131,11 +142,23 @@ en:
         <p>To be writen</p>
     create:
       success: "The Standard Type '%{name}' was successfully created"
+    edit:
+      subtitle: "Editing %{name}"
+      help_html: |
+        <p>Enter the new name for this standard type in the field and click 'Update Standard Type' to rename your standard type.</p>
+        <p>Any quant types associated with this standard type will remain associated with the renamed version, similarly and standards previously created will still be associated after a rename.</p>
+        <p>If you do not want to maintain existing standard types and quants then please register a new standard type instead.</p>
   activerecord:
     models:
       assay:
         one: Assay
         other: Assays
+      standard:
+        one: Standard
+        other: Standards
+      quant:
+        one: Quant
+        other: Quants
     errors:
       messages:
         blank: "is required and can not be left blank"
@@ -145,10 +168,18 @@ en:
       no_assay_barcode: You must scan an assay
       no_standard_barcde: You must scan a standard
       no_input_barcode: You must scan an input
-      user_not_found: |
+      swipecard_code:
+        not_found: |
                 could not be found with the given swipecard.
                 Please ensure your swipecard is registered in Sequencescape.
                 To register a swipecard in sequencescape log in and click your user name near the top of the screen.
                 Click 'Edit profile', scan your swipecard into the 'Swipecard' box and click 'Update'
-      barcode_not_found: could not be found with the given barcode
-      input_not_found: could not be found with the given barcode. Inputs must be Sequencescape plates
+      assay_barcode:
+        not_found: does not match an assay resource. Make sure you haven't scanned a barcode into the wrong box
+        used: has already been used
+      standard_barcode:
+        not_found: does not match a standard resource. Make sure you haven't scanned a barcode into the wrong box
+        used: has already been used
+        unsuitable: is an unsuitable type for this quant process
+      input_barcode:
+        not_found: does not match a known resource. Inputs must be Sequencescape plates

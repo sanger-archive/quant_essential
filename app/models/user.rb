@@ -1,3 +1,5 @@
+
+require './lib/sequencescape_search'
 class User < ActiveRecord::Base
 
   # Must point to an object that responds to find with a swipecard and returns a has appropriate for input creation
@@ -9,6 +11,7 @@ class User < ActiveRecord::Base
 
   def self.find_with_swipecard(swipecard)
     external_params = self.external_service.find(swipecard)
+    return nil if external_params.nil?
     uuid = external_params.delete(:uuid)
     User.create_with(external_params).find_or_create_by(uuid:uuid)
   end

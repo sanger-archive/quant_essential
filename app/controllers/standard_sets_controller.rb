@@ -22,7 +22,7 @@ class StandardSetsController < ApplicationController
 
   def show
     @standard_set = StandardSet.where(uuid:uuid_from_parameters).first!
-    @standards = @standard_set.standards.include_barcode.page(params[:page])
+    @standards = @standard_set.standards.include_for_list.page(params[:page])
     @subtitle = l(@standard_set.created_at, format: :long)
   end
 

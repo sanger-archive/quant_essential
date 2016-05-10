@@ -22,6 +22,7 @@ class QuantTypesController < ApplicationController
 
   def show
     @quant_type = QuantType.find(params[:id])
+    @quants = @quant_type.quants.latest_first.page(params[:page])
     @subtitle = @quant_type.name
   end
 

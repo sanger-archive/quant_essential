@@ -16,6 +16,8 @@ class StandardTypesController < ApplicationController
 
   def show
     @standard_type = StandardType.find(params[:id])
+    @standards = @standard_type.standards.include_for_list.latest_first.page(params[:page])
+    @quant_types = @standard_type.quant_types
     @subtitle = @standard_type.name
   end
 
@@ -25,6 +27,7 @@ class StandardTypesController < ApplicationController
 
   def edit
     @standard_type = StandardType.find(params[:id])
+    @subtitle = t('.subtitle',name: @standard_type.name)
   end
 
   def update

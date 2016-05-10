@@ -10,7 +10,9 @@ class Assay < ActiveRecord::Base
   # of RESTful bulk creation.
   belongs_to :assay_set
 
-  has_one :quant, inverse_of: :quant_type
+  has_one :quant, inverse_of: :assay
+
+  scope :include_for_list, ->() { include_barcode.includes(quant:{quant_type: :standard_type}) }
 
   def has_quant?
     quant.present?

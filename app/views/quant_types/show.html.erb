@@ -1,2 +1,6 @@
-<h1>QuantTypes#show</h1>
-<p>Find me in app/views/quant_types/show.html.erb</p>
+<dl class="summary dl-horizontal">
+<dt><%= QuantType.human_attribute_name(:standard_type) %></dt>
+<dd><%= link_to @quant_type.standard_type.name, standard_type_path(@quant_type.standard_type) %></dd>
+</dl>
+<%= link_to t('.edit'), edit_quant_type_path(@quant_type), class:"btn btn-default" %>
+<%= render partial: 'list', locals: { model_name: Quant.model_name, items: @quants,  creation_link: new_quant_path } %>

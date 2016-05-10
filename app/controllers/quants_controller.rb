@@ -7,13 +7,12 @@ class QuantsController < ApplicationController
       @quant = qar.quant
       redirect_to quant_path(qar.quant.assay_barcode), notice: t('.success')
     else
-      @quant = qar.quant
+      @quant = qar
       @quant_types = QuantType.alphabetical.pluck(:name,:id)
       flash.now.alert = qar.valid? ? quant.errors.full_messages : qar.errors.full_messages
       render :new
       return
     end
-
 
   end
 

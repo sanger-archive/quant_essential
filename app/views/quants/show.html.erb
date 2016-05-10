@@ -1,2 +1,10 @@
-<h1>Quant#show</h1>
-<p>Find me in app/views/quant/show.html.erb</p>
+<dl class="summary dl-horizontal">
+<dt><%= Quant.human_attribute_name(:created_at) %></dt>
+<dd><%= l(@quant.created_at, format: :long) %></dd>
+<dt><%= Quant.human_attribute_name(:assay) %></dt>
+<dd><%= link_to @quant.assay_barcode, assay_path(@quant.assay_barcode) %></dd>
+<dt><%= Quant.human_attribute_name(:standard) %></dt>
+<dd><%= link_to @quant.standard_barcode, standard_path(@quant.standard_barcode) %></dd>
+<dt><%= Quant.human_attribute_name(:input) %></dt>
+<dd><%= @quant.input.external_type %>:<%= @quant.input.name %>:<%= @quant.input_barcode %></dd>
+</dl>

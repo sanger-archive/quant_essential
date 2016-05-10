@@ -1,0 +1,11 @@
+<section class="<%= model_name.element %>-list-section">
+<% if items.empty? %>
+  <%= render partial: 'creation_prompt', locals: { model_name: model_name.human(count: 2), creation_link: creation_link } %>
+<% else %>
+<% count = items.count %>
+<h3><%= model_name.human(count: count) %> <span class="badge"><%= count %></span></h3>
+  <ul class="<%= model_name.element %>-list list-group">
+    <%= render(items) %>
+  </ul>
+<% end %>
+</section>

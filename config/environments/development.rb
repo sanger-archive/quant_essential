@@ -38,5 +38,13 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.api_root = Faraday.new('http://localhost:3000/api/1')
+
+  # Faraday currently doesn't make it easy to bypass the proxy for a given domain
+  # In development we don't want to hit the proxy for localhost.
+  # Here we prevent Faraday falling back to the HTTP_PROXY, but still let a proxy be set if needed
+  proxy = ENV.fetch('FARADAY_PROXY','')
+  sequencescape_uri = ENV.fetch('SEQUENCESCAPE_URI','http://localhost:3000/api/1')
+  sequencescape_headers = { 'accepts'=>'application/json', 'X_SEQUENCESCAPE_CLIENT_ID'=>'development', 'Content-Type'=>' application/json'}
+
+  config.api_root = Faraday.new(sequencescape_uri, proxy: proxy, headers: sequencescape_headers )
 end

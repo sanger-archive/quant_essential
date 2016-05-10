@@ -1,1 +1,4 @@
-<lI>Quanty Quanty Bang Bang</li>
+<li class='list-group-item quant'>
+  <h4 class="list-group-item-heading"><%= link_to quant.assay_barcode, quant_path(quant.assay_barcode) %></h4>
+  <p><%= l(quant.created_at, format: :long) %></p>
+</li>

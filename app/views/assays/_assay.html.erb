@@ -1,7 +1,7 @@
 <li class='list-group-item assay'>
   <h4 class="list-group-item-heading"><%= link_to assay.barcode, assay_path(assay.barcode) %></h4>
   <% if assay.has_quant? %>
-    <span class="label label-success"><%= link_to assay.quant.name, quant_path(assay.quant) %></span>
+    <%= link_to content_tag(:span,assay.quant.name,class:"label label-success"), quant_path(assay.barcode) %></span>
   <% else %>
     <span class="label label-default">Unuused</span>
   <% end %>
