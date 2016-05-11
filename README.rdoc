@@ -1,6 +1,8 @@
 == QuantEssential
 
-Simple app for tracking and conducting quant. Most details are held externally. This application does not contain any business-logic with respect to the quant process itself, as the process can be highly volatile.
+Simple app for tracking and conducting quant.
+
+This application is intended primarily to facilitate tracking of the quant process, and to provide a bare minimum of easily configurable validation. Business logic is kept to a minimum, to aid rapid adoption of new quant processes within the lab, and to allow for on-the-fly changes to be made as and when appropriate.
 
 = Getting Started
 
@@ -8,7 +10,11 @@ This application uses Ruby-2.3.4, if using a ruby-version manager, such as rvm, 
 
 Other dependencies:
 * Gem dependencies are managed through bundler (http://bundler.io/)
-* Developed using MySQL 5.6
+* Developed using MySQL 5.6, although we're not doing anything fancy, so other versions should be supported.
+* The application has external dependencies on Sequencescape and Print-My-Barcode
+  - Sequencescape is used for lookup of inputs and users swipecard validation
+  - Print-My-Barcode provides barcode printing
+  See configuring integrations for details on swapping out these dependencies
 
 Installation:
 `bundle instal`
@@ -19,6 +25,19 @@ Installation:
 * Input: Labware being subject to quant. Identified by a barcode; details are held externally
 * Assay: Preregistered labwhere which will receive material from the input
 * Standard: Labware of known concentrations/measurements. Identified solely by 'Standard Type,' details are help outside the application.
+* StandardType: Helps disambiguate between different standards, and ties them to a quant
 * QuantType: Possible processes, and the required standard type for each.
 * Quant: A combination of an input, and standard onto an assay. Will have a particular QuantType.
-* Source: Identifies where the input came from
+
+= Configuration
+* Configuration can be accessed in config/environments as standard.
+* In addition, we accept the following ENVs.
+  - SEQUENCESCAPE_URI = The root of the sequencescape API youi wish to connect to
+  - FARADAY_PROXY = The current version of faraday ignores proxy exclusions. We tell it to pull the proxy from here rather than HTTP_PROXY
+
+= Configuring Integrations
+Input and User both have a class attribute ::external_service which should point at an object that responds to #find with a swipecard/barcode and return a hash representation of the object.
+- User::external_service.find(swipecard) should return {uuid:'user_uuid',:login=>'user_login'}
+- Input::external_service.find(barcode) should return {uuid:"input_uuid",name:"Human readable name",external_type:"Human readable type identifier"}
+Currently these objects are created in the class definitions themselves, but we'll pull it out into the configuration files.
+Note: While you can inject in object in initializers, this tends to play havoc with rails class reloading, and is not recommended in development mode.
