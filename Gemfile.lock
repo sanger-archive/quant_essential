@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sanger/pmb-client.git
-  revision: 87b59134c228f4b4d03950720cd9cad098300e9a
+  revision: 232ff2ea89726d50dbcbe7c15e1f2f9b6d65a4eb
   specs:
     pmb-client (0.1.0)
       json_api_client (~> 1.1)
