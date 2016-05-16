@@ -47,4 +47,5 @@ Rails.application.configure do
   sequencescape_headers = { 'accepts'=>'application/json', 'X_SEQUENCESCAPE_CLIENT_ID'=>'development', 'Content-Type'=>' application/json'}
 
   config.api_root = Faraday.new(sequencescape_uri, proxy: proxy, headers: sequencescape_headers )
+  config.pmb_uri = ENV.fetch('PMB_URI','http://localhost:3002/v1/')
 end

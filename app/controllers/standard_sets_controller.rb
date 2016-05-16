@@ -21,7 +21,7 @@ class StandardSetsController < ApplicationController
   end
 
   def show
-    @standard_set = StandardSet.where(uuid:uuid_from_parameters).first!
+    @standard_set = StandardSet.find_by!(uuid:uuid_from_parameters)
     @standards = @standard_set.standards.include_for_list.page(params[:page])
     @subtitle = l(@standard_set.created_at, format: :long)
   end

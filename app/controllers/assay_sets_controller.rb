@@ -20,7 +20,7 @@ class AssaySetsController < ApplicationController
   end
 
   def show
-    @assay_set = AssaySet.where(uuid:uuid_from_parameters).first!
+    @assay_set = AssaySet.find_by!(uuid:uuid_from_parameters)
     @assays = @assay_set.assays.latest_first.include_for_list.page(params[:page])
     @subtitle = l(@assay_set.created_at, format: :long)
   end

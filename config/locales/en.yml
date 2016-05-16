@@ -78,6 +78,12 @@ en:
         <p><span class="label label-default">Unuused</span> Indicates an assay which has not been used in a quant process.</p>
         <p><span class="label label-success">Example</span> Indicates an assay which has been used in an 'example' quant.
         Click on the label to get more information.</p>
+  print_jobs:
+    create:
+      create:
+      success:
+        one: "Your label has been sent to %{printer}"
+        other: "%{count} labels have been sent to %{printer}"
   quants:
     index:
       subtitle: List
@@ -183,3 +189,6 @@ en:
         unsuitable: is an unsuitable type for this quant process
       input_barcode:
         not_found: does not match a known resource. Inputs must be Sequencescape plates
+    print_job:
+      printer:
+        not_found: has not been registered

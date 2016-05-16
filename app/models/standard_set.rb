@@ -13,6 +13,11 @@ class StandardSet < ActiveRecord::Base
 
   before_create :generate_standard_sets
 
+
+  # Printables is an array of the items that get printed
+  alias_attribute :printables, :standards
+
+
   private
 
   def generate_standard_sets

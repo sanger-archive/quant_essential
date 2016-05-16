@@ -18,6 +18,14 @@ module Barcodable
 
       scope :include_barcode, ->() { includes(:barcode_object) }
       scope :with_barcode, ->(barcode) { joins(:barcode_object).where(barcodes:{barcode:barcode}) }
+
+      def printables
+        [self]
+      end
+
+      def label_atttibutes
+
+      end
     end
   end
 

@@ -12,6 +12,9 @@ class AssaySet < ActiveRecord::Base
 
   before_create :generate_assay_sets
 
+  # Printables is an array of the items that get printed
+  alias_attribute :printables, :assays
+
   private
 
   def generate_assay_sets

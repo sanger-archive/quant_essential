@@ -272,11 +272,31 @@
 	},
 	"file_history":
 	[
+		"/Users/jg16/projects/james/quant_essential/app/controllers/assay_sets_controller.rb",
+		"/Users/jg16/projects/james/quant_essential/test/controllers/printed_labels_controller_test.rb",
+		"/Users/jg16/projects/james/quant_essential/test/controllers/assay_sets/printed_labels_controller_test.rb",
+		"/Users/jg16/projects/james/quant_essential/test/controllers/assays/printed_labels_controller_test.rb",
+		"/Users/jg16/projects/james/quant_essential/test/controllers/standards/printed_labels_controller_test.rb",
+		"/Users/jg16/projects/james/quant_essential/app/controllers/concerns/label_printing.rb",
+		"/Users/jg16/projects/james/quant_essential/app/controllers/printed_labels_controller.rb",
+		"/Users/jg16/projects/james/quant_essential/app/controllers/standards/printed_labels_controller.rb",
+		"/Users/jg16/projects/james/quant_essential/app/controllers/standard_sets/printed_labels_controller.rb",
+		"/Users/jg16/projects/james/quant_essential/app/controllers/assay_sets/printed_labels_controller.rb",
+		"/Users/jg16/projects/james/quant_essential/config/routes.rb",
+		"/Users/jg16/projects/james/quant_essential/app/controllers/assays/printed_labels_controller.rb",
+		"/Users/jg16/projects/james/quant_essential/config/environments/production.rb",
+		"/Users/jg16/projects/james/quant_essential/config/environments/development.rb",
+		"/Users/jg16/projects/james/quant_essential/app/models/user.rb",
+		"/Users/jg16/projects/james/quant_essential/app/models/input.rb",
+		"/Users/jg16/projects/james/quant_essential/test/libs/sequencescape_search_test.rb",
+		"/Users/jg16/projects/james/quant_essential/db/migrate/20160427111104_create_users.rb",
+		"/Users/jg16/projects/james/quant_essential/LICENSE.txt",
+		"/Users/jg16/projects/james/quant_essential/README.rdoc",
+		"/Users/jg16/projects/james/quant_essential/lib/sanger128.rb",
+		"/Users/jg16/projects/james/quant_essential/travis.yml",
 		"/Users/jg16/projects/james/quant_essential/lib/sequencescape_search.rb",
 		"/Users/jg16/projects/james/quant_essential/Gemfile",
-		"/Users/jg16/projects/james/quant_essential/config/environments/development.rb",
 		"/Users/jg16/projects/james/quant_essential/Gemfile.lock",
-		"/Users/jg16/projects/james/quant_essential/app/models/user.rb",
 		"/Users/jg16/projects/james/quant_essential/app/controllers/concerns/quant_attribute_reader.rb",
 		"/Users/jg16/projects/james/quant_essential/app/models/concerns/barcodable.rb",
 		"/Users/jg16/projects/james/quant_essential/app/controllers/quants_controller.rb",
@@ -286,19 +306,15 @@
 		"/Users/jg16/projects/james/quant_essential/app/views/quants/_quant_form.erb",
 		"/Users/jg16/projects/james/quant_essential/config/locales/en.yml",
 		"/Users/jg16/projects/james/quant_essential/app/models/quant.rb",
-		"/Users/jg16/projects/james/quant_essential/app/models/input.rb",
 		"/Users/jg16/projects/james/quant_essential/test/factories/quant_factories.rb",
-		"/Users/jg16/projects/james/quant_essential/test/libs/sequencescape_search_test.rb",
 		"/Users/jg16/projects/james/quant_essential/db/migrate/20160505121318_remove_cache_of_swipecard_code.rb",
 		"/Users/jg16/projects/james/quant_essential/test/models/standard_set_test.rb",
-		"/Users/jg16/projects/james/quant_essential/config/routes.rb",
 		"/Users/jg16/projects/james/quant_essential/test/models/assay_set_test.rb",
 		"/Users/jg16/projects/james/quant_essential/app/controllers/standard_sets_controller.rb",
 		"/Users/jg16/projects/james/quant_essential/app/models/standard.rb",
 		"/Users/jg16/projects/james/quant_essential/app/models/concerns/barcode_setters.rb",
 		"/Users/jg16/projects/james/quant_essential/app/controllers/quant_types_controller.rb",
 		"/Users/jg16/projects/james/quant_essential/app/controllers/assays_controller.rb",
-		"/Users/jg16/projects/james/quant_essential/app/controllers/assay_sets_controller.rb",
 		"/Users/jg16/projects/james/quant_essential/app/controllers/standard_types_controller.rb",
 		"/Users/jg16/projects/james/quant_essential/app/assets/stylesheets/application.scss",
 		"/Users/jg16/projects/james/quant_essential/app/views/quant_types/_quant_type_form.html.erb",
@@ -322,7 +338,6 @@
 		"/Users/jg16/projects/james/quant_essential/app/models/assay.rb",
 		"/Users/jg16/projects/james/quant_essential/app/models/barcode.rb",
 		"/Users/jg16/projects/james/quant_essential/config/environments/test.rb",
-		"/Users/jg16/projects/james/quant_essential/config/environments/production.rb",
 		"/Users/jg16/projects/james/quant_essential/app/models/standard_type.rb",
 		"/Users/jg16/projects/james/quant_essential/app/models/quant_type.rb",
 		"/Users/jg16/projects/james/quant_essential/app/views/quants/_no_quant_types.html.erb",
@@ -384,22 +399,7 @@
 		"/Users/jg16/projects/james/quant_essential/lib/tasks/factory_girl_linting.rake",
 		"/Users/jg16/projects/james/quant_essential/test/factories/assay_factories.rb",
 		"/Users/jg16/projects/james/quant_essential/test/models/assay_test.rb",
-		"/Users/jg16/projects/james/quant_essential/app/views/assay_sets/_assay_set.html.erb",
-		"/Users/jg16/projects/james/quant_essential/app/views/assays/_assay.html.erb",
-		"/Users/jg16/projects/james/quant_essential/app/views/assays/show.html.erb",
-		"/Users/jg16/projects/james/quant_essential/test/integration/assay_set_creation_test.rb",
-		"/Users/jg16/projects/james/quant_essential/config/initializers/aa_force_load_order.rb",
-		"/Users/jg16/projects/james/quant_essential/config/initializers/assets.rb",
-		"/Users/jg16/projects/james/quant_essential/config/initializers/assay_set_loader.rb",
-		"/Users/jg16/projects/james/quant_essential/app/models/concerns/has_uuid.rb",
-		"/Users/jg16/projects/james/quant_essential/app/controllers/concerns/uuid_readers.rb",
-		"/Users/jg16/projects/james/quant_essential/config/initializers/barcode_generation.rb",
-		"/Users/jg16/projects/james/quant_essential/app/views/application/_help.html.erb",
-		"/Users/jg16/projects/james/quant_essential/app/form_builder",
-		"/Users/jg16/projects/james/quant_essential/lib/nav_menu.rb",
-		"/Users/jg16/projects/james/quant_essential/app/assets/stylesheets/bootstrap-imports.scss",
-		"/Users/jg16/projects/james/quant_essential/app/assets/javascripts/application.js",
-		"/Users/jg16/projects/james/quant_essential/config/initializers/version_strings.rb"
+		"/Users/jg16/projects/james/quant_essential/app/views/assay_sets/_assay_set.html.erb"
 	],
 	"find":
 	{
@@ -456,6 +456,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"UuidReaders",
+			"assay_set",
+			"SequencescapeSearch",
 			"resp",
 			"swipecard",
 			" can't be blank",
@@ -580,10 +583,7 @@
 			"threadsafe!",
 			"UTF.+8",
 			"UTF8",
-			"&nbsp",
-			"concentration",
-			"ViewsSchema",
-			"after \"deploy:update\""
+			"&nbsp"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -778,6 +778,18 @@
 		"selected_items":
 		[
 			[
+				"configroutes",
+				"config/routes.rb"
+			],
+			[
+				"sequencescape",
+				"test/libs/sequencescape_search_test.rb"
+			],
+			[
+				"input",
+				"app/models/input.rb"
+			],
+			[
 				"gemfile.lock",
 				"Gemfile.lock"
 			],
@@ -804,10 +816,6 @@
 			[
 				"sequencescapesearch",
 				"lib/sequencescape_search.rb"
-			],
-			[
-				"input",
-				"app/models/input.rb"
 			],
 			[
 				"en.yml",
@@ -902,10 +910,6 @@
 				"test/controllers/quants_controller_test.rb"
 			],
 			[
-				"sequencescape",
-				"test/libs/sequencescape_search_test.rb"
-			],
-			[
 				"standard",
 				"app/models/standard_type.rb"
 			],
@@ -952,10 +956,6 @@
 			[
 				"boot",
 				"app/form_builders/bootstrap_form_builder.rb"
-			],
-			[
-				"configroutes",
-				"config/routes.rb"
 			],
 			[
 				"standard_types_controll",

@@ -1,0 +1,2 @@
+module PrintedLabelsHelper
+end

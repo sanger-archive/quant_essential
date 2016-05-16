@@ -78,4 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.api_root = Faraday.new(ENV['SEQUENCESCAPE_API_ROOT'])
+  config.pmb_uri = ENV.fetch('PMB_URI','http://localhost:3002/v1/')
 end
