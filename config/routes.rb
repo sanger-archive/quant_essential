@@ -25,4 +25,7 @@ Rails.application.routes.draw do
 
   resources :printers, param: :name
 
+  resources :barcodes, only: [:show,:index], param: :barcode
+  resources :inputs, only: [:show,:index], param: :barcode
+
 end

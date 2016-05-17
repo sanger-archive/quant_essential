@@ -1,0 +1,6 @@
+<li class='list-group-item input'>
+  <h4 class="list-group-item-heading"><%= link_to input.name, input_path(input) %> <small><%= input.external_type %> : <%= input.barcode %></small></h4>
+  <% input.quants.each do |quant| %>
+    <%= link_to content_tag(:span,quant.name,class:"label label-success"), quant_path(quant) %></span>
+  <% end %>
+</li>

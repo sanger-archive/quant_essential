@@ -1,7 +1,7 @@
 class QuantsController < ApplicationController
 
   def create
-    qar = QuantAttributeReader.new(params[:quant])
+    qar = QuantAttributeReader.new(params[:quant].transform_values {|v| v.squish })
 
     if qar.validate_and_create_quant
       @quant = qar.quant

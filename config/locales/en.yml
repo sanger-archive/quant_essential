@@ -29,6 +29,12 @@ en:
       title: There's nothing here...
       body: You haven't created any %{model_name} yet. Once you do, you'll be able to see them here.
       creation_button: Create %{model_name}
+  barcodes:
+    index:
+      subtitle: "Searching..."
+    show:
+      title: Nothing found...
+      body: QuantEssential couldn't find anything with the barcode '%{barcode}'. If you scanned an input plate, it may not have been used in a quant process yet.
   flashes:
     titles:
       notice: 'Great!'
@@ -80,7 +86,6 @@ en:
         Click on the label to get more information.</p>
   print_jobs:
     create:
-      create:
       success:
         one: "Your label has been sent to %{printer}"
         other: "%{count} labels have been sent to %{printer}"
@@ -120,7 +125,9 @@ en:
     index:
       subtitle: List
       help_html: |
-        <p>The help text for this page hasn't been written</p>
+        <p>A list of all quants, showing the most recent first.</p>
+        <p>If you are looking for a particular quant it may be easier looking it up using either the assay plate, or the input. Simply scan or type its barcode
+        into the search box and follow the links.</p>
     new:
       subtitle: Perform
       help_html: |
@@ -161,7 +168,13 @@ en:
         <p>This page shows the full list of registered quant types, and the type of standard that is expected with each.</p>
     new:
       help_html:
-        <p>To be writen.</p>
+        <p>Quant types must be selected when conducting a quant.</p>
+        <dl>
+        <dt>Name</dt>
+        <dd>The name of the quant type that will be displayed in the dropdown<./dd>
+        <dt>Standard Type</dt>
+        <dd>The standard type that must be used in the quant process. Users will be unable to creat a quant with a different standard type.</dd>
+        </dl>
     create:
       success: "The Quant Type '%{name}' was successfully created"
     no_standard_types:
@@ -177,7 +190,7 @@ en:
         <p>This page shows the full list of registered standard types</p>
     new:
       help_html:
-        <p>To be writen</p>
+        <p>Please provide a name for your standard type.</p>
     create:
       success: "The Standard Type '%{name}' was successfully created"
     edit:

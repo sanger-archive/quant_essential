@@ -44,6 +44,6 @@ class QuantTypesController < ApplicationController
   private
 
   def quant_type_attributes
-    params.require(:quant_type).permit(:name,:standard_type_id)
+    params.require(:quant_type).permit(:name,:standard_type_id).transform_values {|v| v.squish }
   end
 end

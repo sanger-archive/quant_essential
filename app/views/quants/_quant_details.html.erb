@@ -8,5 +8,5 @@
 <dt><%= Quant.human_attribute_name(:standard) %></dt>
 <dd><%= link_to quant.standard_barcode, standard_path(quant.standard_barcode) %></dd>
 <dt><%= Quant.human_attribute_name(:input) %></dt>
-<dd><%= quant.input.external_type %> : <%= quant.input.name %> : <%= quant.input_barcode %></dd>
+<dd><%=  link_to quant.input.name, quant.input %> : <%= quant.input.external_type %> : <%= quant.input_barcode %></dd>
 </dl>
