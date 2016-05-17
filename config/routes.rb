@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   resources :quants, only: [:create,:new,:show,:index], param: :assay_barcode
   resources :quant_types, except: :delete
 
+  resources :printers, param: :name
+
 end

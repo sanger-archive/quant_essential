@@ -3,6 +3,6 @@
   <% if assay.has_quant? %>
     <%= link_to content_tag(:span,assay.quant.name,class:"label label-success"), quant_path(assay.barcode) %></span>
   <% else %>
-    <span class="label label-default">Unuused</span>
+    <span class="label label-default"><%= t('unused') %></span>
   <% end %>
 </li>

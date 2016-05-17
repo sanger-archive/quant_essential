@@ -84,6 +84,27 @@ en:
       success:
         one: "Your label has been sent to %{printer}"
         other: "%{count} labels have been sent to %{printer}"
+  printers:
+    new:
+      help_html: |
+        <p>This page allows you to add new printers which will appear in the printer dropdown. Printers will also need to be registered in print-my barcode.</p>
+        <dl>
+          <dt>Name</dt>
+          <dd>The official <small>(Hostname)</small> name of the printer. This <strong>must</strong> match the name use in Print My Barcode and uniquely identifies the printer.
+          If the name doesn't match, you will be unable to print. If you double click in the box QuantEssentail will provide some suggestions based on printers registered in Print My Barcode</dd>
+          <dt>Description</dt>
+          <dd>Optional: If provided will appear in the dropdown before the name when selecting a printer. This can help identify printers if the offical names are ambiguous or misleading.</dd>
+          <dt>Label Type</dt>
+          <dd>The template used when printing labels to this printer. It is important that this matches the label type loaded in the printer itself.
+          If you select the wrong label type the printer may be unable to print, and may need to be reset.</dd>
+        </dl>
+        <p>Once the form is filled in click create printer. QuantEssential will warn you if the printer doesn't exist in Print My Barcode</p>
+    create:
+      success: "Printer '%{name}' created"
+      warn_no_external: "Printer '%{name}' is not registered in print my barcode. Any attempts to select the printer will result in an error message, until this issue is resolved."
+      warn_no_connection: "Printer '%{name}' has been created. However QuantEssential was unable to connect to print my barcode to confirm that it is also registered externally."
+    destroy:
+      success: "Printer '%{name}' has been removed"
   quants:
     index:
       subtitle: List
@@ -192,3 +213,7 @@ en:
     print_job:
       printer:
         not_found: has not been registered
+  helpers:
+    submit:
+      print_job:
+        create: Print

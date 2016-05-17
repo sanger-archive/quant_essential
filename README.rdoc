@@ -41,3 +41,5 @@ Input and User both have a class attribute ::external_service which should point
 - Input::external_service.find(barcode) should return {uuid:"input_uuid",name:"Human readable name",external_type:"Human readable type identifier"}
 Currently these objects are created in the class definitions themselves, but we'll pull it out into the configuration files.
 Note: While you can inject in object in initializers, this tends to play havoc with rails class reloading, and is not recommended in development mode.
+
+Barcode printing is handled by print my barcode. In the current version it is not possible to substitute this for an external service.

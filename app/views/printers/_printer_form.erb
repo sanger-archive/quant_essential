@@ -1,0 +1,11 @@
+<%= form_for(printer, builder: BootstrapFormBuilder, html:{class:'form-horizontal'}) do |f| %>
+  <%= f.text_field(:name, required: true, list:'external_printers') %>
+  <datalist id='external_printers'>
+    <% available_external_printers.map do |printer_name| %>
+      <option value="<%= printer_name %>">
+    <% end %>
+  </datalist>
+  <%= f.text_field(:description, {}) %>
+  <%= f.select(:label_template_id, available_label_templates, {}, required: true) %>
+  <%= f.submit %>
+<% end %>

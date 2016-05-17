@@ -1,0 +1,13 @@
+  <dl class="summary dl-horizontal">
+  <dt><%= Standard.human_attribute_name(:standard_set) %></dt>
+  <dd><%= link_to l(standard.standard_set.created_at, format: :long), standard_set_path(standard.standard_set.friendly_uuid) %></dd>
+  <dt><%= Standard.human_attribute_name(:standard_type) %></dt>
+  <dd><%= link_to standard.standard_type.name, standard_type_path(standard.standard_type) %></dd>
+  <dt><%= Standard.human_attribute_name(:quant) %></dt>
+  <% if standard.has_quant? %>
+    <dd><%= link_to standard.quant.name, quant_path(standard.barcode) %></dd>
+  <% else %>
+    <dd>Unused</dd>
+  <% end %>
+
+  </dl>

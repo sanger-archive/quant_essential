@@ -1,9 +1,8 @@
 <li class='list-group-item standard'>
-  <h4 class="list-group-item-heading"><%= link_to standard.barcode, standard_path(standard.barcode) %></h4>
-  <p>Is a <%= link_to standard.standard_type.name, standard_type_path(standard.standard_type) %></p>
+  <h4 class="list-group-item-heading"><%= link_to standard.barcode, standard_path(standard.barcode) %> <small><%= link_to standard.standard_type.name, standard_type_path(standard.standard_type) %></small></h4>
   <% if standard.has_quant? %>
     <%= link_to content_tag(:span,standard.quant.name,class:"label label-success"), quant_path(standard.quant.assay_barcode) %>
   <% else %>
-    <span class="label label-default">Unuused</span>
+    <span class="label label-default"><%= t('unused') %></span>
   <% end %>
 </li>
