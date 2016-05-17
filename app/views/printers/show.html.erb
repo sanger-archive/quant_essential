@@ -1,1 +1,4 @@
-<%= render partial: 'printer_details', locals: { printer: @printer } %>
+<div class="row">
+  <div class="col-md-8"><%= render partial: 'printer_details', locals: { printer: @printer } %></div>
+  <div class="col-md-4"><%= link_to t('.edit'), edit_printer_path(@printer), class:"btn btn-primary btn-lg btn-default" %></div>
+</div>

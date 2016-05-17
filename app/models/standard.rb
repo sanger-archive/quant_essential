@@ -3,6 +3,8 @@ class Standard < ActiveRecord::Base
   include BarcodeAutogen
   include OrderScopes
 
+  def to_param; barcode; end
+
   self.barcode_prefix = 'S'
 
   belongs_to :standard_type, required: true, validate: true, inverse_of: :standards

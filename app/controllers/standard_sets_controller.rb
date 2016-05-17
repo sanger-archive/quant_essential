@@ -4,7 +4,7 @@ class StandardSetsController < ApplicationController
   def create
     @standard_set = StandardSet.new(standard_set_params)
     if @standard_set.save
-      redirect_to standard_set_path(@standard_set.friendly_uuid), notice: t('.success',count: @standard_set.standard_count)
+      redirect_to standard_set_path(@standard_set), notice: t('.success',count: @standard_set.standard_count)
     else
       flash.now.alert = @standard_set.errors.full_messages
       render :new

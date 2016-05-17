@@ -3,6 +3,8 @@ class StandardSet < ActiveRecord::Base
   include HasUuid
   include OrderScopes
 
+  def to_param; friendly_uuid; end
+
   attr_accessor :standard_count
 
   has_many :standards, inverse_of: :standard_set, validate: true

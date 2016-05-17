@@ -4,7 +4,7 @@ class AssaySetsController < ApplicationController
   def create
     @assay_set = AssaySet.new(assay_set_params)
     if @assay_set.save
-      redirect_to assay_set_path(@assay_set.friendly_uuid), notice: t('.success',count: @assay_set.assay_count)
+      redirect_to assay_set_path(@assay_set), notice: t('.success',count: @assay_set.assay_count)
     else
       flash.now.alert = @assay_set.errors.full_messages
       render :new

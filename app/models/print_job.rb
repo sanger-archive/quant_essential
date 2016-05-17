@@ -13,13 +13,16 @@ class PrintJob
         label_template_id: printer_record.template_id,
         labels:{body:printables}
       )
-      return true if job.save
-      errors.add(:print_server,job.errors.full_messages.join(' - '))
-      false
-      # The PMB errors are not JSON API compliant
-      # We rescue the resulting exception, and double check its the one we expect
+      if job.save
+        true
+      else
+        errors.add(:print_server,job.errors.full_messages.join(' - '))
+        false
+      end
+    # The PMB errors are not JSON API compliant
+    # We rescue the resulting exception, and double check its the one we expect
     rescue NoMethodError => exception
-      return handle_pmb_error(exception)
+      handle_pmb_error(exception)
     end
   end
 
