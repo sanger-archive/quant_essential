@@ -2,4 +2,4 @@
   <div class="col-md-8"><%= render partial: 'quant_type_details', locals: { quant_type: @quant_type } %></div>
   <div class="col-md-4"><%= link_to t('.edit'), edit_quant_type_path(@quant_type), class:"btn btn-primary btn-lg btn-default" %></div>
 </div>
-<%= render partial: 'list', locals: { model_name: Quant.model_name, items: @quants,  creation_link: new_quant_path } %>
+<%= render partial: 'list', locals: { model_name: Quant.model_name, items: @quants,  creation_link: new_quant_path(quant_type_id:@quant_type) } %>

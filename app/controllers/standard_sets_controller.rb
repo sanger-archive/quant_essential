@@ -12,7 +12,7 @@ class StandardSetsController < ApplicationController
   end
 
   def new
-    @standard_set = StandardSet.new
+    @standard_set = StandardSet.new(new_standard_set_params)
     @standard_types = StandardType.alphabetical.pluck(:name,:id)
   end
 
@@ -28,6 +28,10 @@ class StandardSetsController < ApplicationController
 
 
   private
+
+  def new_standard_set_params
+    params.permit(:standard_type_id)
+  end
 
   def standard_set_params
     params.required(:standard_set).permit(:standard_count,:standard_type_id)

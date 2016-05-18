@@ -9,7 +9,11 @@ class Input < ActiveRecord::Base
   has_many :quants, inverse_of: :input
 
   scope :include_for_list, ->() { includes(:quants,:barcode_object) }
-
+  scope :with_parameters, ->(params) {
+    # Prioritise barcode, otherwise fall back to other options
+    return with_barcode(params[:barcode]) if params[:barcode].present?
+    joins(quants: {assay: :barcode_object}).where(barcodes:{barcode:params['quant_assay_barcode']} )
+  }
   # Must point to an object that responds to find with a barcode and returns a has appropriate for input creation
   class_attribute :external_service
 

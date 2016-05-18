@@ -20,7 +20,10 @@ Rails.application.routes.draw do
 
   resources :standard_types, except: :delete
 
-  resources :quants, only: [:create,:new,:show,:index], param: :assay_barcode
+  resources :quants, only: [:create,:new,:show,:index], param: :assay_barcode do
+    resource :input, only: :show
+  end
+
   resources :quant_types, except: :delete
 
   resources :printers, param: :name
