@@ -1,7 +1,7 @@
 class QuantsController < ApplicationController
 
   def create
-    qar = QuantAttributeReader.new(params[:quant])
+    qar = QuantAttributeReader.new(params[:quant].transform_values {|v| v.squish })
 
     if qar.validate_and_create_quant
       @quant = qar.quant
@@ -17,7 +17,7 @@ class QuantsController < ApplicationController
   end
 
   def new
-    @quant = Quant.new
+    @quant = Quant.new(new_quant_params)
     @quant_types = QuantType.alphabetical.pluck(:name,:id)
   end
 
@@ -28,6 +28,12 @@ class QuantsController < ApplicationController
   def show
     @quant = Quant.with_assay_barcode(params[:assay_barcode]).first!
     @subtitle = @quant.name
+  end
+
+  private
+
+  def new_quant_params
+    params.permit(:quant_type_id)
   end
 
 end

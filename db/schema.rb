@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505122314) do
+ActiveRecord::Schema.define(version: 20160516085731) do
 
   create_table "assay_sets", force: :cascade do |t|
     t.uuid     "uuid",       limit: 16, null: false
@@ -44,6 +44,22 @@ ActiveRecord::Schema.define(version: 20160505122314) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "label_templates", force: :cascade do |t|
+    t.string   "name",        limit: 255, null: false
+    t.integer  "external_id", limit: 4,   null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "printers", force: :cascade do |t|
+    t.string  "name",              limit: 255, null: false
+    t.string  "description",       limit: 255
+    t.integer "label_template_id", limit: 4,   null: false
+  end
+
+  add_index "printers", ["label_template_id"], name: "fk_rails_faa54d2503", using: :btree
+  add_index "printers", ["name"], name: "index_printers_on_name", using: :btree
 
   create_table "quant_types", force: :cascade do |t|
     t.string   "name",             limit: 255, null: false
@@ -102,6 +118,7 @@ ActiveRecord::Schema.define(version: 20160505122314) do
   end
 
   add_foreign_key "assays", "assay_sets"
+  add_foreign_key "printers", "label_templates"
   add_foreign_key "quant_types", "standard_types"
   add_foreign_key "quants", "assays"
   add_foreign_key "quants", "inputs"

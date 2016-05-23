@@ -42,8 +42,9 @@ gem "faraday"
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'binging.pry' anywhere in the code to stop execution and get a repl console
+  # Call 'binding.pry' anywhere in the code to stop execution and get a repl console
   gem 'pry'
+  gem 'mocha'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
 end

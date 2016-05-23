@@ -3,6 +3,8 @@ class StandardSet < ActiveRecord::Base
   include HasUuid
   include OrderScopes
 
+  def to_param; friendly_uuid; end
+
   attr_accessor :standard_count
 
   has_many :standards, inverse_of: :standard_set, validate: true
@@ -12,6 +14,11 @@ class StandardSet < ActiveRecord::Base
   validates :standard_type, presence: true
 
   before_create :generate_standard_sets
+
+
+  # Printables is an array of the items that get printed
+  alias_attribute :printables, :standards
+
 
   private
 

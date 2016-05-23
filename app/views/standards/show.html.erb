@@ -1,2 +1,6 @@
-<h1>Standard#show</h1>
-<p>Find me in app/views/standard/show.html.erb</p>
+<div class="col-md-6">
+<%= render partial: 'standard_details', locals: { standard: @standard } %>
+</div>
+<div class="col-md-6">
+  <%= render partial: 'print_form', locals: { target: @standard } %>
+</div>

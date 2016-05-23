@@ -6,6 +6,8 @@ class Assay < ActiveRecord::Base
 
   self.barcode_prefix = 'A'
 
+  def to_param; barcode; end
+
   # An assay set primarily exists to group assays together for the purpose
   # of RESTful bulk creation.
   belongs_to :assay_set

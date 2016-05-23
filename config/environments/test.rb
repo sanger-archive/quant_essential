@@ -40,4 +40,5 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.api_root = Faraday.new('http://localhost:3000/api/1')
+  config.pmb_uri = 'http://localhost:3002/v1/'
 end

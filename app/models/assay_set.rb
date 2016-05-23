@@ -5,12 +5,17 @@ class AssaySet < ActiveRecord::Base
 
   attr_accessor :assay_count
 
+  def to_param; friendly_uuid; end
+
   has_many :assays, inverse_of: :assay_set
 
   validates :assay_count, on: :create, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
 
   before_create :generate_assay_sets
+
+  # Printables is an array of the items that get printed
+  alias_attribute :printables, :assays
 
   private
 

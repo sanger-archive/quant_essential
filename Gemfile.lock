@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sanger/pmb-client.git
-  revision: 87b59134c228f4b4d03950720cd9cad098300e9a
+  revision: 232ff2ea89726d50dbcbe7c15e1f2f9b6d65a4eb
   specs:
     pmb-client (0.1.0)
       json_api_client (~> 1.1)
@@ -100,12 +100,15 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    metaclass (0.0.4)
     method_source (0.8.2)
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    mocha (1.1.0)
+      metaclass (~> 0.0.1)
     multi_json (1.11.3)
     multipart-post (2.0.0)
     mysql2 (0.4.4)
@@ -198,6 +201,7 @@ DEPENDENCIES
   faraday
   jbuilder (~> 2.0)
   jquery-rails
+  mocha
   mysql2
   pmb-client (= 0.1.0)!
   pry

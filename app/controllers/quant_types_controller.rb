@@ -12,7 +12,7 @@ class QuantTypesController < ApplicationController
   end
 
   def new
-    @quant_type = QuantType.new
+    @quant_type = QuantType.new(new_quant_params)
     @standard_types = StandardType.alphabetical.pluck(:name,:id)
   end
 
@@ -43,7 +43,11 @@ class QuantTypesController < ApplicationController
 
   private
 
+  def new_quant_params
+    params.permit(:standard_type_id)
+  end
+
   def quant_type_attributes
-    params.require(:quant_type).permit(:name,:standard_type_id)
+    params.require(:quant_type).permit(:name,:standard_type_id).transform_values {|v| v.squish }
   end
 end

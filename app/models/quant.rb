@@ -1,6 +1,8 @@
 class Quant < ActiveRecord::Base
   include OrderScopes
 
+  def to_param; assay_barcode; end
+
   belongs_to :quant_type, inverse_of: :quants, required: true, validate: true
   belongs_to :assay, inverse_of: :quant, required: true, validate: true
   belongs_to :standard, inverse_of: :quant, required: true, validate: true

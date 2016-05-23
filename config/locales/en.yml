@@ -29,6 +29,12 @@ en:
       title: There's nothing here...
       body: You haven't created any %{model_name} yet. Once you do, you'll be able to see them here.
       creation_button: Create %{model_name}
+  barcodes:
+    index:
+      subtitle: "Searching..."
+    show:
+      title: Nothing found...
+      body: QuantEssential couldn't find anything with the barcode '%{barcode}'. If you scanned an input plate, it may not have been used in a quant process yet.
   flashes:
     titles:
       notice: 'Great!'
@@ -78,11 +84,50 @@ en:
         <p><span class="label label-default">Unuused</span> Indicates an assay which has not been used in a quant process.</p>
         <p><span class="label label-success">Example</span> Indicates an assay which has been used in an 'example' quant.
         Click on the label to get more information.</p>
+  print_jobs:
+    create:
+      success:
+        one: "Your label has been sent to %{printer}"
+        other: "%{count} labels have been sent to %{printer}"
+  printers:
+    new:
+      help_html: |
+        <p>This page allows you to add new printers which will appear in the printer dropdown. Printers will also need to be registered in print-my barcode.</p>
+        <dl>
+          <dt>Name</dt>
+          <dd>The official <small>(Hostname)</small> name of the printer. This <strong>must</strong> match the name use in Print My Barcode and uniquely identifies the printer.
+          If the name doesn't match, you will be unable to print. If you double click in the box QuantEssentail will provide some suggestions based on printers registered in Print My Barcode</dd>
+          <dt>Description</dt>
+          <dd>Optional: If provided will appear in the dropdown before the name when selecting a printer. This can help identify printers if the offical names are ambiguous or misleading.</dd>
+          <dt>Label Type</dt>
+          <dd>The template used when printing labels to this printer. It is important that this matches the label type loaded in the printer itself.
+          If you select the wrong label type the printer may be unable to print, and may need to be reset.</dd>
+        </dl>
+        <p>Once the form is filled in click create printer. QuantEssential will warn you if the printer doesn't exist in Print My Barcode</p>
+    index:
+      subtitle: List
+      help_html: |
+        <p>All registered printers. Printers appearing on this list will be available in the print drop down.</p>
+        <p>Each entry shows the printer name, followed by the optional description. The sceond line indicates the label template used by the printer.</p>
+        <p>Printers can be added to this list by selecting Admin > Create Printers</p>
+        <p>To seee more details about an idividual printer, click on its name.</p>
+    update:
+      success: Printer '%{name}' was updated
+    show:
+      <p>Shows details about a printer. Click 'Edit' to edit the printer.</p<
+    create:
+      success: "Printer '%{name}' created"
+      warn_no_external: "Printer '%{name}' is not registered in print my barcode. Any attempts to select the printer will result in an error message, until this issue is resolved."
+      warn_no_connection: "Printer '%{name}' has been created. However QuantEssential was unable to connect to print my barcode to confirm that it is also registered externally."
+    destroy:
+      success: "Printer '%{name}' has been removed"
   quants:
     index:
       subtitle: List
       help_html: |
-        <p>The help text for this page hasn't been written</p>
+        <p>A list of all quants, showing the most recent first.</p>
+        <p>If you are looking for a particular quant it may be easier looking it up using either the assay plate, or the input. Simply scan or type its barcode
+        into the search box and follow the links.</p>
     new:
       subtitle: Perform
       help_html: |
@@ -123,7 +168,13 @@ en:
         <p>This page shows the full list of registered quant types, and the type of standard that is expected with each.</p>
     new:
       help_html:
-        <p>To be writen.</p>
+        <p>Quant types must be selected when conducting a quant.</p>
+        <dl>
+        <dt>Name</dt>
+        <dd>The name of the quant type that will be displayed in the dropdown<./dd>
+        <dt>Standard Type</dt>
+        <dd>The standard type that must be used in the quant process. Users will be unable to creat a quant with a different standard type.</dd>
+        </dl>
     create:
       success: "The Quant Type '%{name}' was successfully created"
     no_standard_types:
@@ -139,7 +190,7 @@ en:
         <p>This page shows the full list of registered standard types</p>
     new:
       help_html:
-        <p>To be writen</p>
+        <p>Please provide a name for your standard type.</p>
     create:
       success: "The Standard Type '%{name}' was successfully created"
     edit:
@@ -183,3 +234,10 @@ en:
         unsuitable: is an unsuitable type for this quant process
       input_barcode:
         not_found: does not match a known resource. Inputs must be Sequencescape plates
+    print_job:
+      printer:
+        not_found: has not been registered
+  helpers:
+    submit:
+      print_job:
+        create: Print
