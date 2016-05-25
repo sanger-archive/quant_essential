@@ -19,4 +19,6 @@
 # Ignore the generated doc files
 /doc
 
+/coverage
+
 quant_essential.sublime-workspace
