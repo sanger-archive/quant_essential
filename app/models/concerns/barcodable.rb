@@ -24,7 +24,11 @@ module Barcodable
       end
 
       def label_atttibutes
+        {label:{top_line:label_description,bottom_line:barcode,barcode:barcode}}
+      end
 
+      def label_description
+        self.class.name
       end
     end
   end

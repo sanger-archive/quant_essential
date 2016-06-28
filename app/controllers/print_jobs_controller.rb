@@ -4,7 +4,7 @@ class PrintJobsController < ApplicationController
   include PrintableFinders
 
   def create
-    @print_job = PrintJob.new(printables:printables,printer:printer_params[:printer])
+    @print_job = PrintJob.new(printables:printables.map(&:label_atttibutes),printer:printer_params[:printer])
     if @print_job.print
       flash.notice = t('.success',count:printables.length,printer:printer_params[:printer])
     else

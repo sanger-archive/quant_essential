@@ -20,4 +20,8 @@ class Standard < ActiveRecord::Base
     quants.present?
   end
 
+    def label_description
+      standard_type.name
+    end
+
 end
