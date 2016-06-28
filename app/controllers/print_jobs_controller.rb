@@ -4,9 +4,9 @@ class PrintJobsController < ApplicationController
   include PrintableFinders
 
   def create
-    @print_job = PrintJob.new(printables:printables,printer:params[:printer])
+    @print_job = PrintJob.new(printables:printables,printer:printer_params[:printer])
     if @print_job.print
-      flash.notice = t('.success',count:printables.length,printer:params[:printer])
+      flash.notice = t('.success',count:printables.length,printer:printer_params[:printer])
     else
       flash.alert = @print_job.errors.full_messages
     end
@@ -19,6 +19,10 @@ class PrintJobsController < ApplicationController
 
   def redirect_home
     redirect_to :root
+  end
+
+  def printer_params
+    params.require(:print_job).permit(:printer)
   end
 
 end
