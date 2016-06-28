@@ -44,7 +44,7 @@ Rails.application.configure do
   # Here we prevent Faraday falling back to the HTTP_PROXY, but still let a proxy be set if needed
   proxy = ENV.fetch('FARADAY_PROXY','')
   sequencescape_uri = ENV.fetch('SEQUENCESCAPE_URI','http://localhost:3000/api/1')
-  sequencescape_headers = { 'ACCEPT'=>'application/json', 'X_SEQUENCESCAPE_CLIENT_ID'=>'development', 'Content-Type'=>' application/json'}
+  sequencescape_headers = { 'ACCEPT'=>'application/json', 'x-sequencescape-client-id'=>'development', 'Content-Type'=>' application/json'}
 
   config.api_root = Faraday.new(sequencescape_uri, proxy: proxy, headers: sequencescape_headers )
   config.pmb_uri = ENV.fetch('PMB_URI','http://localhost:3002/v1/')
