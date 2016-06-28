@@ -29,6 +29,11 @@ en:
       title: There's nothing here...
       body: You haven't created any %{model_name} yet. Once you do, you'll be able to see them here.
       creation_button: Create %{model_name}
+    header:
+      quants: Quants
+      assays: Assays
+      standards: Standards
+      admin: Admin
   barcodes:
     index:
       subtitle: "Searching..."
@@ -210,6 +215,11 @@ en:
       quant:
         one: Quant
         other: Quants
+    attributes:
+      assay_set:
+        assay_count: Quantity needed
+      standard_set:
+        standard_count: Quantity needed
     errors:
       messages:
         blank: "is required and can not be left blank"
