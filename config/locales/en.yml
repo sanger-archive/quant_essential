@@ -51,8 +51,8 @@ en:
     new:
       subtitle: New
       help_html: |
-        <p>Assays are plates (or possibly other pieces of labware) that receive material from inputs and stocks, and are subject to a quant process.
-        They can be created in bulk in advance, ready to recieve any material. They will be labels with barcodes.</p>
+        <p>Assays are plates (or possibly other pieces of labware) that receive material from inputs and standards, and are subject to a quant process.
+        They can be created in bulk in advance, ready to recieve any material. They will be labeled with barcodes.</p>
         <p>This page lets you create one or more assay plates in advance. Enter the number of plates desired in 'Assay count' and click 'Create assay set'.
         You will be able to see the assays created, and print the corresponding labels on the next page.</p>
     show:
