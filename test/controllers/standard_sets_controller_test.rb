@@ -19,7 +19,7 @@ class StandardSetsControllerTest < ActionController::TestCase
   test "should allow creation of standard sets" do
     standard_type = create :standard_type
     assert_difference('StandardSet.count') do
-      post :create, standard_set: {standard_count: 5, standard_type_id: standard_type.id}
+      post :create, standard_set: {standard_count: 5, standard_type_id: standard_type.id, lot_number: 'test'}
     end
     assert_not_nil assigns(:standard_set)
     assert_redirected_to standard_set_path(assigns(:standard_set).friendly_uuid)

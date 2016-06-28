@@ -5,7 +5,7 @@ class StandardSet < ActiveRecord::Base
 
   def to_param; friendly_uuid; end
 
-  attr_accessor :standard_count
+  attr_accessor :standard_count, :lot_number
 
   has_many :standards, inverse_of: :standard_set, validate: true
   belongs_to :standard_type
@@ -28,7 +28,8 @@ class StandardSet < ActiveRecord::Base
 
   def default_standard_attributes
     {
-      standard_type: standard_type
+      standard_type: standard_type,
+      lot_number: lot_number
     }
   end
 

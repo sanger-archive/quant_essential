@@ -6,11 +6,12 @@ class StandardSetTest < ActiveSupport::TestCase
     as = nil
     standard_type = create :standard_type
     assert_difference('Standard.count',5) do
-      as = StandardSet.create!(standard_count: 5, standard_type_id: standard_type.id)
+      as = StandardSet.create!(standard_count: 5, standard_type_id: standard_type.id, lot_number: 'test_lot')
     end
     assert_equal 5, as.standards.count
     as.standards.each_with_index do |standard,i|
       assert_equal standard_type, standard.standard_type, "Standard #{i} is a #{standard.standard_type.name} not a #{standard.standard_type.name}"
+      assert_equal 'test_lot', standard.lot_number
     end
   end
 
