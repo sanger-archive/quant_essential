@@ -5,7 +5,9 @@
   <dd><%= link_to standard.standard_type.name, standard_type_path(standard.standard_type) %></dd>
   <dt><%= Standard.human_attribute_name(:quant) %></dt>
   <% if standard.has_quant? %>
-    <dd><%= link_to standard.quant.name, quant_path(standard) %></dd>
+    <% standard.quants.each do |quant| %>
+      <dd><%= link_to quant.name, quant_path(quant) %></dd>
+    <% end %>
   <% else %>
     <dd>Unused</dd>
   <% end %>

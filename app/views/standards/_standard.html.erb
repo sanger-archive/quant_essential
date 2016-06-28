@@ -2,7 +2,9 @@
   <h4 class="list-group-item-heading"><%= link_to standard.barcode, standard_path(standard) %>
   <small><%= link_to standard.standard_type.name, standard_type_path(standard.standard_type) %></small></h4>
   <% if standard.has_quant? %>
-    <%= link_to content_tag(:span,standard.quant.name,class:"label label-success"), quant_path(standard.quant.assay_barcode) %>
+    <% standard.quants.each do |quant| %>
+      <%= link_to content_tag(:span,quant.name,class:"label label-success"), quant_path(quant.assay_barcode) %>
+    <% end %>
   <% else %>
     <span class="label label-default"><%= t('unused') %></span>
   <% end %>
