@@ -40,7 +40,6 @@ class QuantAttributeReader
   # A standard barcode must map to a standard plate, the plate must be unused, and must be of the right standard type
   def standard_is_suitable?
     errors.add(:standard_barcode,I18n.t(:not_found,scope:[:errors,:quant_attribute_reader,:standard_barcode])) if standard.nil?
-    errors.add(:standard_barcode,I18n.t(:used, scope:[:errors,:quant_attribute_reader,:standard_barcode])) if standard.present? && standard.has_quant?
     errors.add(:standard_barcode,I18n.t(:unsuitable, scope:[:errors,:quant_attribute_reader,:standard_barcode])) if wrong_standard_type?
   end
 

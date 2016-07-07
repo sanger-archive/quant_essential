@@ -11,11 +11,13 @@ FactoryGirl.define do
   factory :standard_set do
     standard_count 5
     standard_type #{ create(:standard_type).id }
+    lot_number 'test_lot'
   end
 
   factory :standard do
     standard_type
     standard_set
+    lot_number 'test_lot'
   end
 
 end

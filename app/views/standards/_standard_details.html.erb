@@ -1,13 +1,16 @@
-  <dl class="summary dl-horizontal">
+<dl class="summary dl-horizontal">
   <dt><%= Standard.human_attribute_name(:standard_set) %></dt>
   <dd><%= link_to l(standard.standard_set.created_at, format: :long), standard_set_path(standard.standard_set) %></dd>
   <dt><%= Standard.human_attribute_name(:standard_type) %></dt>
   <dd><%= link_to standard.standard_type.name, standard_type_path(standard.standard_type) %></dd>
-  <dt><%= Standard.human_attribute_name(:quant) %></dt>
+  <dt><%= Standard.human_attribute_name(:quants) %></dt>
   <% if standard.has_quant? %>
-    <dd><%= link_to standard.quant.name, quant_path(standard) %></dd>
+    <dd><% standard.quants.each do |quant| %>
+      <%= link_to quant.name, quant_path(quant) %>
+    <% end %></dd>
   <% else %>
     <dd>Unused</dd>
   <% end %>
-
-  </dl>
+  <dt><%= Standard.human_attribute_name(:lot_number) %></dt>
+  <dd><%= standard.lot_number %></dd>
+</dl>

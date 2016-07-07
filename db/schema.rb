@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516085731) do
+ActiveRecord::Schema.define(version: 20160628111639) do
 
   create_table "assay_sets", force: :cascade do |t|
     t.uuid     "uuid",       limit: 16, null: false
@@ -101,10 +101,11 @@ ActiveRecord::Schema.define(version: 20160516085731) do
   end
 
   create_table "standards", force: :cascade do |t|
-    t.integer  "standard_set_id",  limit: 4, null: false
-    t.integer  "standard_type_id", limit: 4, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "standard_set_id",  limit: 4,   null: false
+    t.integer  "standard_type_id", limit: 4,   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "lot_number",       limit: 255
   end
 
   add_index "standards", ["standard_set_id"], name: "fk_rails_bbe8ff187d", using: :btree
