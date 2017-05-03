@@ -34,6 +34,6 @@ class StandardSetsController < ApplicationController
   end
 
   def standard_set_params
-    params.required(:standard_set).permit(:standard_count,:standard_type_id)
+    params.required(:standard_set).permit(:standard_count, :standard_type_id, :lot_number)
   end
 end

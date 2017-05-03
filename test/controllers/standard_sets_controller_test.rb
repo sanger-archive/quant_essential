@@ -22,6 +22,7 @@ class StandardSetsControllerTest < ActionController::TestCase
       post :create, standard_set: {standard_count: 5, standard_type_id: standard_type.id, lot_number: 'test'}
     end
     assert_not_nil assigns(:standard_set)
+    assert_equal 'test', assigns(:standard_set).standards.first.lot_number
     assert_redirected_to standard_set_path(assigns(:standard_set).friendly_uuid)
   end
 
