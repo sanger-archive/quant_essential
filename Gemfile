@@ -2,12 +2,13 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.8'
 gem 'mysql2'
 gem 'activeuuid'
 # Use SCSS for stylesheets and bootstrap for styling
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
+gem 'coffee-rails' # Used by bootstrap-sass (Somehow)
 
 gem 'will_paginate'
 gem "will_paginate-bootstrap"
@@ -47,6 +48,7 @@ group :development, :test do
   gem 'mocha'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'rubocop'
 end
 
 group :development do
