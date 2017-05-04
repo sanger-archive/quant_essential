@@ -194,13 +194,6 @@ Style/SingleLineMethods:
     - 'app/models/standard.rb'
     - 'app/models/standard_set.rb'
 
-# Offense count: 16
-# Cop supports --auto-correct.
-# Configuration parameters: SupportedStyles.
-# SupportedStyles: percent, brackets
-Style/SymbolArray:
-  EnforcedStyle: brackets
-
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: IgnoredMethods.

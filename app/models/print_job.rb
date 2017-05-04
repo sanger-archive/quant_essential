@@ -33,7 +33,7 @@ class PrintJob
   end
 
   def printer_is_suitable?
-    errors.add(:printer, I18n.t(:not_found, scope: [:errors, :print_job, :printer])) if printer_record.nil?
+    errors.add(:printer, I18n.t(:not_found, scope: %i[errors print_job printer])) if printer_record.nil?
     printer_record.present?
   end
 
