@@ -15,5 +15,4 @@ class StandardsControllerTest < ActionController::TestCase
     assert_response :success
     assert_equal standard, assigns(:standard)
   end
-
 end

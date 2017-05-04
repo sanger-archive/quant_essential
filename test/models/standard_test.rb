@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class StandardTest < ActiveSupport::TestCase
-
   test "requires a standard_type" do
     standard = build :standard, standard_type: nil
     assert_not standard.valid?

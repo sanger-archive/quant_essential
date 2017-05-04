@@ -5,7 +5,6 @@
 # - Valid characters are ({0-9}{A-Z}-_)
 # - Maximum length is 25 characters (including prefix) as longer barcodes have issues printing
 class Sanger128
-
   # Default minimum length for a barcode prefix
   MIN_PREFIX_LENGTH = 3
   # Default maximum length for a barcode prefix
@@ -44,13 +43,13 @@ class Sanger128
     @valid_expression = valid_expression
 
     raise_on_invalid_prefix!(base_prefix)
-    @base_prefix = base_prefix.ljust(MAX_PREFIX_LENGTH,separator).freeze
+    @base_prefix = base_prefix.ljust(MAX_PREFIX_LENGTH, separator).freeze
     @separator = separator
   end
 
   # Take one or more arguments, returns a valid barcode string, or raises InvalidBarcode if the parameters are unsuitable
   def generate(*components)
-    barcode = [base_prefix,*components].join(separator)
+    barcode = [base_prefix, *components].join(separator)
     raise_on_invalid_barcode!(barcode)
     barcode
   end
@@ -62,17 +61,16 @@ class Sanger128
   private
 
   def raise_on_invalid_prefix!(test_prefix)
-    raise_on_invalid_content!(test_prefix,min_prefix,max_prefix,valid_expression)
+    raise_on_invalid_content!(test_prefix, min_prefix, max_prefix, valid_expression)
   end
 
   def raise_on_invalid_barcode!(test_barcode)
-    raise_on_invalid_content!(test_barcode,min_barcode,max_barcode,valid_expression)
+    raise_on_invalid_content!(test_barcode, min_barcode, max_barcode, valid_expression)
   end
 
-  def raise_on_invalid_content!(test,min,max,regex)
+  def raise_on_invalid_content!(test, min, max, regex)
     raise InvalidBarcode, "'#{test}' is shorter than #{min} characters" if test.length < min
     raise InvalidBarcode, "'#{test}' is longer than #{max} characters" if test.length > max
     raise InvalidBarcode, "'#{test}' contains invalid characters" unless regex === test
   end
-
 end

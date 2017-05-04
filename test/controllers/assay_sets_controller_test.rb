@@ -16,7 +16,7 @@ class AssaySetsControllerTest < ActionController::TestCase
 
   test "should allow creation of assay sets" do
     assert_difference('AssaySet.count') do
-      post :create, assay_set: {assay_count: 5}
+      post :create, assay_set: { assay_count: 5 }
     end
     assert_not_nil assigns(:assay_set)
     assert_redirected_to assay_set_path(assigns(:assay_set).friendly_uuid)
@@ -42,5 +42,4 @@ class AssaySetsControllerTest < ActionController::TestCase
     assert_equal assay_set, assigns(:assay_set)
     assert_response :success
   end
-
 end

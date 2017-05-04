@@ -11,7 +11,6 @@ class AssaySet < ActiveRecord::Base
 
   validates :assay_count, on: :create, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
-
   before_create :generate_assay_sets
 
   # Printables is an array of the items that get printed
@@ -20,7 +19,6 @@ class AssaySet < ActiveRecord::Base
   private
 
   def generate_assay_sets
-    assays.build([{}]*assay_count.to_i)
+    assays.build([{}] * assay_count.to_i)
   end
-
 end

@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class BarcodesControllerTest < ActionController::TestCase
-
   test "should redirect to an assay" do
     assay = create :assay
     get :show, barcode: assay.barcode
@@ -33,5 +32,4 @@ class BarcodesControllerTest < ActionController::TestCase
     assert_equal 'not_a_barcode', assigns(:barcode)
     assert_template :show
   end
-
 end

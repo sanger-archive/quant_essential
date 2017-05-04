@@ -4,8 +4,8 @@ class StandardTypeCreationTest < ActionDispatch::IntegrationTest
   test "standard type creation" do
     get "/standard_types/new"
     assert_response :success
-    assert_difference('StandardType.count',1) do
-      post_via_redirect "/standard_types", standard_type: { name: 'Charlie'}
+    assert_difference('StandardType.count', 1) do
+      post_via_redirect "/standard_types", standard_type: { name: 'Charlie' }
     end
     assert assigns(:standard_type)
     created = assigns(:standard_type)

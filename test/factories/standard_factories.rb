@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   sequence :standard_type_name do |i|
     "standard_type_#{i}"
   end
@@ -10,7 +9,7 @@ FactoryGirl.define do
 
   factory :standard_set do
     standard_count 5
-    standard_type #{ create(:standard_type).id }
+    standard_type # { create(:standard_type).id }
     lot_number 'test_lot'
   end
 
@@ -19,5 +18,4 @@ FactoryGirl.define do
     standard_set
     lot_number 'test_lot'
   end
-
 end

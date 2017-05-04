@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class AssayTest < ActiveSupport::TestCase
-
   EXPECTED_BARCODE_PREFIX = "QNTE_A_"
   test "Generates a barcode after creation with the prefix #{EXPECTED_BARCODE_PREFIX}" do
     assay = create :assay
@@ -13,5 +12,4 @@ class AssayTest < ActiveSupport::TestCase
     assay = create :assay
     assert_equal "#{EXPECTED_BARCODE_PREFIX}#{assay.id}", assay.barcode
   end
-
 end

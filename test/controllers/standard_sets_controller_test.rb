@@ -19,7 +19,7 @@ class StandardSetsControllerTest < ActionController::TestCase
   test "should allow creation of standard sets" do
     standard_type = create :standard_type
     assert_difference('StandardSet.count') do
-      post :create, standard_set: {standard_count: 5, standard_type_id: standard_type.id, lot_number: 'test'}
+      post :create, standard_set: { standard_count: 5, standard_type_id: standard_type.id, lot_number: 'test' }
     end
     assert_not_nil assigns(:standard_set)
     assert_equal 'test', assigns(:standard_set).standards.first.lot_number
@@ -46,5 +46,4 @@ class StandardSetsControllerTest < ActionController::TestCase
     assert_equal standard_set, assigns(:standard_set)
     assert_response :success
   end
-
 end

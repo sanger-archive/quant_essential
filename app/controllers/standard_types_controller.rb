@@ -1,9 +1,8 @@
 class StandardTypesController < ApplicationController
-
   def create
     @standard_type = StandardType.new(standard_type_attributes)
     if @standard_type.save
-      redirect_to standard_type_path(@standard_type), notice: t('.success',name: @standard_type.name)
+      redirect_to standard_type_path(@standard_type), notice: t('.success', name: @standard_type.name)
     else
       flash.now.alert = @standard_type.errors.full_messages
       render :new
@@ -27,7 +26,7 @@ class StandardTypesController < ApplicationController
 
   def edit
     @standard_type = StandardType.find(params[:id])
-    @subtitle = t('.subtitle',name: @standard_type.name)
+    @subtitle = t('.subtitle', name: @standard_type.name)
   end
 
   def update
@@ -43,6 +42,6 @@ class StandardTypesController < ApplicationController
   private
 
   def standard_type_attributes
-    params.require(:standard_type).permit(:name).transform_values {|v| v.squish }
+    params.require(:standard_type).permit(:name).transform_values { |v| v.squish }
   end
 end

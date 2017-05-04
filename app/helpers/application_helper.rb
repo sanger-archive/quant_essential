@@ -1,15 +1,14 @@
 module ApplicationHelper
-
   def page_subtitle
-    @subtitle || t(:subtitle, scope:[controller_name,action_name],default:action_name.titleize)
+    @subtitle || t(:subtitle, scope: [controller_name, action_name], default: action_name.titleize)
   end
 
   def with_help?
-    yield if I18n.exists?([controller_name,action_name,:help_html])
+    yield if I18n.exists?([controller_name, action_name, :help_html])
   end
 
   def help_body
-    t(:help_html,scope:[controller_name,action_name])
+    t(:help_html, scope: [controller_name, action_name])
   end
 
   def pagination(collection)
@@ -17,10 +16,10 @@ module ApplicationHelper
   end
 
   def render_flashes
-    flash.each do |type,messages|
-      content_tag(:div,class: "alert alert-#{flash_to_bootstrap(type)}") do
-        content_tag(:strong,t(:title,scope:[:flashes,type],default:[:flashes,:default,:title])) <<
-        content_tag(:ul,messages.map {|m| content_tag(:li,m) })
+    flash.each do |type, messages|
+      content_tag(:div, class: "alert alert-#{flash_to_bootstrap(type)}") do
+        content_tag(:strong, t(:title, scope: [:flashes, type], default: [:flashes, :default, :title])) <<
+        content_tag(:ul, messages.map { |m| content_tag(:li, m) })
       end
     end
   end
@@ -31,7 +30,6 @@ module ApplicationHelper
     {
       'alert' => 'danger',
       'notice' => 'success'
-    }.fetch(flash_category,'info')
+    }.fetch(flash_category, 'info')
   end
-
 end

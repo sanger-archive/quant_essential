@@ -1,6 +1,6 @@
 module PrintersHelper
   def available_label_templates
-    LabelTemplate.pluck(:name,:id)
+    LabelTemplate.pluck(:name, :id)
   end
 
   def available_external_printers

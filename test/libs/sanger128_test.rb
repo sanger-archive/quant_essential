@@ -2,7 +2,6 @@ require 'test_helper'
 require './lib/sanger128'
 
 class Sanger128Test < ActiveSupport::TestCase
-
   test "rejects too short prefixes" do
     assert_raises Sanger128::InvalidBarcode do
       Sanger128.new('PF')
@@ -34,22 +33,21 @@ class Sanger128Test < ActiveSupport::TestCase
 
   test "can generate a barcode from multiple values" do
     generator = Sanger128.new('PREF')
-    barcode = generator.generate('A',12345)
+    barcode = generator.generate('A', 12345)
     assert_equal 'PREF_A_12345', barcode
   end
 
   test "rejects values with invalid characters" do
     generator = Sanger128.new('PREF')
     assert_raises Sanger128::InvalidBarcode do
-      barcode = generator.generate('f',12345)
+      barcode = generator.generate('f', 12345)
     end
   end
 
   test "rejects barcodes which are too long" do
     generator = Sanger128.new('PREF')
     assert_raises Sanger128::InvalidBarcode do
-      barcode = generator.generate('ABCDEFG','F'*20,12345)
+      barcode = generator.generate('ABCDEFG', 'F' * 20, 12345)
     end
   end
-
 end

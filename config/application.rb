@@ -25,6 +25,5 @@ module QuantEssential
 
     # The prefix placed in front of all barcodes
     config.application_barcode_prefix = "QNTE"
-
   end
 end

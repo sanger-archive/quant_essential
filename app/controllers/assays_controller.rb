@@ -1,5 +1,4 @@
 class AssaysController < ApplicationController
-
   def index
     @assays = Assay.include_for_list.latest_first.page(params[:page])
   end
@@ -8,5 +7,4 @@ class AssaysController < ApplicationController
     @assay = Assay.with_barcode(params[:barcode]).first!
     @subtitle = @assay.barcode
   end
-
 end

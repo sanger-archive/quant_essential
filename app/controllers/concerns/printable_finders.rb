@@ -11,11 +11,11 @@ module PrintableFinders
   end
 
   def assay_set
-    AssaySet.find_by!(uuid:uuid_from(params[:assay_set_uuid]))
+    AssaySet.find_by!(uuid: uuid_from(params[:assay_set_uuid]))
   end
 
   def standard_set
-    StandardSet.find_by!(uuid:uuid_from(params[:standard_set_uuid]))
+    StandardSet.find_by!(uuid: uuid_from(params[:standard_set_uuid]))
   end
 
   def assay

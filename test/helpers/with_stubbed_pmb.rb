@@ -5,7 +5,7 @@ PMB::Base.connection.delete(Faraday::Adapter::NetHttp)
 PMB::Base.connection.faraday.adapter :test, PMB::TestSuiteStubs
 
 module WithStubbedPmb
-  def print_job_response(name,external_id)
+  def print_job_response(name, external_id)
     %Q{{
       "data": {
         "id": "",
@@ -39,7 +39,7 @@ module WithStubbedPmb
     %Q{{"errors":[{"title":"Printer does not exist"}]}}
   end
 
-  def print_post(name,template)
+  def print_post(name, template)
     %Q{{"data":{"type":"print_jobs","attributes":{"printer_name":"#{name}","label_template_id":#{template},"labels":{"body":[{"label":{"test_atrr":"test","barcode":"12345"}}]}}}}}
   end
 

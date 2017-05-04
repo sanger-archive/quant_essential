@@ -40,5 +40,4 @@ class StandardTypesControllerTest < ActionController::TestCase
     put :update, id: standard_type.id, standard_type: { name: 'Boris' }
     assert_equal 'Boris', StandardType.find(standard_type.id).name
   end
-
 end

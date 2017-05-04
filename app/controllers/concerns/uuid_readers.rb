@@ -1,5 +1,4 @@
 module UuidReaders
-
   FULL_UUID = /\A\h{8}(?:-\h{4}){3}-\h{12}\z/
   FRIENDLY_UUID = /\A[A-z0-9]+\z/
   FRIENDLY_ENCODING = 36

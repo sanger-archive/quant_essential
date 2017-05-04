@@ -133,93 +133,6 @@ Style/Documentation:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/EmptyLineAfterMagicComment:
-  Exclude:
-    - 'db/schema.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: AllowAdjacentOneLineDefs, NumberOfEmptyLines.
-Style/EmptyLineBetweenDefs:
-  Exclude:
-    - 'test/controllers/quants_controller_test.rb'
-    - 'test/models/input_test.rb'
-
-# Offense count: 12
-# Cop supports --auto-correct.
-Style/EmptyLines:
-  Exclude:
-    - 'Gemfile'
-    - 'app/controllers/standard_sets_controller.rb'
-    - 'app/models/assay_set.rb'
-    - 'app/models/input.rb'
-    - 'app/models/print_job.rb'
-    - 'app/models/standard_set.rb'
-    - 'lib/label_template_setup.rb'
-    - 'lib/sequencescape_search.rb'
-    - 'test/controllers/quants_controller_test.rb'
-    - 'test/models/input_test.rb'
-    - 'test/models/printer_test.rb'
-
-# Offense count: 26
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: empty_lines, no_empty_lines
-Style/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'Gemfile'
-    - 'app/models/concerns/barcodable.rb'
-    - 'app/models/concerns/barcode_autogen.rb'
-    - 'config/routes.rb'
-    - 'db/schema.rb'
-    - 'test/controllers/quants_controller_test.rb'
-    - 'test/factories/assay_factories.rb'
-    - 'test/factories/input_factories.rb'
-    - 'test/factories/label_templates.rb'
-    - 'test/factories/printer_factories.rb'
-    - 'test/factories/quant_factories.rb'
-    - 'test/factories/standard_factories.rb'
-    - 'test/factories/user_factores.rb'
-    - 'test/libs/sequencescape_search_test.rb'
-    - 'test/models/input_test.rb'
-
-# Offense count: 59
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines
-Style/EmptyLinesAroundClassBody:
-  Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/EmptyLinesAroundMethodBody:
-  Exclude:
-    - 'app/controllers/quants_controller.rb'
-
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines
-Style/EmptyLinesAroundModuleBody:
-  Exclude:
-    - 'app/controllers/concerns/uuid_readers.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/models/concerns/barcodable.rb'
-    - 'app/models/concerns/barcode_autogen.rb'
-    - 'lib/label_template_setup.rb'
-
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment, ForceEqualSignAlignment.
-Style/ExtraSpacing:
-  Exclude:
-    - 'app/form_builders/bootstrap_form_builder.rb'
-    - 'app/models/print_job.rb'
-    - 'bin/setup'
-    - 'db/schema.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: normal, rails
 Style/IndentationConsistency:
@@ -233,12 +146,6 @@ Style/IndentationConsistency:
 Style/Lambda:
   Exclude:
     - 'app/models/input.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/LeadingCommentSpace:
-  Exclude:
-    - 'test/factories/standard_factories.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.
@@ -316,93 +223,6 @@ Style/SingleLineMethods:
     - 'app/models/standard.rb'
     - 'app/models/standard_set.rb'
 
-# Offense count: 139
-# Cop supports --auto-correct.
-Style/SpaceAfterColon:
-  Enabled: false
-
-# Offense count: 235
-# Cop supports --auto-correct.
-Style/SpaceAfterComma:
-  Enabled: false
-
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: space, no_space
-Style/SpaceAroundEqualsInParameterDefault:
-  Exclude:
-    - 'app/form_builders/bootstrap_form_builder.rb'
-    - 'app/models/concerns/barcodable.rb'
-    - 'app/models/input.rb'
-    - 'lib/sequencescape_search.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/SpaceAroundKeyword:
-  Exclude:
-    - 'app/models/input.rb'
-
-# Offense count: 28
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment.
-Style/SpaceAroundOperators:
-  Exclude:
-    - 'app/form_builders/bootstrap_form_builder.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/models/assay_set.rb'
-    - 'app/models/input.rb'
-    - 'app/models/print_job.rb'
-    - 'app/models/quant.rb'
-    - 'app/models/standard_set.rb'
-    - 'config/environments/development.rb'
-    - 'lib/label_template_setup.rb'
-    - 'lib/sequencescape_search.rb'
-    - 'test/controllers/quants_controller_test.rb'
-    - 'test/libs/sanger128_test.rb'
-    - 'test/models/input_test.rb'
-    - 'test/models/print_job_test.rb'
-
-# Offense count: 15
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SupportedStylesForEmptyBraces, SpaceBeforeBlockParameters.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Style/SpaceInsideBlockBraces:
-  Exclude:
-    - 'app/controllers/printers_controller.rb'
-    - 'app/controllers/quant_types_controller.rb'
-    - 'app/controllers/quants_controller.rb'
-    - 'app/controllers/standard_types_controller.rb'
-    - 'app/form_builders/bootstrap_form_builder.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'lib/label_template_setup.rb'
-    - 'lib/sequencescape_search.rb'
-    - 'lib/tasks/setup_templates.rake'
-    - 'test/controllers/print_jobs_controller_test.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-Style/SpaceInsideBrackets:
-  Exclude:
-    - 'lib/sequencescape_search.rb'
-    - 'test/models/printer_test.rb'
-
-# Offense count: 95
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SupportedStylesForEmptyBraces.
-# SupportedStyles: space, no_space, compact
-# SupportedStylesForEmptyBraces: space, no_space
-Style/SpaceInsideHashLiteralBraces:
-  Enabled: false
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/SpaceInsideParens:
-  Exclude:
-    - 'app/models/input.rb'
-    - 'config/environments/development.rb'
-
 # Offense count: 314
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, ConsistentQuotesInMultiline.
@@ -428,15 +248,6 @@ Style/SymbolProc:
     - 'app/controllers/quants_controller.rb'
     - 'app/controllers/standard_types_controller.rb'
     - 'lib/label_template_setup.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: final_newline, final_blank_line
-Style/TrailingBlankLines:
-  Exclude:
-    - 'Gemfile'
-    - 'lib/tasks/setup_templates.rake'
 
 # Offense count: 1
 # Cop supports --auto-correct.

@@ -15,5 +15,4 @@ class AssaysControllerTest < ActionController::TestCase
     assert_response :success
     assert_equal assay, assigns(:assay)
   end
-
 end

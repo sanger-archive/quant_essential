@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class QuantsControllerTest < ActionController::TestCase
-
   class MockUserLookup
     def initialize(user)
-      @user=user
+      @user = user
     end
+
     def find(swipe)
       @user
     end
@@ -17,9 +17,8 @@ class QuantsControllerTest < ActionController::TestCase
     assert_response :success
     assert assigns(:quant)
     assert assigns(:quant_types)
-    assert_includes assigns(:quant_types), [quant_type.name,quant_type.id]
+    assert_includes assigns(:quant_types), [quant_type.name, quant_type.id]
   end
-
 
   test "should get index" do
     get :index
@@ -40,8 +39,7 @@ class QuantsControllerTest < ActionController::TestCase
   end
 
   test "should allow quant creation" do
-
-    User.external_service = MockUserLookup.new({login:'mock',uuid:'000'})
+    User.external_service = MockUserLookup.new({ login: 'mock', uuid: '000' })
 
     assay = create :assay
     standard = create :standard
@@ -49,13 +47,13 @@ class QuantsControllerTest < ActionController::TestCase
     input = create :input
 
     assert_difference('Quant.count') do
-      post :create, {quant: {
+      post :create, { quant: {
         swipecard_code: 'swipe',
         quant_type: quant_type.id,
         assay_barcode: assay.barcode,
         standard_barcode: standard.barcode,
         input_barcode: input.barcode
-      }}
+      } }
     end
 
     assert_not_nil assigns(:quant)
@@ -65,5 +63,4 @@ class QuantsControllerTest < ActionController::TestCase
   teardown do
     User.external_service = @cache_lookup
   end
-
 end

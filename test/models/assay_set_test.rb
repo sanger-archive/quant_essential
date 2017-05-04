@@ -1,10 +1,9 @@
 require 'test_helper'
 
 class AssaySetTest < ActiveSupport::TestCase
-
   test "AssaySets create assay_count assays on creation" do
     as = nil
-    assert_difference('Assay.count',5) do
+    assert_difference('Assay.count', 5) do
       as = AssaySet.create!(assay_count: 5)
     end
     assert_equal 5, as.assays.count
