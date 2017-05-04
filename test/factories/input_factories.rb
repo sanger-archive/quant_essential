@@ -5,7 +5,7 @@ FactoryGirl.define do
   end
 
   sequence :input_barcode do |i|
-    i.to_s
+    SBCF::SangerBarcode.new(prefix:'DN', number: i).machine_barcode.to_s
   end
 
   sequence :uuid do

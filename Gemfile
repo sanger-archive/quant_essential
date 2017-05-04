@@ -35,8 +35,8 @@ gem 'pmb-client', '0.1.0', :github => 'sanger/pmb-client'
 # being used by one of our other dependencies (pmb-client).
 gem "faraday"
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Helps us convert between machine readable and human readable forms
+gem 'sanger_barcode_format', github: 'sanger/sanger_barcode_format', branch: 'development'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -15,4 +15,13 @@ class Barcode < ActiveRecord::Base
     raise StandardError, "Barcode.barcode_generator is not set!" if barcode_generator.nil?
     self.barcode = barcode_generator.generate(*components)
   end
+
+  def self.find_barcodable_with_barcode(barcode)
+    converted_barcode = if SBCF::HUMAN_BARCODE_FORMAT === barcode
+                          SBCF::SangerBarcode.from_human(barcode).machine_barcode
+                        else
+                          barcode
+                        end
+    Barcode.find_by(barcode: converted_barcode).try(:barcodable)
+  end
 end

@@ -5,6 +5,13 @@ GIT
     pmb-client (0.1.0)
       json_api_client (~> 1.1)
 
+GIT
+  remote: git://github.com/sanger/sanger_barcode_format.git
+  revision: f409a218a74a1d1571383ceaf693fe296eb6beb7
+  branch: development
+  specs:
+    sanger_barcode_format (0.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -207,6 +214,7 @@ DEPENDENCIES
   pry
   puma
   rails (= 4.2.6)
+  sanger_barcode_format!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   therubyracer
@@ -217,4 +225,4 @@ DEPENDENCIES
   will_paginate-bootstrap
 
 BUNDLED WITH
-   1.12.0
+   1.14.6

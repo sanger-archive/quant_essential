@@ -20,6 +20,13 @@ class BarcodesControllerTest < ActionController::TestCase
     assert_redirected_to input_path(input)
   end
 
+  test "should redirect to an input if given a human barcode" do
+    input = create :input
+    barcode = SBCF::SangerBarcode.new(machine_barcode: input.barcode).human_barcode
+    get :show, barcode: barcode
+    assert_redirected_to input_path(input)
+  end
+
   test "should render a useful 404" do
     get :show, barcode: 'not_a_barcode'
     assert_response :not_found
