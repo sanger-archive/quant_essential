@@ -6,7 +6,7 @@ class QuantsControllerTest < ActionController::TestCase
       @user = user
     end
 
-    def find(swipe)
+    def find(_swipe)
       @user
     end
   end

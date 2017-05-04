@@ -8,7 +8,7 @@ class PrintJobTest < ActiveSupport::TestCase
   end
 
   test 'valid jobs can print' do
-    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) do |env|
+    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) do |_env|
       [200, { content_type: 'application/json' }, print_job_response(@printer.name, @printer.label_template.external_id)]
     end
     pj = PrintJob.new(printables: [{ label: { test_atrr: 'test', barcode: '12345' } }], printer: @printer.name)
@@ -22,7 +22,7 @@ class PrintJobTest < ActiveSupport::TestCase
   end
 
   test 'handle broken invalid reponses from PMB' do
-    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) do |env|
+    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) do |_env|
       [422, { content_type: 'application/json' }, invalid_invalid_job_response]
     end
     pj = PrintJob.new(printables: [{ label: { test_atrr: 'test', barcode: '12345' } }], printer: @printer.name)
@@ -31,7 +31,7 @@ class PrintJobTest < ActiveSupport::TestCase
   end
 
   test 'handle fixed invalid reponses from PMB' do
-    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) do |env|
+    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) do |_env|
       [422, { content_type: 'application/json' }, valid_invalid_job_response]
     end
     pj = PrintJob.new(printables: [{ label: { test_atrr: 'test', barcode: '12345' } }], printer: @printer.name)

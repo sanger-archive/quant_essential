@@ -1,7 +1,7 @@
 # Include in classes which can be barcoded
 module Barcodable
   module ClassMethods
-    def find_with_barcode(barcode, service = nil)
+    def find_with_barcode(barcode, _service = nil)
       with_barcode(barcode).first
     end
   end

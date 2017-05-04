@@ -30,23 +30,6 @@ Lint/IneffectiveAccessModifier:
   Exclude:
     - 'app/models/input.rb'
 
-# Offense count: 10
-# Cop supports --auto-correct.
-# Configuration parameters: IgnoreEmptyBlocks, AllowUnusedKeywordArguments.
-Lint/UnusedBlockArgument:
-  Exclude:
-    - 'test/libs/sequencescape_search_test.rb'
-    - 'test/models/print_job_test.rb'
-    - 'test/models/printer_test.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods.
-Lint/UnusedMethodArgument:
-  Exclude:
-    - 'app/models/concerns/barcodable.rb'
-    - 'test/controllers/quants_controller_test.rb'
-
 # Offense count: 1
 # Configuration parameters: ContextCreatingMethods, MethodCreatingMethods.
 Lint/UselessAccessModifier:

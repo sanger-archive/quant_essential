@@ -9,8 +9,8 @@ class SequencescapeSearchTest < ActiveSupport::TestCase
 
   test 'Looks up users via the api' do
     stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.get('/searches') { |env| [200, {}, searches_response] }
-      stub.post('/00000000-0000-0000-0000-000000000001/first', '{"search":{"swipecard_code":"test"}}') { |env| [301, {}, user_response] }
+      stub.get('/searches') { [200, {}, searches_response] }
+      stub.post('/00000000-0000-0000-0000-000000000001/first', '{"search":{"swipecard_code":"test"}}') { [301, {}, user_response] }
     end
 
     api = Faraday.new do |builder|
@@ -28,8 +28,8 @@ class SequencescapeSearchTest < ActiveSupport::TestCase
 
   test 'Looks up plates via the api' do
     stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.get('/searches') { |env| [200, {}, searches_response] }
-      stub.post('/00000000-0000-0000-0000-000000000002/first', '{"search":{"barcode":"test"}}') { |env| [301, {}, plate_response] }
+      stub.get('/searches') { [200, {}, searches_response] }
+      stub.post('/00000000-0000-0000-0000-000000000002/first', '{"search":{"barcode":"test"}}') { [301, {}, plate_response] }
     end
 
     api = Faraday.new do |builder|
