@@ -21,7 +21,7 @@ class SequencescapeSearchTest < ActiveSupport::TestCase
 
     search = SequencescapeSearch.new(api, endpoint)
     result = search.find('test')
-    assert_equal({ uuid: "00000000-0000-0000-0000-000000000004", login: "jb00" }, result)
+    assert_equal({ uuid: '00000000-0000-0000-0000-000000000004', login: 'jb00' }, result)
 
     stubs.verify_stubbed_calls
   end
@@ -40,7 +40,7 @@ class SequencescapeSearchTest < ActiveSupport::TestCase
 
     search = SequencescapeSearch.new(api, endpoint)
     result = search.find('test')
-    assert_equal({ uuid: "00000000-0000-0000-0000-000000000005", name: "Cherrypicked 397032", external_type: "Cherrypicked" }, result)
+    assert_equal({ uuid: '00000000-0000-0000-0000-000000000005', name: 'Cherrypicked 397032', external_type: 'Cherrypicked' }, result)
 
     stubs.verify_stubbed_calls
   end

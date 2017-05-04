@@ -21,7 +21,7 @@ class SequencescapeSearch
     SequencescapeSearch::SearchEndpoint.new(
       'Find assets by barcode',
       'barcode',
-      { uuid: ['plate', 'uuid'], name: ['plate', 'name'], external_type: ["plate", "plate_purpose", "name"] }
+      { uuid: ['plate', 'uuid'], name: ['plate', 'name'], external_type: ['plate', 'plate_purpose', 'name'] }
     )
   end
 
@@ -46,7 +46,7 @@ class SequencescapeSearch
       json = JSON.parse(response.body)
       Hash[return_map.map { |k, v| [k, json.dig(*v)] }]
     when 503
-      raise SequencescapeBusy, "Sequencescape is currently unavailable."
+      raise SequencescapeBusy, 'Sequencescape is currently unavailable.'
     else
       raise SequencescapeError, "Unexpected response status: #{searches.status}"
     end
@@ -71,13 +71,13 @@ class SequencescapeSearch
       begin
         json = JSON.parse(searches.body)
       rescue JSON::ParserError
-        raise SequencescapeError, "Sequencescape returned non-json content"
+        raise SequencescapeError, 'Sequencescape returned non-json content'
       end
-      found_search = json.fetch(search_endpoint).detect { |search| search["name"] == name }
+      found_search = json.fetch(search_endpoint).detect { |search| search['name'] == name }
       raise SearchNotFound, "Could not find search #{name}" if found_search.nil?
-      found_search.fetch("uuid")
+      found_search.fetch('uuid')
     when 503
-      raise SequencescapeBusy, "Sequencescape is currently unavailable."
+      raise SequencescapeBusy, 'Sequencescape is currently unavailable.'
     else
       raise SequencescapeError, "Unexpected response status: #{searches.status}"
     end

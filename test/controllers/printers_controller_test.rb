@@ -24,7 +24,7 @@ class PrintersControllerTest < ActionController::TestCase
     assert_equal 'Sad Printer', assigns(:printer).description
     assert_equal(
       "Printer 'invalid_printer' is not registered in print my barcode. "\
-      "Any attempts to select the printer will result in an error message, until this issue is resolved.",
+      'Any attempts to select the printer will result in an error message, until this issue is resolved.',
       flash[:warn]
     )
   end
@@ -56,10 +56,10 @@ class PrintersControllerTest < ActionController::TestCase
   test '#update' do
     printer = create :printer
     label_template_2 = create :label_template
-    put :update, name: printer.name, printer: { name: 'new_name', description: "Smile", label_template_id: label_template_2.id }
+    put :update, name: printer.name, printer: { name: 'new_name', description: 'Smile', label_template_id: label_template_2.id }
     assert_equal printer, assigns(:printer)
     assert_equal label_template_2, assigns(:printer).label_template
-    assert_equal "Smile", assigns(:printer).description
+    assert_equal 'Smile', assigns(:printer).description
     assert_redirected_to printer_path('new_name')
   end
 

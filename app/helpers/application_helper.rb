@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def pagination(collection)
-    will_paginate collection, renderer: BootstrapPagination::Rails, previous_label: "&laquo;", next_label: "&raquo;"
+    will_paginate collection, renderer: BootstrapPagination::Rails, previous_label: '&laquo;', next_label: '&raquo;'
   end
 
   def render_flashes

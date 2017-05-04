@@ -11,7 +11,7 @@ class QuantsControllerTest < ActionController::TestCase
     end
   end
 
-  test "should get new" do
+  test 'should get new' do
     quant_type = create :quant_type
     get :new
     assert_response :success
@@ -20,13 +20,13 @@ class QuantsControllerTest < ActionController::TestCase
     assert_includes assigns(:quant_types), [quant_type.name, quant_type.id]
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert assigns(:quants)
     assert_response :success
   end
 
-  test "should get show" do
+  test 'should get show' do
     quant = create :quant
     get :show, assay_barcode: quant.assay.barcode
     assert assigns(:quant)
@@ -38,7 +38,7 @@ class QuantsControllerTest < ActionController::TestCase
     @cache_lookup = User.external_service
   end
 
-  test "should allow quant creation" do
+  test 'should allow quant creation' do
     User.external_service = MockUserLookup.new({ login: 'mock', uuid: '000' })
 
     assay = create :assay

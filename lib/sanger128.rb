@@ -14,7 +14,7 @@ class Sanger128
   # Default Regex defining the acceptable characters
   VALID_EXPRESSION = /\A[A-Z0-9_-]+\z/
   # Default symbol used to separate barcode components
-  DEFUALT_SEPARATOR = "_"
+  DEFUALT_SEPARATOR = '_'
 
   # Raised in the event someone attempts to generate an invalid barcode
   InvalidBarcode = Class.new(StandardError)

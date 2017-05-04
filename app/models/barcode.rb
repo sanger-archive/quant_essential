@@ -11,7 +11,7 @@ class Barcode < ActiveRecord::Base
   belongs_to :barcodable, polymorphic: true, inverse_of: :barcode_object
 
   def generate=(*components)
-    raise StandardError, "Barcode.barcode_generator is not set!" if barcode_generator.nil?
+    raise StandardError, 'Barcode.barcode_generator is not set!' if barcode_generator.nil?
     self.barcode = barcode_generator.generate(*components)
   end
 

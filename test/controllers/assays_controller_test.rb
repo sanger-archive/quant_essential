@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class AssaysControllerTest < ActionController::TestCase
-  test "index" do
+  test 'index' do
     assay = create :assay
     get :index
     assert_response :success
@@ -9,7 +9,7 @@ class AssaysControllerTest < ActionController::TestCase
     assert assigns(:assays).include?(assay)
   end
 
-  test "show" do
+  test 'show' do
     assay = create :assay
     get :show, barcode: assay.barcode
     assert_response :success

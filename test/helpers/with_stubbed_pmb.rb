@@ -42,11 +42,11 @@ module WithStubbedPmb
   def print_post(name, template)
     {
       "data": {
-        "type": "print_jobs",
+        "type": 'print_jobs',
         "attributes": {
           "printer_name": name,
           "label_template_id": template,
-          "labels": { "body": [{ "label": { "test_atrr": "test", "barcode": "12345" } }] }
+          "labels": { "body": [{ "label": { "test_atrr": 'test', "barcode": '12345' } }] }
         }
       }
     }.to_json

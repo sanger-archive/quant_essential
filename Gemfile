@@ -10,7 +10,7 @@ gem 'bootstrap-sass'
 gem 'coffee-rails' # Used by bootstrap-sass (Somehow)
 
 gem 'will_paginate'
-gem "will_paginate-bootstrap"
+gem 'will_paginate-bootstrap'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0', require: false
@@ -26,14 +26,14 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem "puma"
+gem 'puma'
 
 # Add simple support for print-my barcode)
 gem 'pmb-client', '0.1.0', github: 'sanger/pmb-client'
 
 # We're using faraday for our HTTP client as its already
 # being used by one of our other dependencies (pmb-client).
-gem "faraday"
+gem 'faraday'
 
 # Helps us convert between machine readable and human readable forms
 gem 'sanger_barcode_format', github: 'sanger/sanger_barcode_format', branch: 'development'

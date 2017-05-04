@@ -159,12 +159,6 @@ Style/MutableConstant:
     - 'test/models/assay_test.rb'
     - 'test/models/standard_test.rb'
 
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: Strict.
-Style/NumericLiterals:
-  MinDigits: 15
-
 # Offense count: 8
 # Cop supports --auto-correct.
 # Configuration parameters: PreferredDelimiters.
@@ -216,13 +210,6 @@ Style/SingleLineMethods:
     - 'app/models/quant.rb'
     - 'app/models/standard.rb'
     - 'app/models/standard_set.rb'
-
-# Offense count: 314
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Enabled: false
 
 # Offense count: 16
 # Cop supports --auto-correct.

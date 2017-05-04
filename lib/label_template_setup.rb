@@ -46,11 +46,11 @@ class LabelTemplateSetup
     existing = find_or_create_by_name!
 
     if local_template.external_id == existing.id
-      puts "No changes..."
+      puts 'No changes...'
       return true
     end
     local_template.external_id = existing.id
-    local_template.new_record? ? "Registering template" : "Updating template"
+    local_template.new_record? ? 'Registering template' : 'Updating template'
     local_template.save!
   end
 
