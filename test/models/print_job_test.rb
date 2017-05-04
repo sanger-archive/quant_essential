@@ -14,7 +14,7 @@ class PrintJobTest < ActiveSupport::TestCase
   end
 
   test 'invalid jobs return errors' do
-    pj = PrintJob.new(printables:[{label:{:test_atrr=>'test',:barcode=>'12345'}}],printer:'non_existant_printer')
+    pj = PrintJob.new(printables:[{label:{test_atrr: 'test',barcode: '12345'}}],printer:'non_existant_printer')
     assert_equal false, pj.print, "Invalid job saved with true"
     assert_includes pj.errors.full_messages, "Printer has not been registered"
   end

@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
 gem 'mysql2'
@@ -30,7 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "puma"
 
 # Add simple support for print-my barcode)
-gem 'pmb-client', '0.1.0', :github => 'sanger/pmb-client'
+gem 'pmb-client', '0.1.0', github: 'sanger/pmb-client'
 
 # We're using faraday for our HTTP client as its already
 # being used by one of our other dependencies (pmb-client).
@@ -54,6 +53,4 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
 end
-

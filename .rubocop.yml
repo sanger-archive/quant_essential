@@ -1,0 +1,15 @@
+inherit_from: .rubocop_todo.yml
+AllCops:
+  TargetRubyVersion: 2.2
+  Include:
+    - Rakefile
+    - config.ru
+    - lib/**/*.rake
+  Exclude:
+    - db/schema.rb
+    - db/views_schema.rb
+    - db/archived_migrations/*
+    - vendor/**/*
+Style/FileName:
+  Exclude:
+    - Gemfile

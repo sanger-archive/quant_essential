@@ -13,12 +13,12 @@ class QuantAttributeReader
 
   # We define messages manually here as the standard rails approach doesn't seem to work for non-active-record objects
 
-  validates_presence_of :input, :if => :input_barcode, :message => I18n.t(:not_found,scope:[:errors,:quant_attribute_reader,:input_barcode])
+  validates_presence_of :input, if: :input_barcode, message: I18n.t(:not_found,scope:[:errors,:quant_attribute_reader,:input_barcode])
 
-  validate :assay_is_suitable?, :if => :assay_barcode
-  validate :standard_is_suitable?, :if => :standard_barcode
-  validate :user_is_suitable?, :if => :swipecard_code
-  validate :input_is_suitable?, :if => :input_barcode
+  validate :assay_is_suitable?, if: :assay_barcode
+  validate :standard_is_suitable?, if: :standard_barcode
+  validate :user_is_suitable?, if: :swipecard_code
+  validate :input_is_suitable?, if: :input_barcode
 
   def validate_and_create_quant
     return false unless valid?

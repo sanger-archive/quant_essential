@@ -11,11 +11,11 @@ class SequencescapeSearch
   SearchEndpoint = Struct.new(:name,:parameter,:return_map)
 
   def self.swipecard_search
-    SequencescapeSearch::SearchEndpoint.new('Find user by swipecard code','swipecard_code',{:uuid=>['user','uuid'],:login=>['user','login']})
+    SequencescapeSearch::SearchEndpoint.new('Find user by swipecard code','swipecard_code',{uuid: ['user','uuid'],login: ['user','login']})
   end
 
   def self.plate_barcode_search
-    SequencescapeSearch::SearchEndpoint.new('Find assets by barcode','barcode',{:uuid=>['plate','uuid'],:name=>['plate','name'],:external_type=>["plate","plate_purpose","name"]})
+    SequencescapeSearch::SearchEndpoint.new('Find assets by barcode','barcode',{uuid: ['plate','uuid'],name: ['plate','name'],external_type: ["plate","plate_purpose","name"]})
   end
 
   attr_reader :api_root, :search_endpoint, :search
@@ -47,7 +47,7 @@ class SequencescapeSearch
 
   private
 
-  delegate :name, :parameter, :return_map, :to => :search
+  delegate :name, :parameter, :return_map, to: :search
 
   def singlular_endpoint
     search_endpoint.singularize

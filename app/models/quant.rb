@@ -9,7 +9,7 @@ class Quant < ActiveRecord::Base
   belongs_to :input, inverse_of: :quants, required: true, validate: true
   belongs_to :user, inverse_of: :quants, required: true, validate: true
 
-  scope :with_assay_barcode, ->(barcode) { joins(:assay=>:barcode_object).where(:barcodes=>{:barcode=>barcode}) }
+  scope :with_assay_barcode, ->(barcode) { joins(assay: :barcode_object).where(barcodes: {barcode: barcode}) }
 
   def name
     "#{assay_barcode}:#{quant_type.name}"
