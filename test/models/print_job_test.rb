@@ -8,7 +8,9 @@ class PrintJobTest < ActiveSupport::TestCase
   end
 
   test 'valid jobs can print' do
-    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) { |env| [200, { content_type: 'application/json' }, print_job_response(@printer.name, @printer.label_template.external_id)] }
+    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) do |env|
+      [200, { content_type: 'application/json' }, print_job_response(@printer.name, @printer.label_template.external_id)]
+    end
     pj = PrintJob.new(printables: [{ label: { test_atrr: 'test', barcode: '12345' } }], printer: @printer.name)
     assert pj.print, "Valid job saved with false"
   end
@@ -20,14 +22,18 @@ class PrintJobTest < ActiveSupport::TestCase
   end
 
   test 'handle broken invalid reponses from PMB' do
-    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) { |env| [422, { content_type: 'application/json' }, invalid_invalid_job_response] }
+    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) do |env|
+      [422, { content_type: 'application/json' }, invalid_invalid_job_response]
+    end
     pj = PrintJob.new(printables: [{ label: { test_atrr: 'test', barcode: '12345' } }], printer: @printer.name)
     assert_equal false, pj.print, "Invalid job saved with true"
     assert_includes pj.errors.full_messages, "Print server printer - Printer does not exist"
   end
 
   test 'handle fixed invalid reponses from PMB' do
-    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) { |env| [422, { content_type: 'application/json' }, valid_invalid_job_response] }
+    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) do |env|
+      [422, { content_type: 'application/json' }, valid_invalid_job_response]
+    end
     pj = PrintJob.new(printables: [{ label: { test_atrr: 'test', barcode: '12345' } }], printer: @printer.name)
     assert_equal false, pj.print, "Invalid job saved with true"
     assert_includes pj.errors.full_messages, "Print server Printer does not exist"

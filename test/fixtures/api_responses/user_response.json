@@ -1,0 +1,14 @@
+{
+  "user":{
+    "created_at":"2012-05-22 12:01:41 +0100",
+    "updated_at":"2016-03-31 16:51:30 +0100",
+    "actions":{"read":"http://example.com/api/1/00000000-0000-0000-0000-000000000004"},
+    "uuid":"00000000-0000-0000-0000-000000000004",
+    "barcode":"ID000000",
+    "email":"example@example.com",
+    "first_name":"Joe",
+    "has_a_swipecard_code":true,
+    "last_name":"Bloggs",
+    "login":"jb00"
+  }
+}

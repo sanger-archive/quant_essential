@@ -40,10 +40,24 @@ module WithStubbedPmb
   end
 
   def print_post(name, template)
-    %Q{{"data":{"type":"print_jobs","attributes":{"printer_name":"#{name}","label_template_id":#{template},"labels":{"body":[{"label":{"test_atrr":"test","barcode":"12345"}}]}}}}}
+    {
+      "data": {
+        "type": "print_jobs",
+        "attributes": {
+          "printer_name": name,
+          "label_template_id": template,
+          "labels": { "body": [{ "label": { "test_atrr": "test", "barcode": "12345" } }] }
+        }
+      }
+    }.to_json
   end
 
   def printers_index
-    %Q{{"data":[{"id":"1","type":"printers","attributes":{"name":"printer_a","protocol":"LPD"}},{"id":"2","type":"printers","attributes":{"name":"printer_b","protocol":"LPD"}}]}}
+    %Q{{
+        "data":[
+          {"id":"1","type":"printers","attributes":{"name":"printer_a","protocol":"LPD"}},
+          {"id":"2","type":"printers","attributes":{"name":"printer_b","protocol":"LPD"}}
+        ]
+      }}
   end
 end

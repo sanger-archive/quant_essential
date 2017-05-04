@@ -22,7 +22,11 @@ class PrintersControllerTest < ActionController::TestCase
     assert assigns(:printer)
     assert_redirected_to printer_path(assigns(:printer).name)
     assert_equal 'Sad Printer', assigns(:printer).description
-    assert_equal "Printer 'invalid_printer' is not registered in print my barcode. Any attempts to select the printer will result in an error message, until this issue is resolved.", flash[:warn]
+    assert_equal(
+      "Printer 'invalid_printer' is not registered in print my barcode. "\
+      "Any attempts to select the printer will result in an error message, until this issue is resolved.",
+      flash[:warn]
+    )
   end
 
   test '#new' do

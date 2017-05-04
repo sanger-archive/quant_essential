@@ -13,3 +13,8 @@ AllCops:
 Style/FileName:
   Exclude:
     - Gemfile
+# Offense count: 202
+# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
+# URISchemes: http, https
+Metrics/LineLength:
+  Max: 150

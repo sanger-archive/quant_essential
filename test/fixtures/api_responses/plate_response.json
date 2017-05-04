@@ -1,0 +1,27 @@
+{
+  "plate":{
+    "created_at":"2015-04-10 15:51:15 +0100",
+    "updated_at":"2015-04-30 09:36:59 +0100",
+    "comments":{"size":0,"actions":{"read":"http://example.com/api/1/00000000-0000-0000-0000-000000000005/comments"}},
+    "wells":{"size":88,"actions":{"read":"http://example.com/api/1/00000000-0000-0000-0000-000000000005/wells"}},
+    "submission_pools":{"size":0,"actions":{"read":"http://example.com/api/1/00000000-0000-0000-0000-000000000005/submission_pools"}},
+    "requests":{"size":0,"actions":{"read":"http://example.com/api/1/00000000-0000-0000-0000-000000000005/requests"}},
+    "qc_files":{"size":0,"actions":{"read":"http://example.com/api/1/00000000-0000-0000-0000-000000000005/qc_files"}},
+    "source_transfers":{"size":0,"actions":{"read":"http://example.com/api/1/00000000-0000-0000-0000-000000000005/source_transfers"}},
+    "transfers_to_tubes":{"size":0,"actions":{"read":"http://example.com/api/1/00000000-0000-0000-0000-000000000005/transfers_to_tubes"}},
+    "creation_transfers":{"size":0,"actions":{"read":"http://example.com/api/1/00000000-0000-0000-0000-000000000005/creation_transfers"}},
+    "plate_purpose":{"actions":{"read":"http://example.com/api/1/fd2f0c00-e7d7-11e2-ab4e-68b599768938"},"uuid":"fd2f0c00-e7d7-11e2-ab4e-68b599768938","lifespan":null,"name":"Cherrypicked"},
+    "actions":{"read":"http://example.com/api/1/00000000-0000-0000-0000-000000000005"},
+    "uuid":"00000000-0000-0000-0000-000000000005",
+    "name":"Cherrypicked 397032",
+    "qc_state":"pending",
+    "barcode":{"ean13":"1220397032777","number":"397032","prefix":"DN","two_dimensional":null,"type":1},
+    "iteration":4,"label":{"prefix":null,"text":"Cherrypicked"},
+    "location":"Illumina high throughput freezer","pools":{},
+    "pre_cap_groups":{},
+    "priority":0,
+    "size":96,
+    "state":"pending",
+    "stock_plate":{"barcode":{"ean13":"1220397032777","number":"397032","prefix":"DN","two_dimensional":null,"type":1},
+    "uuid":"00000000-0000-0000-0000-000000000005"}}
+}
