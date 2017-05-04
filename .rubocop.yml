@@ -18,3 +18,7 @@ Style/FileName:
 # URISchemes: http, https
 Metrics/LineLength:
   Max: 150
+# Configuration parameters: CountComments, ExcludedMethods.
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/label_templates/*'
