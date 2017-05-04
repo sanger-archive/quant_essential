@@ -70,15 +70,6 @@ Style/Alias:
   Exclude:
     - 'app/controllers/barcodes_controller.rb'
 
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: percent_q, bare_percent
-Style/BarePercentLiterals:
-  Exclude:
-    - 'test/helpers/with_stubbed_pmb.rb'
-    - 'test/libs/sequencescape_search_test.rb'
-
 # Offense count: 6
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
@@ -141,14 +132,6 @@ Style/MutableConstant:
     - 'lib/sanger128.rb'
     - 'test/models/assay_test.rb'
     - 'test/models/standard_test.rb'
-
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'test/helpers/with_stubbed_pmb.rb'
-    - 'test/libs/sequencescape_search_test.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.

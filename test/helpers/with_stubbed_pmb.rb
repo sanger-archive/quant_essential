@@ -6,7 +6,7 @@ PMB::Base.connection.faraday.adapter :test, PMB::TestSuiteStubs
 
 module WithStubbedPmb
   def print_job_response(name, external_id)
-    %Q{{
+    %({
       "data": {
         "id": "",
         "type": "print_jobs",
@@ -26,17 +26,17 @@ module WithStubbedPmb
           }
         }
       }
-    }}
+    })
   end
 
   # Note: PMB currently returns an invalid JSON API error response. We'll test the handling of that here
   def invalid_invalid_job_response
-    %Q{{"errors":{"printer":["Printer does not exist"]}}}
+    %({"errors":{"printer":["Printer does not exist"]}})
   end
 
   # And once PMB gets corrected
   def valid_invalid_job_response
-    %Q{{"errors":[{"title":"Printer does not exist"}]}}
+    %({"errors":[{"title":"Printer does not exist"}]})
   end
 
   def print_post(name, template)
@@ -53,11 +53,11 @@ module WithStubbedPmb
   end
 
   def printers_index
-    %Q{{
+    %({
         "data":[
           {"id":"1","type":"printers","attributes":{"name":"printer_a","protocol":"LPD"}},
           {"id":"2","type":"printers","attributes":{"name":"printer_b","protocol":"LPD"}}
         ]
-      }}
+      })
   end
 end
