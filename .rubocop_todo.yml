@@ -189,12 +189,6 @@ Style/SymbolProc:
     - 'app/controllers/standard_types_controller.rb'
     - 'lib/label_template_setup.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/UnneededInterpolation:
-  Exclude:
-    - 'test/factories/label_templates.rb'
-
 # Offense count: 6
 # Cop supports --auto-correct.
 Style/UnneededPercentQ:

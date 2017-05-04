@@ -3,9 +3,7 @@ FactoryGirl.define do
     "template_#{i}"
   end
 
-  sequence :external_id do |i|
-    "#{i}"
-  end
+  sequence :external_id, &:to_s
 
   factory :label_template do
     name { generate :label_template_name }
