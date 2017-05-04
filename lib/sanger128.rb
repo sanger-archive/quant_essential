@@ -14,7 +14,7 @@ class Sanger128
   # Default Regex defining the acceptable characters
   VALID_EXPRESSION = /\A[A-Z0-9_-]+\z/
   # Default symbol used to separate barcode components
-  DEFUALT_SEPARATOR = '_'
+  DEFAULT_SEPARATOR = '_'
 
   # Raised in the event someone attempts to generate an invalid barcode
   InvalidBarcode = Class.new(StandardError)
@@ -30,11 +30,11 @@ class Sanger128
   # valid_expression - Overide the default regex used for validation ( Default = /\A[A-Z0-9_-]+\z/ )
   def initialize(
     base_prefix,
-    separator          = DEFUALT_SEPARATOR,
-    min_prefix_length  = MIN_PREFIX_LENGTH,
-    max_prefix_length  = MAX_PREFIX_LENGTH,
-    max_barcode_length = MAX_BARCODE_LENGTH,
-    valid_expression   = VALID_EXPRESSION
+    separator:          DEFAULT_SEPARATOR,
+    min_prefix_length:  MIN_PREFIX_LENGTH,
+    max_prefix_length:  MAX_PREFIX_LENGTH,
+    max_barcode_length: MAX_BARCODE_LENGTH,
+    valid_expression:   VALID_EXPRESSION
   )
     # Set up validation parameters
     @min_prefix = min_prefix_length
