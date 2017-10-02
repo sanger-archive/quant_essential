@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.8'
+gem 'rails', '4.2.10'
 gem 'mysql2'
 gem 'activeuuid'
 # Use SCSS for stylesheets and bootstrap for styling
