@@ -1,12 +1,11 @@
 require 'test_helper'
 
 class PrintersControllerTest < ActionController::TestCase
-
   test '#create with valid_printer' do
     Printer.stubs(:external_printers).returns(['valid_printer'])
     label_template = create :label_template
     assert_difference('Printer.count') do
-      post :create, printer: {name:'valid_printer',label_template_id:label_template.id, description:'Happy Printer'}
+      post :create, printer: { name: 'valid_printer', label_template_id: label_template.id, description: 'Happy Printer' }
     end
     assert assigns(:printer)
     assert_redirected_to printer_path(assigns(:printer).name)
@@ -18,12 +17,16 @@ class PrintersControllerTest < ActionController::TestCase
     Printer.stubs(:external_printers).returns(['valid_printer'])
     label_template = create :label_template
     assert_difference('Printer.count') do
-      post :create, printer: {name:'invalid_printer',label_template_id:label_template.id, description:'Sad Printer'}
+      post :create, printer: { name: 'invalid_printer', label_template_id: label_template.id, description: 'Sad Printer' }
     end
     assert assigns(:printer)
     assert_redirected_to printer_path(assigns(:printer).name)
     assert_equal 'Sad Printer', assigns(:printer).description
-    assert_equal "Printer 'invalid_printer' is not registered in print my barcode. Any attempts to select the printer will result in an error message, until this issue is resolved.", flash[:warn]
+    assert_equal(
+      "Printer 'invalid_printer' is not registered in print my barcode. "\
+      'Any attempts to select the printer will result in an error message, until this issue is resolved.',
+      flash[:warn]
+    )
   end
 
   test '#new' do
@@ -53,16 +56,16 @@ class PrintersControllerTest < ActionController::TestCase
   test '#update' do
     printer = create :printer
     label_template_2 = create :label_template
-    put :update, name: printer.name, printer: { name: 'new_name', description: "Smile", label_template_id: label_template_2.id }
+    put :update, name: printer.name, printer: { name: 'new_name', description: 'Smile', label_template_id: label_template_2.id }
     assert_equal printer, assigns(:printer)
     assert_equal label_template_2, assigns(:printer).label_template
-    assert_equal "Smile", assigns(:printer).description
+    assert_equal 'Smile', assigns(:printer).description
     assert_redirected_to printer_path('new_name')
   end
 
   test '#destroy' do
     printer = create :printer
-    assert_difference('Printer.count',-1) do
+    assert_difference('Printer.count', -1) do
       delete :destroy, name: printer.name
     end
     assert_redirected_to printers_path

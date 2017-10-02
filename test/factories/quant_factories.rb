@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   sequence :quant_type_name do |i|
     "quant_type_#{i}"
   end
@@ -16,5 +15,4 @@ FactoryGirl.define do
     input
     user
   end
-
 end

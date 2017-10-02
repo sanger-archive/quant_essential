@@ -13,16 +13,16 @@ class QuantAttributeReader
 
   # We define messages manually here as the standard rails approach doesn't seem to work for non-active-record objects
 
-  validates_presence_of :input, :if => :input_barcode, :message => I18n.t(:not_found,scope:[:errors,:quant_attribute_reader,:input_barcode])
+  validates_presence_of :input, if: :input_barcode, message: I18n.t(:not_found, scope: %i[errors quant_attribute_reader input_barcode])
 
-  validate :assay_is_suitable?, :if => :assay_barcode
-  validate :standard_is_suitable?, :if => :standard_barcode
-  validate :user_is_suitable?, :if => :swipecard_code
-  validate :input_is_suitable?, :if => :input_barcode
+  validate :assay_is_suitable?, if: :assay_barcode
+  validate :standard_is_suitable?, if: :standard_barcode
+  validate :user_is_suitable?, if: :swipecard_code
+  validate :input_is_suitable?, if: :input_barcode
 
   def validate_and_create_quant
     return false unless valid?
-    quant.save || errors.add(:quant,quant.errors.full_messages)
+    quant.save || errors.add(:quant, quant.errors.full_messages)
   end
 
   def quant
@@ -33,22 +33,22 @@ class QuantAttributeReader
 
   # An assay barcode must may to an assay plate, and the assay plate must be unused
   def assay_is_suitable?
-    errors.add(:assay_barcode,I18n.t(:not_found,scope:[:errors,:quant_attribute_reader,:assay_barcode])) if assay.nil?
-    errors.add(:assay_barcode,I18n.t(:used, scope:[:errors,:quant_attribute_reader,:assay_barcode])) if assay.present? && assay.has_quant?
+    errors.add(:assay_barcode, I18n.t(:not_found, scope: %i[errors quant_attribute_reader assay_barcode])) if assay.nil?
+    errors.add(:assay_barcode, I18n.t(:used, scope: %i[errors quant_attribute_reader assay_barcode])) if assay.present? && assay.has_quant?
   end
 
   # A standard barcode must map to a standard plate, the plate must be unused, and must be of the right standard type
   def standard_is_suitable?
-    errors.add(:standard_barcode,I18n.t(:not_found,scope:[:errors,:quant_attribute_reader,:standard_barcode])) if standard.nil?
-    errors.add(:standard_barcode,I18n.t(:unsuitable, scope:[:errors,:quant_attribute_reader,:standard_barcode])) if wrong_standard_type?
+    errors.add(:standard_barcode, I18n.t(:not_found, scope: %i[errors quant_attribute_reader standard_barcode])) if standard.nil?
+    errors.add(:standard_barcode, I18n.t(:unsuitable, scope: %i[errors quant_attribute_reader standard_barcode])) if wrong_standard_type?
   end
 
   def user_is_suitable?
-    errors.add(:swipecard_code,I18n.t(:not_found,scope:[:errors,:quant_attribute_reader,:swipecard_code])) if user.nil?
+    errors.add(:swipecard_code, I18n.t(:not_found, scope: %i[errors quant_attribute_reader swipecard_code])) if user.nil?
   end
 
   def input_is_suitable?
-    errors.add(:input_barcode,I18n.t(:not_found,scope:[:errors,:quant_attribute_reader,:input_barcode])) if input.nil?
+    errors.add(:input_barcode, I18n.t(:not_found, scope: %i[errors quant_attribute_reader input_barcode])) if input.nil?
   end
 
   def wrong_standard_type?

@@ -1,10 +1,10 @@
 class BarcodesController < ApplicationController
   def show
-    @barcode = params[:barcode].squish
-    result = Barcode.find_by(barcode:@barcode)
+    @barcode = params.require(:barcode).squish
+    result = Barcode.find_barcodable_with_barcode(@barcode)
 
-    if result && result.barcodable
-      redirect_to result.barcodable
+    if result
+      redirect_to result
     else
       render :show, status: :not_found
     end

@@ -24,7 +24,6 @@ module QuantEssential
     config.active_record.raise_in_transactional_callbacks = true
 
     # The prefix placed in front of all barcodes
-    config.application_barcode_prefix = "QNTE"
-
+    config.application_barcode_prefix = 'QNTE'
   end
 end

@@ -10,7 +10,7 @@ class Standard < ActiveRecord::Base
   belongs_to :standard_type, required: true, validate: true, inverse_of: :standards
   has_many :quants, inverse_of: :standard
 
-  scope :include_for_list, ->() { include_barcode.includes({quants:[{assay: :barcode_object},{quant_type: :standard_type}]},:standard_type) }
+  scope :include_for_list, ->() { include_barcode.includes({ quants: [{ assay: :barcode_object }, { quant_type: :standard_type }] }, :standard_type) }
 
   # A standard set primarily exists to group standards together for the purpose
   # of RESTful bulk creation.
@@ -23,5 +23,4 @@ class Standard < ActiveRecord::Base
     def label_description
       standard_type.name
     end
-
 end

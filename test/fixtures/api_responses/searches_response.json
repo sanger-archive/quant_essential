@@ -1,0 +1,36 @@
+{
+  "actions":{"read":"http://example.com/api/1/searches/1","first":"http://example.com/api/1/searches/1","last":"http://example.com/api/1/searches/1"},
+  "size":3,
+  "searches":[
+    {
+      "actions":{
+        "read":"http://example.com/api/1/00000000-0000-0000-0000-000000000002",
+        "first":"http://example.com/api/1/00000000-0000-0000-0000-000000000002/first",
+        "last":"http://example.com/api/1/00000000-0000-0000-0000-000000000002/last",
+        "all":"http://example.com/api/1/00000000-0000-0000-0000-000000000002/all"
+      },
+      "uuid":"00000000-0000-0000-0000-000000000002",
+      "name":"Find assets by barcode"
+    },
+    {
+      "actions":{
+        "read":"http://example.com/api/1/00000000-0000-0000-0000-000000000003",
+        "first":"http://example.com/api/1/00000000-0000-0000-0000-000000000003/first",
+        "last":"http://example.com/api/1/00000000-0000-0000-0000-000000000003/last",
+        "all":"http://example.com/api/1/00000000-0000-0000-0000-000000000003/all"
+      },
+      "uuid":"00000000-0000-0000-0000-000000000003",
+      "name":"Find user by login"
+    },
+    {
+      "actions":{
+        "read":"http://example.com/api/1/00000000-0000-0000-0000-000000000001",
+        "first":"http://example.com/api/1/00000000-0000-0000-0000-000000000001/first",
+        "last":"http://example.com/api/1/00000000-0000-0000-0000-000000000001/last",
+        "all":"http://example.com/api/1/00000000-0000-0000-0000-000000000001/all"
+      },
+      "uuid":"00000000-0000-0000-0000-000000000001",
+      "name":"Find user by swipecard code"
+    }
+  ]
+}

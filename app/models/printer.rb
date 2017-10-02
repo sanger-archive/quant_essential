@@ -18,11 +18,8 @@ class Printer < ActiveRecord::Base
   end
 
   class << self
-
     def external_printers
       PMB::Printer.all.map(&:name)
     end
-
   end
-
 end
