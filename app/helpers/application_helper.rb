@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def page_subtitle
     @subtitle || t(:subtitle, scope: [controller_name, action_name], default: action_name.titleize)

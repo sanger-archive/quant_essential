@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Generates barcodes according to the agreed internal Code128 standard
 # - 4 character application specific prefix
 # - Prefixes of 3 characters are right padded with the separator: "_" by default

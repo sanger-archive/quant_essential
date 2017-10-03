@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 namespace :label_templates do
   desc 'Find or register label templates in print-my-barcode'
   task setup: :environment do

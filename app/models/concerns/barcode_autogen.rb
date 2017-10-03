@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Include in classes which generate their own barcodes after create
 module BarcodeAutogen
   def self.included(base)

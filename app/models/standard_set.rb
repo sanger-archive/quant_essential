@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StandardSet < ActiveRecord::Base
   include ActiveUUID::UUID
   include HasUuid

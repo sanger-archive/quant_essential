@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class QuantsControllerTest < ActionController::TestCase
@@ -39,7 +41,7 @@ class QuantsControllerTest < ActionController::TestCase
   end
 
   test 'should allow quant creation' do
-    User.external_service = MockUserLookup.new({ login: 'mock', uuid: '000' })
+    User.external_service = MockUserLookup.new({ login: 'mock', uuid: SecureRandom.uuid })
 
     assay = create :assay
     standard = create :standard

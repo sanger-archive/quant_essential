@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveSources < ActiveRecord::Migration
   def change
     remove_foreign_key :inputs, column: :source_id

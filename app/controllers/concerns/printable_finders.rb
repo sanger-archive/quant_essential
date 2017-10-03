@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PrintableFinders
   # Works out what you are wanting to print
   def printables

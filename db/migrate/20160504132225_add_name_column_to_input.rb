@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddNameColumnToInput < ActiveRecord::Migration
   def change
     change_table :inputs do |t|

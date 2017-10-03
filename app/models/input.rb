@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/sequencescape_search'
 
 class Input < ActiveRecord::Base

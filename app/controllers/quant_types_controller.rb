@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuantTypesController < ApplicationController
   def create
     @quant_type = QuantType.new(quant_type_attributes)

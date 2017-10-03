@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateQuants < ActiveRecord::Migration
   def change
     create_table :quants do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Provide in named classes to allow alphabetical sorting
 # Also ensures that names are present and unique
 module NamedBehaviour

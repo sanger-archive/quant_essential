@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Receives the quant creation form information and looks up the resources.
 # Avoids us needing to contaminate Quant itself with too much understanding of barcodes
 class QuantAttributeReader

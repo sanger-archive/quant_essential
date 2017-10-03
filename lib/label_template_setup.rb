@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LabelTemplateSetup
   module ClassMethods
     def label_types

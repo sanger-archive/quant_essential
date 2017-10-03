@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AssaySet < ActiveRecord::Base
   include ActiveUUID::UUID
   include HasUuid

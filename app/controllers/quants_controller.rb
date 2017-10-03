@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuantsController < ApplicationController
   def create
     qar = QuantAttributeReader.new(params[:quant].transform_values { |v| v.squish })

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddStandardTypeIdColumnToStandardSets < ActiveRecord::Migration
   def change
     change_table :standard_sets do |t|

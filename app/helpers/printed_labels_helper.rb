@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PrintedLabelsHelper
   def available_printers
     Printer.pluck(:name, :description).map do |name, description|

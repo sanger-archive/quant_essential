@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PrintersHelper
   def available_label_templates
     LabelTemplate.pluck(:name, :id)

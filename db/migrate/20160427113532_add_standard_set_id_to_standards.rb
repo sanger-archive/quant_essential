@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddStandardSetIdToStandards < ActiveRecord::Migration
   def change
     change_table :standards do |t|

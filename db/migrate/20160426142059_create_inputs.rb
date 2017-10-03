@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateInputs < ActiveRecord::Migration
   def change
     create_table :inputs do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PrintersController < ApplicationController
   def create
     @printer = Printer.create(printer_params)

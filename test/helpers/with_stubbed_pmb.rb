@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 # Unfortunately the gem holds the configuration on the class
 PMB::TestSuiteStubs = Faraday::Adapter::Test::Stubs.new
 PMB::Base.connection.delete(Faraday::Adapter::NetHttp)

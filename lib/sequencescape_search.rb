@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SequencescapeSearch
   SearchNotFound = Class.new(StandardError)
   SequencescapeError = Class.new(StandardError)

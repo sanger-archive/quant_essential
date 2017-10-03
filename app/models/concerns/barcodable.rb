@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Include in classes which can be barcoded
 module Barcodable
   module ClassMethods

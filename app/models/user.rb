@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 require './lib/sequencescape_search'
 class User < ActiveRecord::Base
   # Must point to an object that responds to find with a swipecard and returns a has appropriate for input creation

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddLotNumberToStandard < ActiveRecord::Migration
   def change
     change_table :standards do |t|

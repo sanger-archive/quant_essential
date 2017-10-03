@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StandardTypesController < ApplicationController
   def create
     @standard_type = StandardType.new(standard_type_attributes)

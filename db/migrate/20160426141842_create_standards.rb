@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateStandards < ActiveRecord::Migration
   def change
     create_table :standards do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   sequence :quant_type_name do |i|
     "quant_type_#{i}"

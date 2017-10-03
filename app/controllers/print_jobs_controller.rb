@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PrintJobsController < ApplicationController
   include UuidReaders
   # PrintableFinders provides :printables which returns an array of object that need their labels printed

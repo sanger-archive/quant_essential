@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InputsController < ApplicationController
   def show
     @input = Input.with_parameters(params).first!

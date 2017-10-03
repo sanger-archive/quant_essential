@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/sanger128'
 class Barcode < ActiveRecord::Base
   # Must point to an object that responds to generate and takes an array of barcode elements.

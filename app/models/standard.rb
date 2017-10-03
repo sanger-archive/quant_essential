@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Standard < ActiveRecord::Base
   include Barcodable
   include BarcodeAutogen

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BarcodesController < ApplicationController
   def show
     @barcode = params.require(:barcode).squish

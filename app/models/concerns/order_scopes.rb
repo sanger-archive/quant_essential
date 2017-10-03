@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Common scopes for sorting by most recent
 module OrderScopes
   def self.included(base)

@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 class Assay < ActiveRecord::Base
   include Barcodable
   include BarcodeAutogen

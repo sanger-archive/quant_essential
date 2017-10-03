@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
-  GROUP_CLASS = 'form-group'.freeze
-  CONTROL_CLASS = 'form-control'.freeze
-  LABEL_CLASS = 'col-sm-3 control-label'.freeze
-  CONTROL_DIV_CLASS = 'col-sm-9'.freeze
+  GROUP_CLASS = 'form-group'
+  CONTROL_CLASS = 'form-control'
+  LABEL_CLASS = 'col-sm-3 control-label'
+  CONTROL_DIV_CLASS = 'col-sm-9'
 
   def self.bootstrapify(*originals)
     originals.each do |original|
       define_method(original) do |field_name, options = {}|
-        options[:class] ||= ''
+        options[:class] ||= String.new
         options[:class] << ' form-control'
         @template.content_tag(:div, class: GROUP_CLASS) do
           label(field_name, class: LABEL_CLASS) +
@@ -21,7 +23,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   bootstrapify(:number_field, :text_field, :password_field)
 
   def select(field_name, choices, options = {}, html_options = {})
-    html_options[:class] ||= ''
+    html_options[:class] ||= String.new
     options[:prompt] ||= 'Select...'
     html_options[:class] << ' form-control'
     @template.content_tag(:div, class: GROUP_CLASS) do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class QuantAttributeReaderTest < ActiveSupport::TestCase
@@ -16,7 +18,7 @@ class QuantAttributeReaderTest < ActiveSupport::TestCase
   setup do
     @cache_lookup = User.external_service
     @cache_input_lookup = Input.external_service
-    User.external_service = MockLookup.new(login: 'mock', uuid: '000')
+    User.external_service = MockLookup.new(login: 'mock', uuid: SecureRandom.uuid)
     @assay = create :assay
     @standard_type = create :standard_type, lifespan: 1
     @standard = create :standard, standard_type: standard_type

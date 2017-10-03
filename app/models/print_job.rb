@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PrintJob
   include ActiveModel::Model
   attr_accessor :printables, :printer, :response
