@@ -12,7 +12,7 @@ class StandardsController < ApplicationController
   private
 
   def search_params
-    params.permit('lot_number').delete_if {|k,v| v.blank? }
+    params.permit('lot_number').delete_if { |_k, v| v.blank? }
   end
 
   def filtered?

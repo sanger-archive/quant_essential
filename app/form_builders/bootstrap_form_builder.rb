@@ -32,13 +32,11 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def check_box(field_name, options = {}, checked_value = '1', unchecked_value = '0')
-        # options[:class] ||= ''
-        # options[:class] << ' form-control'
-        @template.content_tag(:div, class: GROUP_CLASS) do
-          label(field_name, class: LABEL_CLASS) +
-          @template.content_tag(:div, super(field_name, options, checked_value, unchecked_value), class: CONTROL_DIV_CLASS)
-        end
-      end
+    @template.content_tag(:div, class: GROUP_CLASS) do
+      label(field_name, class: LABEL_CLASS) +
+      @template.content_tag(:div, super(field_name, options, checked_value, unchecked_value), class: CONTROL_DIV_CLASS)
+    end
+  end
 
   def submit(*args)
     options = args.detect { |a| a.respond_to?(:fetch) }
