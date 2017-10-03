@@ -1,1 +1,2 @@
-<%= render partial: 'list', locals: { model_name: Standard.model_name, items: @standards,  creation_link: new_standard_set_path } %>
+<%= render partial: 'filters', locals: { params: params } %>
+<%= render partial: 'list', locals: { model_name: Standard.model_name, items: @standards,  creation_link: new_standard_set_path, filtered: @filtered } %>

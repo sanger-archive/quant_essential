@@ -22,6 +22,7 @@
 en:
   day: day
   expired: expired
+  filter: Filter
   application:
     title: QuantEssential
     title_html: <span class="text-info">Q<span class="hidden-sm">uant</span></span>E<span class="hidden-sm">ssential</span>
@@ -30,6 +31,7 @@ en:
     creation_prompt:
       title: There's nothing here...
       body: You haven't created any %{model_name} yet. Once you do, you'll be able to see them here.
+      filtered: QuantEssential couldn't find any %{model_name} matching your search criteria.
       creation_button: Create %{model_name}
     header:
       quants: Quants
