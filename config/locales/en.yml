@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  day: day
+  expired: expired
   application:
     title: QuantEssential
     title_html: <span class="text-info">Q<span class="hidden-sm">uant</span></span>E<span class="hidden-sm">ssential</span>
@@ -155,7 +157,7 @@ en:
         <h4>Potential issues</h4>
         <ul>
           <li>If QuantEssential couldn't find your standard and assay barcode, double check that you didn't scan them into the wrong boxes.</li>
-          <li>You can only use each standard and assay plate once. If QuantEssential complains about them being used, check which Quant they are associated with.</li>
+          <li>You can only use each assay plate once. If QuantEssential complains about them being used, check which Quant they are associated with.</li>
           <li>If QuantEssential can't find your swipecard, make sure you've set it up properly in Sequencescape.</li>
         </ul>
       success: "Your quant has been registered"
@@ -192,10 +194,18 @@ en:
     index:
       subtitle: List
       help_html: |
-        <p>This page shows the full list of registered standard types</p>
+        <p>This page shows the full list of registered standard types.</p>
     new:
       help_html:
-        <p>Please provide a name for your standard type.</p>
+        <p>Standard Types are associated with particular quant types, and get selected when you create a new standard. When a quant is perform the standard
+        type gets checked to ensure you are using a compatible standard.</p>
+        <dl>
+        <dt>Name</dt>
+        <dd>The name of the standard type that will be displayed in the dropdown.</dd>
+        <dt>Lifespan</dt>
+        <dd>The lifespan of any standards created, in days. Standards expire at midnight. A lifespan of one results in plates which expire at midnight on the day of creation.
+        Leave blank if plates should <em>never</em> expire.</dd>
+        </dl>
     create:
       success: "The Standard Type '%{name}' was successfully created"
     edit:
@@ -220,6 +230,8 @@ en:
         assay_count: Quantity needed
       standard_set:
         standard_count: Quantity needed
+      quant:
+        standard_age_at_creation: Standard age
     errors:
       messages:
         blank: "is required and can not be left blank"
@@ -231,10 +243,10 @@ en:
       no_input_barcode: You must scan an input
       swipecard_code:
         not_found: |
-                could not be found with the given swipecard.
+                could not be found.
                 Please ensure your swipecard is registered in Sequencescape.
                 To register a swipecard in sequencescape log in and click your user name near the top of the screen.
-                Click 'Edit profile', scan your swipecard into the 'Swipecard' box and click 'Update'
+                Click 'Edit profile', scan your swipecard into the 'Swipecard' box and click 'Update'.
       assay_barcode:
         not_found: does not match an assay resource. Make sure you haven't scanned a barcode into the wrong box
         used: has already been used
@@ -242,6 +254,7 @@ en:
         not_found: does not match a standard resource. Make sure you haven't scanned a barcode into the wrong box
         used: has already been used
         unsuitable: is an unsuitable type for this quant process
+        expired: has expired. Please use a different standard
       input_barcode:
         not_found: does not match a known resource. Inputs must be Sequencescape plates
     print_job:

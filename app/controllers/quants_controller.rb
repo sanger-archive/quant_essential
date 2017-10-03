@@ -8,7 +8,7 @@ class QuantsController < ApplicationController
     else
       @quant = qar
       @quant_types = QuantType.alphabetical.pluck(:name, :id)
-      flash.now.alert = qar.valid? ? quant.errors.full_messages : qar.errors.full_messages
+      flash.now.alert = qar.errors.full_messages
       render :new
       return
     end

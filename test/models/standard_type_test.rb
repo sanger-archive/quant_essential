@@ -7,4 +7,24 @@ class StandardTypeTest < ActiveSupport::TestCase
     assert_not standard_type_2.valid?
     assert_includes standard_type_2.errors.full_messages, 'Name has already been taken'
   end
+
+  test 'can have a lifespan' do
+    standard_type = build :standard_type, lifespan: 1
+    assert standard_type.valid?
+  end
+
+  test 'does not require a lifespan' do
+    standard_type = build :standard_type, lifespan: ''
+    assert standard_type.valid?
+  end
+
+  test 'should have a lifespan greater than 1' do
+    standard_type = build :standard_type, lifespan: 0
+    refute standard_type.valid?
+  end
+
+  test 'should have numeric lifespan' do
+    standard_type = build :standard_type, lifespan: 'one'
+    refute standard_type.valid?
+  end
 end

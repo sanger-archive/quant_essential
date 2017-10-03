@@ -2,6 +2,9 @@
   <%= f.password_field(:swipecard_code, required: true) %>
   <%= f.select(:quant_type, quant_types, {}, required: true) %>
   <%= f.text_field(:standard_barcode, required: true) %>
+  <% if quant.standard_expired? %>
+    <%= f.check_box(:override_expiry_date) %>
+  <% end %>
   <%= f.text_field(:assay_barcode, required: true) %>
   <%= f.text_field(:input_barcode, required: true) %>
   <%= f.submit %>

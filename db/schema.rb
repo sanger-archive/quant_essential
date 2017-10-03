@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628111639) do
+ActiveRecord::Schema.define(version: 20171003075925) do
 
   create_table "assay_sets", force: :cascade do |t|
     t.uuid     "uuid",       limit: 16, null: false
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20160628111639) do
     t.string   "name",       limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "lifespan",   limit: 4
   end
 
   create_table "standards", force: :cascade do |t|

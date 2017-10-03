@@ -1,17 +1,18 @@
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   GROUP_CLASS = 'form-group'.freeze
   CONTROL_CLASS = 'form-control'.freeze
-  LABEL_CLASS = 'col-sm-2 control-label'.freeze
+  LABEL_CLASS = 'col-sm-3 control-label'.freeze
+  CONTROL_DIV_CLASS = 'col-sm-9'.freeze
 
   def self.bootstrapify(*originals)
     originals.each do |original|
-      define_method(original) do |field_name, options|
+      define_method(original) do |field_name, options = {}|
         options[:class] ||= ''
         options[:class] << ' form-control'
         @template.content_tag(:div, class: GROUP_CLASS) do
           label(field_name, class: LABEL_CLASS) +
 
-          @template.content_tag(:div, super(field_name, options), class: 'col-sm-10')
+          @template.content_tag(:div, super(field_name, options), class: CONTROL_DIV_CLASS)
         end
       end
     end
@@ -26,9 +27,18 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     @template.content_tag(:div, class: GROUP_CLASS) do
       label(field_name, class: LABEL_CLASS) +
 
-      @template.content_tag(:div, super(field_name, choices, options, html_options), class: 'col-sm-10')
+      @template.content_tag(:div, super(field_name, choices, options, html_options), class: CONTROL_DIV_CLASS)
     end
   end
+
+  def check_box(field_name, options = {}, checked_value = '1', unchecked_value = '0')
+        # options[:class] ||= ''
+        # options[:class] << ' form-control'
+        @template.content_tag(:div, class: GROUP_CLASS) do
+          label(field_name, class: LABEL_CLASS) +
+          @template.content_tag(:div, super(field_name, options, checked_value, unchecked_value), class: CONTROL_DIV_CLASS)
+        end
+      end
 
   def submit(*args)
     options = args.detect { |a| a.respond_to?(:fetch) }
