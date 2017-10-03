@@ -9,12 +9,12 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   def self.bootstrapify(*originals)
     originals.each do |original|
       define_method(original) do |field_name, options = {}|
-        options[:class] ||= String.new
+        options[:class] ||= +''
         options[:class] << ' form-control'
         @template.content_tag(:div, class: GROUP_CLASS) do
           label(field_name, class: LABEL_CLASS) +
 
-          @template.content_tag(:div, super(field_name, options), class: CONTROL_DIV_CLASS)
+            @template.content_tag(:div, super(field_name, options), class: CONTROL_DIV_CLASS)
         end
       end
     end
@@ -23,20 +23,20 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   bootstrapify(:number_field, :text_field, :password_field)
 
   def select(field_name, choices, options = {}, html_options = {})
-    html_options[:class] ||= String.new
+    html_options[:class] ||= +''
     options[:prompt] ||= 'Select...'
     html_options[:class] << ' form-control'
     @template.content_tag(:div, class: GROUP_CLASS) do
       label(field_name, class: LABEL_CLASS) +
 
-      @template.content_tag(:div, super(field_name, choices, options, html_options), class: CONTROL_DIV_CLASS)
+        @template.content_tag(:div, super(field_name, choices, options, html_options), class: CONTROL_DIV_CLASS)
     end
   end
 
   def check_box(field_name, options = {}, checked_value = '1', unchecked_value = '0')
     @template.content_tag(:div, class: GROUP_CLASS) do
       label(field_name, class: LABEL_CLASS) +
-      @template.content_tag(:div, super(field_name, options, checked_value, unchecked_value), class: CONTROL_DIV_CLASS)
+        @template.content_tag(:div, super(field_name, options, checked_value, unchecked_value), class: CONTROL_DIV_CLASS)
     end
   end
 

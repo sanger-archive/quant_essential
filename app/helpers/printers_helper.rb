@@ -6,11 +6,9 @@ module PrintersHelper
   end
 
   def available_external_printers
-    begin
-      Printer.external_printers
-    # If something goes wrong here, just rescue it and return an empty array
-    rescue
-      []
-    end
+    Printer.external_printers
+  # If something goes wrong here, just rescue it and return an empty array
+  rescue JsonApiClient::Errors::ApiError
+    []
   end
 end

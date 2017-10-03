@@ -32,6 +32,7 @@ class PrintersControllerTest < ActionController::TestCase
   end
 
   test '#new' do
+    Printer.stubs(:external_printers).returns(['valid_printer'])
     get :new
     assert assigns(:printer)
   end
@@ -50,6 +51,7 @@ class PrintersControllerTest < ActionController::TestCase
   end
 
   test '#edit' do
+    Printer.stubs(:external_printers).returns(['valid_printer'])
     printer = create :printer
     get :edit, name: printer.name
     assert_equal printer, assigns(:printer)

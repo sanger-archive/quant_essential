@@ -5,7 +5,9 @@ class StandardSet < ActiveRecord::Base
   include HasUuid
   include OrderScopes
 
-  def to_param; friendly_uuid; end
+  def to_param
+    friendly_uuid
+  end
 
   attr_accessor :standard_count, :lot_number
 

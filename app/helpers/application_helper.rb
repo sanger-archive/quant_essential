@@ -21,7 +21,7 @@ module ApplicationHelper
     flash.each do |type, messages|
       content_tag(:div, class: "alert alert-#{flash_to_bootstrap(type)}") do
         content_tag(:strong, t(:title, scope: [:flashes, type], default: %i[flashes default title])) <<
-        content_tag(:ul, messages.map { |m| content_tag(:li, m) })
+          content_tag(:ul, messages.map { |m| content_tag(:li, m) })
       end
     end
   end

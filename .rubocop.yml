@@ -22,3 +22,5 @@ Metrics/LineLength:
 Metrics/BlockLength:
   Exclude:
     - 'lib/label_templates/*'
+Bundler/OrderedGems:
+  Enabled: false

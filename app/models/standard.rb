@@ -5,7 +5,9 @@ class Standard < ActiveRecord::Base
   include BarcodeAutogen
   include OrderScopes
 
-  def to_param; barcode; end
+  def to_param
+    barcode
+  end
 
   self.barcode_prefix = 'S'
 

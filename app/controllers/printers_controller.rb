@@ -62,6 +62,6 @@ class PrintersController < ApplicationController
   private
 
   def printer_params
-    params.require(:printer).permit(:name, :label_template_id, :description).transform_values { |v| v.squish }
+    params.require(:printer).permit(:name, :label_template_id, :description).transform_values(&:squish)
   end
 end

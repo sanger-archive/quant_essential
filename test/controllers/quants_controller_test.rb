@@ -41,7 +41,7 @@ class QuantsControllerTest < ActionController::TestCase
   end
 
   test 'should allow quant creation' do
-    User.external_service = MockUserLookup.new({ login: 'mock', uuid: SecureRandom.uuid })
+    User.external_service = MockUserLookup.new(login: 'mock', uuid: SecureRandom.uuid)
 
     assay = create :assay
     standard = create :standard
@@ -49,13 +49,13 @@ class QuantsControllerTest < ActionController::TestCase
     input = create :input
 
     assert_difference('Quant.count') do
-      post :create, { quant: {
+      post :create, quant: {
         swipecard_code: 'swipe',
         quant_type: quant_type.id,
         assay_barcode: assay.barcode,
         standard_barcode: standard.barcode,
         input_barcode: input.barcode
-      } }
+      }
     end
 
     assert_not_nil assigns(:quant)

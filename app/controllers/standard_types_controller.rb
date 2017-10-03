@@ -44,6 +44,6 @@ class StandardTypesController < ApplicationController
   private
 
   def standard_type_attributes
-    params.require(:standard_type).permit(:name, :lifespan).transform_values { |v| v.squish }
+    params.require(:standard_type).permit(:name, :lifespan).transform_values(&:squish)
   end
 end

@@ -6,46 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: Include, TreatCommentsAsGroupSeparators.
-# Include: **/Gemfile, **/gems.rb
-Bundler/OrderedGems:
-  Exclude:
-    - 'Gemfile'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: normal, rails
-Layout/IndentationConsistency:
-  Exclude:
-    - 'app/models/standard.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
-# SupportedStyles: aligned, indented
-Layout/MultilineOperationIndentation:
-  Exclude:
-    - 'app/form_builders/bootstrap_form_builder.rb'
-    - 'app/helpers/application_helper.rb'
-
-# Offense count: 1
-Lint/IneffectiveAccessModifier:
-  Exclude:
-    - 'app/models/input.rb'
-
-# Offense count: 1
-Lint/RescueWithoutErrorClass:
-  Exclude:
-    - 'app/helpers/printers_helper.rb'
-
-# Offense count: 1
-# Configuration parameters: ContextCreatingMethods, MethodCreatingMethods.
-Lint/UselessAccessModifier:
-  Exclude:
-    - 'app/models/input.rb'
 
 # Offense count: 4
 Lint/UselessAssignment:
@@ -88,25 +48,6 @@ Naming/VariableNumber:
     - 'test/models/quant_type_test.rb'
     - 'test/models/standard_type_test.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: prefer_alias, prefer_alias_method
-Style/Alias:
-  Exclude:
-    - 'app/controllers/barcodes_controller.rb'
-
-# Offense count: 6
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: braces, no_braces, context_dependent
-Style/BracesAroundHashParameters:
-  Exclude:
-    - 'lib/sequencescape_search.rb'
-    - 'test/controllers/inputs_controller_test.rb'
-    - 'test/controllers/quants_controller_test.rb'
-    - 'test/models/input_test.rb'
-
 # Offense count: 4
 Style/CaseEquality:
   Exclude:
@@ -133,55 +74,3 @@ Style/Lambda:
   Exclude:
     - 'app/models/input.rb'
 
-# Offense count: 5
-# Cop supports --auto-correct.
-Style/MutableConstant:
-  Exclude:
-    - 'config/initializers/version_strings.rb'
-    - 'lib/sanger128.rb'
-    - 'test/models/assay_test.rb'
-    - 'test/models/standard_test.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/RedundantBegin:
-  Exclude:
-    - 'app/helpers/printers_helper.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/RedundantSelf:
-  Exclude:
-    - 'app/models/input.rb'
-    - 'app/models/user.rb'
-
-# Offense count: 6
-# Cop supports --auto-correct.
-# Configuration parameters: AllowIfMethodIsEmpty.
-Style/SingleLineMethods:
-  Exclude:
-    - 'app/models/assay.rb'
-    - 'app/models/assay_set.rb'
-    - 'app/models/input.rb'
-    - 'app/models/quant.rb'
-    - 'app/models/standard.rb'
-    - 'app/models/standard_set.rb'
-
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: IgnoredMethods.
-# IgnoredMethods: respond_to, define_method
-Style/SymbolProc:
-  Exclude:
-    - 'app/controllers/printers_controller.rb'
-    - 'app/controllers/quant_types_controller.rb'
-    - 'app/controllers/quants_controller.rb'
-    - 'app/controllers/standard_types_controller.rb'
-    - 'lib/label_template_setup.rb'
-
-# Offense count: 6
-# Cop supports --auto-correct.
-# Configuration parameters: SupportedStyles, MinSize, WordRegex.
-# SupportedStyles: percent, brackets
-Style/WordArray:
-  EnforcedStyle: brackets

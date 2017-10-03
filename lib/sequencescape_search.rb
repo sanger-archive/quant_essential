@@ -15,7 +15,7 @@ class SequencescapeSearch
     SequencescapeSearch::SearchEndpoint.new(
       'Find user by swipecard code',
       'swipecard_code',
-      { uuid: ['user', 'uuid'], login: ['user', 'login'] }
+      uuid: %w[user uuid], login: %w[user login]
     )
   end
 
@@ -23,7 +23,7 @@ class SequencescapeSearch
     SequencescapeSearch::SearchEndpoint.new(
       'Find assets by barcode',
       'barcode',
-      { uuid: ['plate', 'uuid'], name: ['plate', 'name'], external_type: ['plate', 'plate_purpose', 'name'] }
+      uuid: %w[plate uuid], name: %w[plate name], external_type: %w[plate plate_purpose name]
     )
   end
 

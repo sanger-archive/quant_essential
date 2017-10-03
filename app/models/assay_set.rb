@@ -7,7 +7,9 @@ class AssaySet < ActiveRecord::Base
 
   attr_accessor :assay_count
 
-  def to_param; friendly_uuid; end
+  def to_param
+    friendly_uuid
+  end
 
   has_many :assays, inverse_of: :assay_set
 

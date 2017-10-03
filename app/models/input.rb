@@ -6,7 +6,9 @@ class Input < ActiveRecord::Base
   include Barcodable
   include OrderScopes
 
-  def to_param; barcode; end
+  def to_param
+    barcode
+  end
 
   has_many :quants, inverse_of: :input
 
@@ -34,11 +36,11 @@ class Input < ActiveRecord::Base
 
   # Find an input with barcode 'barcode' or import from the defined service
   # If not specifies uses Input#external_service
-  def self.find_with_barcode(barcode, service = self.external_service)
+  def self.find_with_barcode(barcode, service = external_service)
     super || import_from_service(barcode, service)
   end
 
-  private
+  private_class_method
 
   def self.import_from_service(barcode, service)
     external_params = service.find(barcode)

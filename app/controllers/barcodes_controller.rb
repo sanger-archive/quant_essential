@@ -15,5 +15,5 @@ class BarcodesController < ApplicationController
   # This is a bit naughty, but essentially this means
   # our form can act as though getting /barcode?barcode=example is the same
   # as getting /barcode/example
-  alias :index :show
+  alias index show
 end

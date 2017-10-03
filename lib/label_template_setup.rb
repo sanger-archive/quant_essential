@@ -29,9 +29,7 @@ class LabelTemplateSetup
     end
 
     def find_or_register_each_template!
-      templates.each do |template|
-        template.find_or_register!
-      end
+      templates.each(&:find_or_register!)
     end
   end
   extend ClassMethods
