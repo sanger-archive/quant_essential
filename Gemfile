@@ -50,6 +50,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'rubocop'
+  gem 'yard'
 end
 
 group :development do

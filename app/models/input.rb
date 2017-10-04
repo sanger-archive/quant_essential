@@ -2,6 +2,11 @@
 
 require './lib/sequencescape_search'
 
+#
+# Class Input describes the labware that will be subject to QC
+# Inputs are imported from an external service, such as Sequencescape
+# based on their barcodes
+#
 class Input < ActiveRecord::Base
   include Barcodable
   include OrderScopes
@@ -11,14 +16,16 @@ class Input < ActiveRecord::Base
   # Ideally we'd do this with an initializer, but rails class reloading makes dependency injection tricky
   self.external_service = SequencescapeSearch.new(Rails.configuration.api_root, SequencescapeSearch.plate_barcode_search)
 
+  # Associations
   has_many :quants, inverse_of: :input
+
+  # Validations
   # We don't use the Has UUID concern as the uuid is supplied externally.
   # We don't want to autogenerate it, nor do we care about friendly presentation
   validates :uuid, presence: true
   validates :barcode_object, presence: true
 
   scope :include_for_list, ->() { includes(:quants, :barcode_object) }
-
   scope :with_parameters, (lambda do |params|
     # Prioritise barcode, otherwise fall back to other options
     return with_barcode(params[:barcode]) if params[:barcode].present?

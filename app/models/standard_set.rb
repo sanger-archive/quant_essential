@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+#
+# Class StandardSet provides a means of creating #standard_count Standards
+# @attr [Int] standard_count The number of standards to be created. This is not persisted
 class StandardSet < ActiveRecord::Base
   include ActiveUUID::UUID
   include HasUuid

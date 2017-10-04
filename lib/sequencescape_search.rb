@@ -3,6 +3,10 @@
 require_relative 'sequencescape_search/search_uuid_request'
 require_relative 'sequencescape_search/search_result_request'
 
+#
+# Class SequencescapeSearch provides a unified class for interacting with Sequencescape searches
+# via the v1 api
+#
 class SequencescapeSearch
   SearchNotFound = Class.new(StandardError)
   SequencescapeError = Class.new(StandardError)
@@ -14,6 +18,7 @@ class SequencescapeSearch
   # return_map: A hash of keys that will be returned, and their 'address' in the json response
   SearchEndpoint = Struct.new(:name, :parameter, :return_map)
 
+  # Predefined helper for the user swipecard lookup
   def self.swipecard_search
     SequencescapeSearch::SearchEndpoint.new(
       'Find user by swipecard code',
@@ -22,6 +27,7 @@ class SequencescapeSearch
     )
   end
 
+  # Predefined helper for the plate barcode lookup
   def self.plate_barcode_search
     SequencescapeSearch::SearchEndpoint.new(
       'Find assets by barcode',

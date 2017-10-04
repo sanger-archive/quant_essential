@@ -1,4 +1,3 @@
-inherit_from: .rubocop_todo.yml
 AllCops:
   TargetRubyVersion: 2.4
   Exclude:
@@ -11,3 +10,7 @@ Metrics/BlockLength:
     - 'lib/label_templates/*'
 Bundler/OrderedGems:
   Enabled: false
+Style/Documentation:
+  Exclude:
+    - 'app/controllers/**/*'
+    - 'test/**/*'

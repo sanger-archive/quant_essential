@@ -7,6 +7,7 @@ PMB::Base.connection.delete(Faraday::Adapter::NetHttp)
 PMB::Base.connection.faraday.adapter :test, PMB::TestSuiteStubs
 
 module WithStubbedPmb
+  # rubocop:disable Metrics/MethodLength
   def print_job_response(name, external_id)
     %({
       "data": {
@@ -30,6 +31,7 @@ module WithStubbedPmb
       }
     })
   end
+  # rubocop:enable Metrics/MethodLength
 
   # Note: PMB currently returns an invalid JSON API error response. We'll test the handling of that here
   def invalid_invalid_job_response

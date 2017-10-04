@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+#
+# Class QuantType provides a means of identifying the type of qunat process performed
+# When a quant is created the standard used must match that associated with the quant type
+#
 class QuantType < ActiveRecord::Base
   include NamedBehaviour
 

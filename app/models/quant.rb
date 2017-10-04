@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+#
+# Class Quant provides the means of traking a QC process they tie together
+# the quant type, input, standard, assay and user performing the quant.
+#
 class Quant < ActiveRecord::Base
   include OrderScopes
 

@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+#
+# Class StandardType provides a means of identifying standards as compatible with particular
+# QC processes.
+#
 class StandardType < ActiveRecord::Base
   include NamedBehaviour
 

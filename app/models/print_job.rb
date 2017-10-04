@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+#
+# Class PrintJob transmits print requests to print my barcode
+#
 class PrintJob
   include ActiveModel::Model
   attr_accessor :printables, :printer, :response

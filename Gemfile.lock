@@ -215,6 +215,7 @@ GEM
     will_paginate (3.1.5)
     will_paginate-bootstrap (1.0.1)
       will_paginate (>= 3.0.3)
+    yard (0.9.9)
 
 PLATFORMS
   ruby
@@ -244,6 +245,7 @@ DEPENDENCIES
   web-console (~> 2.0)
   will_paginate
   will_paginate-bootstrap
+  yard
 
 BUNDLED WITH
    1.15.4

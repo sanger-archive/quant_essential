@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Adjusts the default form builder to:
+# 1. Include labels by default
+# 2. Use bootstrap friendly styles
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   GROUP_CLASS = 'form-group'
   CONTROL_CLASS = 'form-control'

@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+#
+# Class Standard describes a piece of labware with know values used in a QC process
+# to calibrate readings.
+#
 class Standard < ActiveRecord::Base
   include Barcodable
   include BarcodeAutogen

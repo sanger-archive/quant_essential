@@ -2,6 +2,10 @@
 # frozen_string_literal: true
 
 require './lib/sequencescape_search'
+#
+# Class User provides a means of tracking individuals who performed a process.
+# @attr[String] login The login of the user
+# @attr[String] uuid The uuid of the user in the Sequencescape database. Stored in binary encoded format
 class User < ActiveRecord::Base
   # Must point to an object that responds to find with a swipecard and returns a has appropriate for input creation
   class_attribute :external_service
