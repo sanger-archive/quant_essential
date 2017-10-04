@@ -41,17 +41,12 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def submit(*args)
-    options = args.detect { |a| a.respond_to?(:fetch) }
-
-    if options.nil?
-      options = {}
-      args << options
-    end
+    options = args.extract_options!
 
     options && options[:class] ||= 'btn btn-default'
     @template.content_tag(:div, class: GROUP_CLASS) do
-      @template.content_tag(:div, class: 'col-sm-offset-2 col-sm-10') do
-        super(*args)
+      @template.content_tag(:div, class: 'col-sm-offset-3 col-sm-9') do
+        super(*args, options)
       end
     end
   end

@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require_relative 'sequencescape_search/search_uuid_request'
+require_relative 'sequencescape_search/search_result_request'
+
 class SequencescapeSearch
   SearchNotFound = Class.new(StandardError)
   SequencescapeError = Class.new(StandardError)
@@ -39,66 +42,18 @@ class SequencescapeSearch
   end
 
   def find(query)
-    response = api_find(query)
-    case response.status
-    when 404
-      nil
-    when 301
-      json = extract_hash(response)
-      Hash[return_map.map { |k, v| [k, json.dig(*v)] }]
-    when 503
-      raise SequencescapeBusy, 'Sequencescape is currently unavailable.'
-    else
-      raise SequencescapeError, "Unexpected response status: #{searches.status}"
-    end
+    SearchResultRequest.new(api_root, query, search, search_uuid, singlular_endpoint).result
   end
 
   private
 
-  delegate :name, :parameter, :return_map, to: :search
-
-  def payload(query)
-    { singlular_endpoint => { parameter => query } }.to_json
-  end
+  delegate :name, to: :search
 
   def singlular_endpoint
     search_endpoint.singularize
   end
 
-  def search_root
-    @search_root ||= "#{search_uuid}/first"
-  end
-
   def search_uuid
-    response = api_searches
-    case response.status
-    when 200
-      extract_search_uuid(response)
-    when 503
-      raise SequencescapeBusy, 'Sequencescape is currently unavailable.'
-    else
-      raise SequencescapeError, "Unexpected response status: #{response.status}"
-    end
-  end
-
-  def extract_search_uuid(response)
-    json = extract_hash(response)
-    found_search = json.fetch(search_endpoint).detect { |search| search['name'] == name }
-    raise SearchNotFound, "Could not find search #{name}" if found_search.nil?
-    found_search.fetch('uuid')
-  end
-
-  def extract_hash(response)
-    JSON.parse(response.body)
-  rescue JSON::ParserError
-    raise SequencescapeError, 'Sequencescape returned non-json content'
-  end
-
-  def api_searches
-    api_root.get(search_endpoint)
-  end
-
-  def api_find(query)
-    api_root.post(search_root, payload(query))
+    @search_uuid ||= SearchUuidRequest.new(api_root, name, search_endpoint).uuid
   end
 end
