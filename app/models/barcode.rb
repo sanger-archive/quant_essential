@@ -18,7 +18,7 @@ class Barcode < ActiveRecord::Base
   end
 
   def self.find_barcodable_with_barcode(barcode)
-    converted_barcode = if SBCF::HUMAN_BARCODE_FORMAT === barcode
+    converted_barcode = if SBCF::HUMAN_BARCODE_FORMAT.match? barcode
                           SBCF::SangerBarcode.from_human(barcode).machine_barcode
                         else
                           barcode

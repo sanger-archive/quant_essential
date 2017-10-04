@@ -6,7 +6,10 @@ require 'rails/test_help'
 require 'factory_girl_rails'
 require 'helpers/with_stubbed_pmb'
 
-class ActiveSupport::TestCase
-  include FactoryGirl::Syntax::Methods
+module ActiveSupport
+  class TestCase
+    include FactoryGirl::Syntax::Methods
+  end
 end
+
 require 'mocha/mini_test'

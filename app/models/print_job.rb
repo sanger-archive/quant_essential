@@ -45,7 +45,7 @@ class PrintJob
     error_array = JSON.parse(error)
     errors.add(:print_server, error_array.join(' - '))
     false
-  rescue JSON::ParserError => exception
+  rescue JSON::ParserError
     errors.add(:print_server, error)
     false
   end

@@ -22,7 +22,7 @@ class Standard < ActiveRecord::Base
 
   delegate :lifespan, to: :standard_type
 
-  def has_quant?
+  def quant?
     quants.present?
   end
 

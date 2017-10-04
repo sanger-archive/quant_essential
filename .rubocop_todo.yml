@@ -6,18 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-
-# Offense count: 4
-Lint/UselessAssignment:
-  Exclude:
-    - 'app/models/print_job.rb'
-    - 'test/controllers/print_jobs_controller_test.rb'
-    - 'test/libs/sanger128_test.rb'
-
-# Offense count: 8
-Metrics/AbcSize:
-  Max: 24
-
 # Offense count: 8
 # Configuration parameters: CountComments.
 Metrics/MethodLength:
@@ -28,49 +16,8 @@ Metrics/MethodLength:
 Metrics/ParameterLists:
   Max: 6
 
-# Offense count: 2
-# Configuration parameters: NamePrefix, NamePrefixBlacklist, NameWhitelist.
-# NamePrefix: is_, has_, have_
-# NamePrefixBlacklist: is_, has_, have_
-# NameWhitelist: is_a?
-Naming/PredicateName:
-  Exclude:
-    - 'spec/**/*'
-    - 'app/models/assay.rb'
-    - 'app/models/standard.rb'
-
-# Offense count: 5
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: snake_case, normalcase, non_integer
-Naming/VariableNumber:
-  Exclude:
-    - 'test/controllers/printers_controller_test.rb'
-    - 'test/models/quant_type_test.rb'
-    - 'test/models/standard_type_test.rb'
-
-# Offense count: 4
-Style/CaseEquality:
-  Exclude:
-    - 'app/controllers/concerns/uuid_readers.rb'
-    - 'app/models/barcode.rb'
-    - 'lib/sanger128.rb'
-
-# Offense count: 1
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: nested, compact
-Style/ClassAndModuleChildren:
-  Exclude:
-    - 'test/test_helper.rb'
-
 # Offense count: 68
 Style/Documentation:
   Enabled: false
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: line_count_dependent, lambda, literal
-Style/Lambda:
-  Exclude:
-    - 'app/models/input.rb'
 

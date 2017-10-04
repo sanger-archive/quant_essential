@@ -74,6 +74,11 @@ en:
       success:
         one: "One assay has been successfully created"
         other: "%{count} assays have been successfully created"
+    print_jobs:
+      create:
+        success:
+          one: "Your label has been sent to %{printer}"
+          other: "%{count} labels have been sent to %{printer}"
   standard_sets:
     no_standard_types:
       title: Sorry, we're missing some information...
@@ -85,6 +90,17 @@ en:
       success:
         one: "One standard has been successfully created"
         other: "%{count} standards have been successfully created"
+    print_jobs:
+      create:
+        success:
+          one: "Your label has been sent to %{printer}"
+          other: "%{count} labels have been sent to %{printer}"
+  standards:
+    print_jobs:
+      create:
+        success:
+          one: "Your label has been sent to %{printer}"
+          other: "%{count} labels have been sent to %{printer}"
   assays:
     index:
       subtitle: List
@@ -93,11 +109,11 @@ en:
         <p><span class="label label-default">Unuused</span> Indicates an assay which has not been used in a quant process.</p>
         <p><span class="label label-success">Example</span> Indicates an assay which has been used in an 'example' quant.
         Click on the label to get more information.</p>
-  print_jobs:
-    create:
-      success:
-        one: "Your label has been sent to %{printer}"
-        other: "%{count} labels have been sent to %{printer}"
+    print_jobs:
+      create:
+        success:
+          one: "Your label has been sent to %{printer}"
+          other: "%{count} labels have been sent to %{printer}"
   printers:
     new:
       help_html: |

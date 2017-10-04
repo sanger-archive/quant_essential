@@ -12,8 +12,8 @@ module UuidReaders
   end
 
   def uuid_from(param)
-    return param if FULL_UUID === param
-    return UUIDTools::UUID.parse_int(param.to_i(FRIENDLY_ENCODING)) if FRIENDLY_UUID === param
+    return param if FULL_UUID.match?(param)
+    return UUIDTools::UUID.parse_int(param.to_i(FRIENDLY_ENCODING)) if FRIENDLY_UUID.match?(param)
     nil
   end
 end

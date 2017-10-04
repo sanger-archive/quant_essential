@@ -20,7 +20,7 @@ class Assay < ActiveRecord::Base
 
   scope :include_for_list, ->() { include_barcode.includes(quant: { quant_type: :standard_type }) }
 
-  def has_quant?
+  def quant?
     quant.present?
   end
 end

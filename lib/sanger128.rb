@@ -73,6 +73,6 @@ class Sanger128
   def raise_on_invalid_content!(test, min, max, regex)
     raise InvalidBarcode, "'#{test}' is shorter than #{min} characters" if test.length < min
     raise InvalidBarcode, "'#{test}' is longer than #{max} characters" if test.length > max
-    raise InvalidBarcode, "'#{test}' contains invalid characters" unless regex === test
+    raise InvalidBarcode, "'#{test}' contains invalid characters" unless regex.match? test
   end
 end

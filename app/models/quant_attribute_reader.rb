@@ -20,7 +20,7 @@ class QuantAttributeReader
   validate :user_suitable?, if: :swipecard_code
   validate :input_suitable?, if: :input_barcode
 
-  delegate :has_quant?, to: :assay, allow_nil: true, prefix: true
+  delegate :quant?, to: :assay, allow_nil: true, prefix: true
   delegate :expired?, to: :standard, allow_nil: true, prefix: true
 
   def validate_and_create_quant
@@ -37,7 +37,7 @@ class QuantAttributeReader
   # An assay barcode must may to an assay plate, and the assay plate must be unused
   def assay_suitable?
     errors.add(:assay_barcode, I18n.t(:not_found, scope: %i[errors quant_attribute_reader assay_barcode])) if assay.nil?
-    errors.add(:assay_barcode, I18n.t(:used, scope: %i[errors quant_attribute_reader assay_barcode])) if assay_has_quant?
+    errors.add(:assay_barcode, I18n.t(:used, scope: %i[errors quant_attribute_reader assay_barcode])) if assay_quant?
   end
 
   # A standard barcode must map to a standard plate, the plate must be unused, and must be of the right standard type
