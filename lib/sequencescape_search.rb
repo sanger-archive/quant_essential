@@ -27,7 +27,7 @@ class SequencescapeSearch
     )
   end
 
-  attr_reader :api_root, :search_endpoint, :search
+  attr_reader :api_root, :search, :search_endpoint
 
   # api_root: A Faraday client pointed at the api root
   # search: A SearchEndpoint
@@ -39,13 +39,12 @@ class SequencescapeSearch
   end
 
   def find(query)
-    payload = { singlular_endpoint => { parameter => query } }.to_json
-    response = api_root.post(search_root, payload)
+    response = api_find(query)
     case response.status
     when 404
-      return nil
+      nil
     when 301
-      json = JSON.parse(response.body)
+      json = extract_hash(response)
       Hash[return_map.map { |k, v| [k, json.dig(*v)] }]
     when 503
       raise SequencescapeBusy, 'Sequencescape is currently unavailable.'
@@ -58,6 +57,10 @@ class SequencescapeSearch
 
   delegate :name, :parameter, :return_map, to: :search
 
+  def payload(query)
+    { singlular_endpoint => { parameter => query } }.to_json
+  end
+
   def singlular_endpoint
     search_endpoint.singularize
   end
@@ -67,21 +70,35 @@ class SequencescapeSearch
   end
 
   def search_uuid
-    searches = api_root.get(search_endpoint)
-    case searches.status
+    response = api_searches
+    case response.status
     when 200
-      begin
-        json = JSON.parse(searches.body)
-      rescue JSON::ParserError
-        raise SequencescapeError, 'Sequencescape returned non-json content'
-      end
-      found_search = json.fetch(search_endpoint).detect { |search| search['name'] == name }
-      raise SearchNotFound, "Could not find search #{name}" if found_search.nil?
-      found_search.fetch('uuid')
+      extract_search_uuid(response)
     when 503
       raise SequencescapeBusy, 'Sequencescape is currently unavailable.'
     else
-      raise SequencescapeError, "Unexpected response status: #{searches.status}"
+      raise SequencescapeError, "Unexpected response status: #{response.status}"
     end
+  end
+
+  def extract_search_uuid(response)
+    json = extract_hash(response)
+    found_search = json.fetch(search_endpoint).detect { |search| search['name'] == name }
+    raise SearchNotFound, "Could not find search #{name}" if found_search.nil?
+    found_search.fetch('uuid')
+  end
+
+  def extract_hash(response)
+    JSON.parse(response.body)
+  rescue JSON::ParserError
+    raise SequencescapeError, 'Sequencescape returned non-json content'
+  end
+
+  def api_searches
+    api_root.get(search_endpoint)
+  end
+
+  def api_find(query)
+    api_root.post(search_root, payload(query))
   end
 end
