@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Add quant types table
 class CreateQuantTypes < ActiveRecord::Migration
   def change
     create_table :quant_types do |t|

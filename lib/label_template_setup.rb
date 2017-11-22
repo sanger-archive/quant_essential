@@ -1,5 +1,12 @@
+# frozen_string_literal: true
+
+#
+# Class LabelTemplateSetup provides an easy way to register
+# label templates in print my barcode, and to record the corresponding templates
+# in the QuantEssential database
+#
 class LabelTemplateSetup
-  module ClassMethods
+  class << self
     def label_types
       @label_types ||= PMB::LabelType.all
     end
@@ -27,12 +34,9 @@ class LabelTemplateSetup
     end
 
     def find_or_register_each_template!
-      templates.each do |template|
-        template.find_or_register!
-      end
+      templates.each(&:find_or_register!)
     end
   end
-  extend ClassMethods
 
   attr_reader :name, :hash
 

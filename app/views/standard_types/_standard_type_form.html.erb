@@ -1,4 +1,5 @@
 <%= form_for(standard_type, builder: BootstrapFormBuilder, html:{class:'form-horizontal'}) do |f| %>
   <%= f.text_field(:name, required: true) %>
+  <%= f.number_field(:lifespan, required: false, min: 1, step: 1) %>
   <%= f.submit %>
 <% end %>

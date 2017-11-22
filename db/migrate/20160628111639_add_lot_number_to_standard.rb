@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Standards have a lot number
 class AddLotNumberToStandard < ActiveRecord::Migration
   def change
     change_table :standards do |t|

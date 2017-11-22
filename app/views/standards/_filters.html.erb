@@ -1,0 +1,5 @@
+<%= form_tag standards_path, method: :get, class: 'form-inline' do %>
+  <%= label_tag :lot_number %>
+  <%= search_field_tag :lot_number, params[:lot_number], class: 'form-control' %>
+  <%= submit_tag t(:filter), class: 'btn btn-default' %>
+<% end %>

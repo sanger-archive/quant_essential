@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StandardTypesController < ApplicationController
   def create
     @standard_type = StandardType.new(standard_type_attributes)
@@ -42,6 +44,6 @@ class StandardTypesController < ApplicationController
   private
 
   def standard_type_attributes
-    params.require(:standard_type).permit(:name).transform_values { |v| v.squish }
+    params.require(:standard_type).permit(:name, :lifespan).transform_values(&:squish)
   end
 end

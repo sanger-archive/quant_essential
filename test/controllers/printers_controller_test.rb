@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PrintersControllerTest < ActionController::TestCase
@@ -30,6 +32,7 @@ class PrintersControllerTest < ActionController::TestCase
   end
 
   test '#new' do
+    Printer.stubs(:external_printers).returns(['valid_printer'])
     get :new
     assert assigns(:printer)
   end
@@ -48,6 +51,7 @@ class PrintersControllerTest < ActionController::TestCase
   end
 
   test '#edit' do
+    Printer.stubs(:external_printers).returns(['valid_printer'])
     printer = create :printer
     get :edit, name: printer.name
     assert_equal printer, assigns(:printer)
@@ -55,10 +59,10 @@ class PrintersControllerTest < ActionController::TestCase
 
   test '#update' do
     printer = create :printer
-    label_template_2 = create :label_template
-    put :update, name: printer.name, printer: { name: 'new_name', description: 'Smile', label_template_id: label_template_2.id }
+    label_template2 = create :label_template
+    put :update, name: printer.name, printer: { name: 'new_name', description: 'Smile', label_template_id: label_template2.id }
     assert_equal printer, assigns(:printer)
-    assert_equal label_template_2, assigns(:printer).label_template
+    assert_equal label_template2, assigns(:printer).label_template
     assert_equal 'Smile', assigns(:printer).description
     assert_redirected_to printer_path('new_name')
   end

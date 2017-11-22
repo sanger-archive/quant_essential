@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 require './lib/sanger128'
 
@@ -40,14 +42,14 @@ class Sanger128Test < ActiveSupport::TestCase
   test 'rejects values with invalid characters' do
     generator = Sanger128.new('PREF')
     assert_raises Sanger128::InvalidBarcode do
-      barcode = generator.generate('f', 12_345)
+      generator.generate('f', 12_345)
     end
   end
 
   test 'rejects barcodes which are too long' do
     generator = Sanger128.new('PREF')
     assert_raises Sanger128::InvalidBarcode do
-      barcode = generator.generate('ABCDEFG', 'F' * 20, 12_345)
+      generator.generate('ABCDEFG', 'F' * 20, 12_345)
     end
   end
 end

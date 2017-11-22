@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuantTypesController < ApplicationController
   def create
     @quant_type = QuantType.new(quant_type_attributes)
@@ -47,6 +49,6 @@ class QuantTypesController < ApplicationController
   end
 
   def quant_type_attributes
-    params.require(:quant_type).permit(:name, :standard_type_id).transform_values { |v| v.squish }
+    params.require(:quant_type).permit(:name, :standard_type_id).transform_values(&:squish)
   end
 end

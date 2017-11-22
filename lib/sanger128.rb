@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Generates barcodes according to the agreed internal Code128 standard
 # - 4 character application specific prefix
 # - Prefixes of 3 characters are right padded with the separator: "_" by default
@@ -28,6 +30,9 @@ class Sanger128
   # max_prefix_length - Overide the default minimum prefix length ( Default = 4 )
   # max_barcode_length - Overide the default maximum barcode length ( Default = 25 )
   # valid_expression - Overide the default regex used for validation ( Default = /\A[A-Z0-9_-]+\z/ )
+  # rubocop:disable Metrics/ParameterLists
+  # Almost all these parameters are optional, and it doesn't seem worth splitting out a separate
+  # validator class.
   def initialize(
     base_prefix,
     separator:          DEFAULT_SEPARATOR,
@@ -46,6 +51,7 @@ class Sanger128
     @base_prefix = base_prefix.ljust(MAX_PREFIX_LENGTH, separator).freeze
     @separator = separator
   end
+  # rubocop:enable Metrics/ParameterLists
 
   # Take one or more arguments, returns a valid barcode string, or raises InvalidBarcode if the parameters are unsuitable
   def generate(*components)
@@ -71,6 +77,6 @@ class Sanger128
   def raise_on_invalid_content!(test, min, max, regex)
     raise InvalidBarcode, "'#{test}' is shorter than #{min} characters" if test.length < min
     raise InvalidBarcode, "'#{test}' is longer than #{max} characters" if test.length > max
-    raise InvalidBarcode, "'#{test}' contains invalid characters" unless regex === test
+    raise InvalidBarcode, "'#{test}' contains invalid characters" unless regex.match? test
   end
 end

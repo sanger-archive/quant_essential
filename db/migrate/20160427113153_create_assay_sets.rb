@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Add assay sets table
 class CreateAssaySets < ActiveRecord::Migration
   def change
     create_table :assay_sets do |t|

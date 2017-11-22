@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+#
+# Class AssaySet provides a means of creating #assay_count Assays
+# @attr [Int] assay_countThe number of assays to be created. This is not persisted
 class AssaySet < ActiveRecord::Base
   include ActiveUUID::UUID
   include HasUuid
@@ -5,7 +10,9 @@ class AssaySet < ActiveRecord::Base
 
   attr_accessor :assay_count
 
-  def to_param; friendly_uuid; end
+  def to_param
+    friendly_uuid
+  end
 
   has_many :assays, inverse_of: :assay_set
 

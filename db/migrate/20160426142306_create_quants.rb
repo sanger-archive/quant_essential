@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Add quants table
 class CreateQuants < ActiveRecord::Migration
   def change
     create_table :quants do |t|

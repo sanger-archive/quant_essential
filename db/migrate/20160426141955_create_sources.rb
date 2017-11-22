@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Add sources table
 class CreateSources < ActiveRecord::Migration
   def change
     create_table :sources do |t|

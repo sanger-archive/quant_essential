@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class InputTest < ActiveSupport::TestCase
@@ -23,7 +25,7 @@ class InputTest < ActiveSupport::TestCase
 
   test 'Looks up non-existing barcodes in the specified service and creates a plate' do
     mock = MockSearch.new
-    mock.with('12345', { uuid: '00000000-0000-0000-0000-000000000005', name: 'Cherrypicked 397032', external_type: 'Cherrypicked' })
+    mock.with('12345', uuid: '00000000-0000-0000-0000-000000000005', name: 'Cherrypicked 397032', external_type: 'Cherrypicked')
 
     found_input = Input.find_with_barcode('12345', mock)
 

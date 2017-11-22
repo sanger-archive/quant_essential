@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+#
+# Class Printer provides tracking of registered printers and their associated label type.
+#
 class Printer < ActiveRecord::Base
   include NamedBehaviour
 

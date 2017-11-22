@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   sequence :label_template_name do |i|
     "template_#{i}"

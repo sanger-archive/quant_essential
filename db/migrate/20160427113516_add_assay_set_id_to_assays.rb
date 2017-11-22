@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Assays belong to assay sets. It is a foreign key.
 class AddAssaySetIdToAssays < ActiveRecord::Migration
   def change
     change_table :assays do |t|

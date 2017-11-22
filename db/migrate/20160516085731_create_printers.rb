@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Create the printers table so we can track the label type
 class CreatePrinters < ActiveRecord::Migration
   def change
     create_table :printers do |t|

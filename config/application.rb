@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -7,6 +9,8 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module QuantEssential
+  # Rails application class
+  # QuantEssential is a simple tool for tracking QC processes for Sequencescape labware
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

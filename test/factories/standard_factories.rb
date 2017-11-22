@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   sequence :standard_type_name do |i|
     "standard_type_#{i}"

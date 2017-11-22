@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Drop the sources table. Inputs is essentially the same thing.
 class RemoveSources < ActiveRecord::Migration
   def change
     remove_foreign_key :inputs, column: :source_id

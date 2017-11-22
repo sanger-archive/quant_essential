@@ -1,9 +1,17 @@
+# frozen_string_literal: true
+
+#
+# Class Standard describes a piece of labware with know values used in a QC process
+# to calibrate readings.
+#
 class Standard < ActiveRecord::Base
   include Barcodable
   include BarcodeAutogen
   include OrderScopes
 
-  def to_param; barcode; end
+  def to_param
+    barcode
+  end
 
   self.barcode_prefix = 'S'
 
@@ -16,11 +24,31 @@ class Standard < ActiveRecord::Base
   # of RESTful bulk creation.
   belongs_to :standard_set, inverse_of: :standards
 
-  def has_quant?
+  delegate :lifespan, to: :standard_type
+
+  def quant?
     quants.present?
   end
 
-    def label_description
-      standard_type.name
-    end
+  def label_description
+    standard_type.name
+  end
+
+  def expired?
+    expired_at?(DateTime.current)
+  end
+
+  def expired_at?(time)
+    lifespan.present? && time >= expires_at
+  end
+
+  def age_at(time)
+    (time.to_date - created_at.to_date).to_i + 1
+  end
+
+  private
+
+  def expires_at
+    created_at.beginning_of_day + lifespan.days
+  end
 end

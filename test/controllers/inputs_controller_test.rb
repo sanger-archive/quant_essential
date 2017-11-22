@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class InputsControllerTest < ActionController::TestCase
@@ -19,7 +21,7 @@ class InputsControllerTest < ActionController::TestCase
   test 'should return assay uuid for /input' do
     quant = create :quant
     @request.accept = 'text/plain'
-    get :show, { quant_assay_barcode: quant.assay_barcode }
+    get :show, quant_assay_barcode: quant.assay_barcode
     assert_equal quant.input.uuid, response.body
   end
 end

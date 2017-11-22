@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Standard sets belong to a standard type. It is a foreign key.
 class AddStandardTypeIdColumnToStandardSets < ActiveRecord::Migration
   def change
     change_table :standard_sets do |t|

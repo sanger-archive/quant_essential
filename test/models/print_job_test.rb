@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PrintJobTest < ActiveSupport::TestCase
@@ -21,16 +23,7 @@ class PrintJobTest < ActiveSupport::TestCase
     assert_includes pj.errors.full_messages, 'Printer has not been registered'
   end
 
-  test 'handle broken invalid reponses from PMB' do
-    PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) do |_env|
-      [422, { content_type: 'application/json' }, invalid_invalid_job_response]
-    end
-    pj = PrintJob.new(printables: [{ label: { test_atrr: 'test', barcode: '12345' } }], printer: @printer.name)
-    assert_equal false, pj.print, 'Invalid job saved with true'
-    assert_includes pj.errors.full_messages, 'Print server printer - Printer does not exist'
-  end
-
-  test 'handle fixed invalid reponses from PMB' do
+  test 'handle invalid reponses from PMB' do
     PMB::TestSuiteStubs.post('/v1/print_jobs', print_post(@printer.name, @printer.label_template.external_id)) do |_env|
       [422, { content_type: 'application/json' }, valid_invalid_job_response]
     end
