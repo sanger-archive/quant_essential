@@ -135,6 +135,7 @@ GEM
     public_suffix (2.0.5)
     puma (3.8.2)
     rack (1.6.8)
+    rack-cors (1.0.2)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.10)
@@ -234,6 +235,7 @@ DEPENDENCIES
   pmb-client (= 0.1.0)!
   pry
   puma
+  rack-cors
   rails (= 4.2.10)
   rubocop
   sanger_barcode_format!
@@ -248,4 +250,4 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
-   1.15.4
+   1.16.1
