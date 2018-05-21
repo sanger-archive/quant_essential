@@ -43,6 +43,8 @@ gem 'sanger_barcode_format', github: 'sanger/sanger_barcode_format', branch: 'de
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rack-cors', require: 'rack/cors'
+
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a repl console
   gem 'pry'
